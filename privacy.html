@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isops.ai | Privacy</title>
+    <meta name="theme-color" content="#3653f8" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="description"
+      content="Privacy overview for isops.ai, including data handling principles, customer data boundaries, and contact paths for security and privacy review."
+    />
+    <meta property="og:title" content="isops.ai | Privacy" />
+    <meta
+      property="og:description"
+      content="Review how isops.ai approaches customer data, evidence artifacts, AI provider configuration, and privacy review."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://isops.ai/privacy.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="isops.ai | Privacy" />
+    <meta
+      name="twitter:description"
+      content="Privacy information for isops.ai buyers, security teams, and compliance stakeholders."
+    />
+    <link rel="canonical" href="https://isops.ai/privacy.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235665ff'/%3E%3Cstop offset='100%25' stop-color='%231f3df3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 14l14 5v10c0 10.6-6.4 18.5-14 21-7.6-2.5-14-10.4-14-21V19l14-5z' fill='none' stroke='white' stroke-width='3.2' stroke-linejoin='round'/%3E%3Cpath d='M25 31.5l5 5 9-10' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --bg: #f4f7fc;
+        --surface: rgba(255, 255, 255, 0.82);
+        --ink: #0f172a;
+        --ink-soft: #475569;
+        --ink-muted: #64748b;
+        --brand: #3653f8;
+        --brand-deep: #1d39d8;
+        --brand-soft: #e6ebff;
+        --teal: #10b981;
+        --shadow: 0 20px 50px rgba(21, 36, 76, 0.08);
+        --max: 1180px;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 30%),
+          linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
+      }
+
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(20px);
+        background: rgba(244, 247, 252, 0.86);
+        border-bottom: 1px solid rgba(111, 133, 191, 0.12);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0;
+      }
+
+      .brand { display: inline-flex; align-items: center; gap: 12px; }
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(145deg, #5f6cff 0%, #2641ee 100%);
+        box-shadow: 0 10px 20px rgba(54, 83, 248, 0.18);
+      }
+
+      .brand-copy strong,
+      h1,
+      h2,
+      h3 {
+        font-family: "Inter", system-ui, sans-serif;
+        letter-spacing: -0.045em;
+      }
+
+      .brand-copy strong { font-size: 0.98rem; font-weight: 700; }
+      .nav-links { display: flex; align-items: center; gap: 4px; }
+      .nav-links a,
+      .ghost,
+      .primary {
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .nav-links a {
+        padding: 9px 11px;
+        color: var(--ink-soft);
+        font-size: 0.9rem;
+      }
+
+      .nav-links a:hover { background: rgba(230, 235, 255, 0.78); color: var(--ink); }
+      .actions { display: flex; gap: 10px; }
+      .ghost,
+      .primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 11px 16px;
+      }
+
+      .ghost {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.12);
+      }
+
+      .primary {
+        color: white;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+        box-shadow: 0 18px 40px rgba(54, 83, 248, 0.24);
+      }
+
+      .hero { padding: 84px 0 34px; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--ink-soft);
+        box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.12);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin: 18px 0 0;
+        font-size: clamp(3.1rem, 6vw, 5rem);
+        line-height: 0.94;
+      }
+
+      .hero p {
+        max-width: 64ch;
+        margin: 22px 0 0;
+        color: var(--ink-soft);
+        line-height: 1.8;
+        font-size: 1.04rem;
+      }
+
+      .grid-3,
+      .grid-2 {
+        display: grid;
+        gap: 18px;
+      }
+
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid rgba(111, 133, 191, 0.16);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 24px;
+      }
+
+      .card h3 { font-size: 1.18rem; }
+      .card p, .card li {
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+
+      .section { padding: 26px 0 34px; }
+      .section h2 {
+        font-size: clamp(1.9rem, 3.4vw, 3rem);
+        margin-bottom: 18px;
+      }
+
+      .checklist {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .checklist li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .checklist li::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        flex: 0 0 auto;
+        margin-top: 0.42rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
+      }
+
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 16px 18px;
+        text-align: left;
+        border-bottom: 1px solid rgba(111, 133, 191, 0.14);
+        vertical-align: top;
+      }
+
+      .data-table th {
+        background: rgba(230, 235, 255, 0.58);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        padding: 30px 0 52px;
+        color: var(--ink-muted);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      @media (max-width: 980px) {
+        .grid-3,
+        .grid-2,
+        .nav {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          display: grid;
+          justify-content: stretch;
+        }
+
+        .nav-links,
+        .actions {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Back to isops.ai home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2.75l6.5 2.3v4.52c0 5.13-3.08 9.01-6.5 10.18-3.42-1.17-6.5-5.05-6.5-10.18V5.05L12 2.75z" stroke="white" stroke-width="1.8" stroke-linejoin="round" />
+              <path d="M8.85 11.9l2.15 2.18 4.16-4.55" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="brand-copy"><strong>isops.ai</strong></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html">Product</a>
+          <a href="security.html">Security</a>
+          <a href="subprocessors.html">Subprocessors</a>
+        </nav>
+
+        <div class="actions">
+          <a class="ghost" href="mailto:hello@isops.ai?subject=isops.ai%20privacy%20review">Privacy review</a>
+          <a class="primary" href="index.html#contact">Book demo</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="eyebrow">Privacy overview</div>
+          <h1>Privacy answers for buyer review, without the usual back-and-forth.</h1>
+          <p>
+            isops.ai is built for compliance operators, which means privacy and evidence boundaries need to stay clear.
+            This page explains what kind of information the platform is designed to handle, how customer review should
+            start, and where to route deeper diligence.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-3">
+            <article class="card">
+              <h3>Operator-focused data model</h3>
+              <p>
+                The platform is centered on findings, controls, remediation, evidence, topology, and audit workflows.
+                It is not positioned as a consumer data platform or ad-tech data processor.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Explicit AI boundaries</h3>
+              <p>
+                AI generation depends on explicit provider configuration. If no provider is configured, the product
+                does not pretend to generate live output.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Trust review friendly</h3>
+              <p>
+                Buyer and auditor review can begin from exported evidence and reports, then move into the live product
+                behavior that generated them.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Data categories typically involved</h2>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Examples</th>
+                <th>Why it appears in isops.ai</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Infrastructure and posture data</strong></td>
+                <td>AWS findings, resource identifiers, regions, topology relationships</td>
+                <td>To drive posture, remediation, evidence, and reporting workflows</td>
+              </tr>
+              <tr>
+                <td><strong>Compliance workflow data</strong></td>
+                <td>Policies, controls, CAPA items, risks, evidence records, audit notes</td>
+                <td>To support compliance operations and audit readiness</td>
+              </tr>
+              <tr>
+                <td><strong>Operator-entered metadata</strong></td>
+                <td>Assignees, status changes, reviewer notes, narrative context</td>
+                <td>To preserve operational history and audit trail</td>
+              </tr>
+              <tr>
+                <td><strong>AI configuration and prompts</strong></td>
+                <td>Configured provider choice, user-submitted remediation prompts</td>
+                <td>To support explicit, operator-controlled copilot generation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-2">
+            <article class="card">
+              <h2>Privacy review checklist</h2>
+              <ul class="checklist">
+                <li>Validate which environments and frameworks are in scope for the evaluation.</li>
+                <li>Review whether exported evidence or reports will include any customer-specific identifiers.</li>
+                <li>Confirm whether AI provider configuration will be enabled for the walkthrough or remain disabled.</li>
+                <li>Route subprocessors and security follow-up through the linked trust pages.</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h2>Next step for your team</h2>
+              <p>
+                If your privacy or procurement process needs a quick answer path before a live walkthrough, email the
+                isops.ai team and include the name of your framework, data sensitivity concerns, and desired review
+                timeline.
+              </p>
+              <p><strong>Email:</strong> <a href="mailto:hello@isops.ai?subject=isops.ai%20privacy%20review">hello@isops.ai</a></p>
+              <p><strong>Related pages:</strong> <a href="security.html">Security</a> · <a href="subprocessors.html">Subprocessors</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-row">
+        <div>isops.ai</div>
+        <div class="footer-nav">
+          <a href="index.html">Product</a>
+          <a href="security.html">Security</a>
+          <a href="subprocessors.html">Subprocessors</a>
+          <a href="mailto:hello@isops.ai?subject=isops.ai%20privacy%20review">Privacy review</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
