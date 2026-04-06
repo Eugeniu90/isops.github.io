@@ -71,8 +71,8 @@
         --teal: #10b981;
         --amber: #f59e0b;
         --rose: #ef4444;
-        --shadow-xl: 0 30px 80px rgba(21, 36, 76, 0.12);
-        --shadow-lg: 0 20px 50px rgba(21, 36, 76, 0.08);
+        --shadow-xl: 0 26px 70px rgba(21, 36, 76, 0.11);
+        --shadow-lg: 0 16px 36px rgba(21, 36, 76, 0.08);
         --radius-xl: 30px;
         --radius-lg: 22px;
         --radius-md: 16px;
@@ -148,47 +148,44 @@
       .brand {
         display: inline-flex;
         align-items: center;
-        gap: 14px;
+        gap: 12px;
       }
 
       .brand-mark {
-        width: 48px;
-        height: 48px;
+        width: 42px;
+        height: 42px;
         display: grid;
         place-items: center;
-        border-radius: 16px;
+        border-radius: 14px;
         background: linear-gradient(145deg, #5f6cff 0%, #2641ee 100%);
-        box-shadow: 0 18px 30px rgba(54, 83, 248, 0.24);
+        box-shadow: 0 10px 20px rgba(54, 83, 248, 0.18);
       }
 
       .brand-copy {
-        display: grid;
-        gap: 3px;
+        display: flex;
+        align-items: center;
       }
 
       .brand-copy strong {
         font-family: "Sora", sans-serif;
-        font-size: 1.05rem;
+        font-size: 0.98rem;
+        font-weight: 700;
         letter-spacing: -0.04em;
-      }
-
-      .brand-copy span {
-        color: var(--ink-muted);
-        font-size: 0.92rem;
       }
 
       .nav-links {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 4px;
       }
 
       .nav-links a {
-        padding: 10px 14px;
+        padding: 9px 11px;
         border-radius: 999px;
         color: var(--ink-soft);
-        font-weight: 500;
-        font-size: 0.96rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: -0.01em;
       }
 
       .nav-links a:hover,
@@ -200,7 +197,7 @@
       .nav-actions {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
       }
 
       .ghost-button,
@@ -219,14 +216,14 @@
       }
 
       .ghost-button {
-        padding: 12px 18px;
+        padding: 11px 16px;
         color: var(--ink);
         background: rgba(255, 255, 255, 0.7);
         box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.12);
       }
 
       .primary-button {
-        padding: 14px 22px;
+        padding: 12px 18px;
         color: white;
         background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
         box-shadow: 0 18px 40px rgba(54, 83, 248, 0.24);
@@ -250,10 +247,37 @@
       }
 
       .hero {
-        padding: 92px 0 44px;
+        padding: 84px 0 44px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.62), transparent 20%),
+          radial-gradient(circle at 82% 14%, rgba(54, 83, 248, 0.12), transparent 24%),
+          radial-gradient(circle at 68% 62%, rgba(16, 185, 129, 0.08), transparent 22%);
+        pointer-events: none;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(105, 122, 166, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(105, 122, 166, 0.06) 1px, transparent 1px);
+        background-size: 80px 80px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 78%);
+        pointer-events: none;
       }
 
       .hero-grid {
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
         gap: 48px;
@@ -285,17 +309,18 @@
       }
 
       h1 {
-        max-width: 13ch;
-        font-size: clamp(3.2rem, 6vw, 5.5rem);
-        line-height: 0.96;
+        max-width: 11ch;
+        font-size: clamp(3.3rem, 6vw, 5.7rem);
+        line-height: 0.93;
+        letter-spacing: -0.065em;
       }
 
       .hero p {
         max-width: 60ch;
         margin: 24px 0 0;
         color: var(--ink-soft);
-        font-size: 1.12rem;
-        line-height: 1.75;
+        font-size: 1.08rem;
+        line-height: 1.78;
       }
 
       .hero-actions {
@@ -328,7 +353,8 @@
 
       .metric-card {
         padding: 18px 20px;
-        border-radius: 22px;
+        border-radius: 18px;
+        border-color: rgba(111, 133, 191, 0.14);
       }
 
       .metric-card strong {
@@ -347,10 +373,10 @@
         position: relative;
         overflow: hidden;
         padding: 18px;
-        border-radius: 34px;
+        border-radius: 26px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(235, 241, 255, 0.74) 100%);
         border: 1px solid rgba(111, 133, 191, 0.18);
-        box-shadow: 0 30px 90px rgba(21, 36, 76, 0.16);
+        box-shadow: 0 24px 70px rgba(21, 36, 76, 0.13);
       }
 
       .product-stage::before {
@@ -379,7 +405,7 @@
       }
 
       .window {
-        border-radius: 28px;
+        border-radius: 22px;
         background: rgba(11, 18, 40, 0.94);
         color: #f8fbff;
         box-shadow: inset 0 0 0 1px rgba(150, 174, 255, 0.12);
@@ -405,29 +431,37 @@
 
       .topology-lanes {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
       }
 
       .lane {
-        min-height: 220px;
-        padding: 12px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(150, 174, 255, 0.1);
+        min-height: 184px;
+        padding: 16px 14px;
+        border-radius: 16px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        border: 1px solid rgba(150, 174, 255, 0.12);
       }
 
       .lane-title {
-        font-size: 0.72rem;
+        font-size: 0.68rem;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.14em;
         color: rgba(219, 229, 255, 0.72);
       }
 
+      .lane-heading {
+        margin-top: 12px;
+        font-family: "Sora", sans-serif;
+        font-size: 0.96rem;
+        line-height: 1.25;
+        color: #f8fbff;
+      }
+
       .node {
-        width: 66px;
-        height: 66px;
-        margin: 16px auto 0;
+        width: 60px;
+        height: 60px;
+        margin: 16px 0 0;
         display: grid;
         place-items: center;
         border-radius: 50%;
@@ -458,11 +492,12 @@
         padding: 0;
         list-style: none;
         display: grid;
-        gap: 10px;
+        gap: 8px;
       }
 
       .lane li {
-        font-size: 0.78rem;
+        font-size: 0.82rem;
+        line-height: 1.45;
         color: rgba(225, 233, 255, 0.82);
       }
 
@@ -476,8 +511,8 @@
       .finding-pill,
       .thread-card,
       .report-block {
-        padding: 14px 15px;
-        border-radius: 18px;
+        padding: 16px 17px;
+        border-radius: 14px;
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(150, 174, 255, 0.1);
       }
@@ -487,15 +522,16 @@
       .report-block strong {
         display: block;
         margin-bottom: 6px;
-        font-size: 0.92rem;
+        font-size: 0.98rem;
+        line-height: 1.32;
       }
 
       .finding-pill p,
       .thread-card p,
       .report-block p {
         margin: 0;
-        font-size: 0.8rem;
-        line-height: 1.55;
+        font-size: 0.83rem;
+        line-height: 1.62;
         color: rgba(225, 233, 255, 0.82);
       }
 
@@ -582,7 +618,7 @@
 
       .feature-card {
         padding: 24px;
-        border-radius: 24px;
+        border-radius: 18px;
       }
 
       .feature-icon,
@@ -637,7 +673,7 @@
 
       .workflow-card {
         padding: 24px;
-        border-radius: 24px;
+        border-radius: 18px;
       }
 
       .workflow-list {
@@ -677,7 +713,7 @@
 
       .glass-card {
         padding: 26px;
-        border-radius: 28px;
+        border-radius: 20px;
       }
 
       .thread-card.user {
@@ -746,15 +782,15 @@
 
       .plan-card {
         padding: 28px;
-        border-radius: 28px;
+        border-radius: 20px;
         background: var(--surface);
-        border: 1px solid rgba(111, 133, 191, 0.16);
+        border: 1px solid rgba(111, 133, 191, 0.14);
         box-shadow: var(--shadow-lg);
         backdrop-filter: blur(22px);
       }
 
       .plan-card.featured {
-        background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(17, 26, 57, 0.94) 100%);
+        background: linear-gradient(180deg, rgba(12, 19, 42, 0.98) 0%, rgba(15, 24, 52, 0.96) 100%);
         color: white;
         border-color: rgba(120, 142, 230, 0.2);
       }
@@ -770,18 +806,40 @@
         color: #dfe7ff;
       }
 
+      .plan-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        color: var(--ink-muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
       .plan-head {
         display: flex;
         align-items: start;
         justify-content: space-between;
         gap: 16px;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
+      }
+
+      .plan-title-group {
+        display: grid;
+        gap: 10px;
+      }
+
+      .plan-title-group h3 {
+        max-width: 16ch;
+        line-height: 1.18;
       }
 
       .plan-price {
-        margin-top: 14px;
+        margin-top: 12px;
         font-family: "Sora", sans-serif;
-        font-size: 2rem;
+        font-size: 1.65rem;
         line-height: 1;
         letter-spacing: -0.05em;
       }
@@ -789,7 +847,14 @@
       .plan-meta {
         margin-top: 10px;
         color: var(--ink-soft);
-        line-height: 1.65;
+        line-height: 1.72;
+        font-size: 0.97rem;
+      }
+
+      .plan-divider {
+        height: 1px;
+        margin: 18px 0 16px;
+        background: linear-gradient(90deg, rgba(111, 133, 191, 0.16) 0%, rgba(111, 133, 191, 0.04) 100%);
       }
 
       .plan-list {
@@ -821,8 +886,8 @@
       .signal-strip {
         margin-top: 20px;
         padding: 16px 18px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.62);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.58);
         border: 1px solid rgba(111, 133, 191, 0.14);
       }
 
@@ -839,7 +904,7 @@
 
       .report-card {
         padding: 26px;
-        border-radius: 26px;
+        border-radius: 18px;
       }
 
       .report-head {
@@ -891,7 +956,7 @@
 
       .comparison-card {
         padding: 26px;
-        border-radius: 28px;
+        border-radius: 20px;
       }
 
       .comparison-table {
@@ -955,7 +1020,7 @@
       }
 
       .faq-item {
-        border-radius: 24px;
+        border-radius: 18px;
         padding: 0 24px;
       }
 
@@ -979,7 +1044,7 @@
 
       .contact-card {
         padding: 34px;
-        border-radius: 32px;
+        border-radius: 22px;
       }
 
       .trust-note {
@@ -1007,7 +1072,7 @@
 
       .contact-point {
         padding: 18px;
-        border-radius: 20px;
+        border-radius: 16px;
         background: rgba(255, 255, 255, 0.72);
         border: 1px solid rgba(111, 133, 191, 0.14);
       }
@@ -1183,24 +1248,21 @@
             </span>
             <span class="brand-copy">
               <strong>isops.ai</strong>
-              <span>Trust and compliance operations for AWS</span>
             </span>
           </a>
 
           <nav class="nav-links" id="nav-links">
             <a href="#platform">Platform</a>
-            <a href="#workflow">Workflow</a>
-            <a href="#ai">AI Copilot</a>
+            <a href="#ai">Copilot</a>
             <a href="#reports">Reports</a>
-            <a href="#engagement">Engagement</a>
+            <a href="#engagement">Plans</a>
             <a href="security.html">Trust</a>
-            <a href="#compare">Why isops.ai</a>
             <a href="#faq">FAQ</a>
           </nav>
 
           <div class="nav-actions">
-            <a class="ghost-button" href="security.html">Trust center</a>
-            <a class="primary-button" href="#contact">Request walkthrough</a>
+            <a class="ghost-button" href="security.html">Security</a>
+            <a class="primary-button" href="#contact">Book demo</a>
             <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                 <path d="M4 7h16M4 12h16M4 17h16" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
@@ -1219,9 +1281,9 @@
               </div>
               <h1>Move from AWS findings to audit-ready evidence.</h1>
               <p>
-                isops.ai connects posture, remediation, evidence, topology, and reporting into one truthful
-                control plane. No spreadsheet relay race. No fake green dashboards. No audit packs stitched
-                together the night before review.
+                isops.ai brings AWS posture, remediation, evidence, topology, and audit reporting into one operating
+                surface built for real customer review. No spreadsheet relay race. No cosmetic compliance scores. No
+                last-minute audit pack assembly.
               </p>
 
               <div class="hero-actions">
@@ -1260,42 +1322,46 @@
                       <div class="topology-lanes">
                         <div class="lane">
                           <div class="lane-title">Edge</div>
+                          <div class="lane-heading">Ingress and public paths</div>
                           <div class="node clean">
                             <svg viewBox="0 0 24 24" fill="none">
                               <path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                           </div>
                           <ul>
-                            <li>Load balancers</li>
-                            <li>Route53</li>
+                            <li>Load balancers and edge routing</li>
+                            <li>DNS and public entry points</li>
                           </ul>
                         </div>
                         <div class="lane">
                           <div class="lane-title">Network</div>
+                          <div class="lane-heading">Boundaries and trust zones</div>
                           <div class="node warn">
                             <svg viewBox="0 0 24 24" fill="none">
                               <path d="M12 4v16M5 9h14M5 15h14" stroke-width="1.8" stroke-linecap="round" />
                             </svg>
                           </div>
                           <ul>
-                            <li>VPCs and subnets</li>
-                            <li>Security groups</li>
+                            <li>VPC, subnet, and routing layers</li>
+                            <li>Security groups and control boundaries</li>
                           </ul>
                         </div>
                         <div class="lane">
                           <div class="lane-title">Workloads</div>
+                          <div class="lane-heading">Services and identity paths</div>
                           <div class="node risk">
                             <svg viewBox="0 0 24 24" fill="none">
                               <path d="M4 7.5h16M7 4v4M17 4v4M5 12h14M5 16h8" stroke-width="1.8" stroke-linecap="round" />
                             </svg>
                           </div>
                           <ul>
-                            <li>ECS and Lambda</li>
-                            <li>Identity paths</li>
+                            <li>Compute, orchestration, and serverless</li>
+                            <li>Identity relationships and execution roles</li>
                           </ul>
                         </div>
                         <div class="lane">
                           <div class="lane-title">Data</div>
+                          <div class="lane-heading">Persistence and evidence stores</div>
                           <div class="node clean">
                             <svg viewBox="0 0 24 24" fill="none">
                               <ellipse cx="12" cy="6.5" rx="6.5" ry="2.8" stroke-width="1.8" />
@@ -1304,8 +1370,8 @@
                             </svg>
                           </div>
                           <ul>
-                            <li>RDS and S3</li>
-                            <li>Evidence stores</li>
+                            <li>Primary data services and backups</li>
+                            <li>Evidence artifacts and retention paths</li>
                           </ul>
                         </div>
                       </div>
@@ -1321,16 +1387,16 @@
                     </div>
                     <div class="window-body finding-stack">
                       <div class="finding-pill">
-                        <strong>GuardDuty is not enabled in eu-west-1</strong>
-                        <p>Critical finding with mapped ISO controls, remediation plan, and evidence path.</p>
+                        <strong>GuardDuty detector missing in eu-west-1</strong>
+                        <p>Critical control gap already mapped to remediation, validation, and evidence steps.</p>
                       </div>
                       <div class="finding-pill">
-                        <strong>CloudTrail trails missing in one region</strong>
-                        <p>High-impact logging gap with blast radius and audit significance already surfaced.</p>
+                        <strong>CloudTrail coverage missing in one region</strong>
+                        <p>Logging weakness surfaced with audit significance, ownership context, and blast-radius signal.</p>
                       </div>
                       <div class="finding-pill">
-                        <strong>AI-generated treatment and evidence plan</strong>
-                        <p>Generate CLI, Terraform, CloudFormation, rollback steps, and validation checks.</p>
+                        <strong>Copilot-generated treatment plan</strong>
+                        <p>Generate CLI, Terraform, CloudFormation, rollback, and evidence packaging from the same issue context.</p>
                       </div>
                     </div>
                   </div>
@@ -1721,16 +1787,18 @@
 
             <div class="engagement-grid">
               <article class="plan-card reveal">
+                <div class="plan-kicker">Pilot engagement</div>
                 <div class="plan-head">
-                  <div>
+                  <div class="plan-title-group">
                     <span class="report-tag">Pilot</span>
                     <h3>One account, one backlog, one truth model</h3>
-                    <div class="plan-price">30 days</div>
                   </div>
+                  <div class="plan-price">30-day evaluation</div>
                 </div>
                 <p class="plan-meta">
                   For teams replacing ad hoc scan review and spreadsheet-driven remediation with a single customer-ready workflow.
                 </p>
+                <div class="plan-divider"></div>
                 <ul class="plan-list">
                   <li>Import posture and findings from a live AWS environment.</li>
                   <li>Run remediation, evidence attachment, and export flows on real control gaps.</li>
@@ -1743,17 +1811,19 @@
               </article>
 
               <article class="plan-card featured reveal">
+                <div class="plan-kicker">Core deployment</div>
                 <div class="plan-head">
-                  <div>
+                  <div class="plan-title-group">
                     <span class="report-tag">Core platform</span>
                     <h3>Run compliance operations in one system</h3>
-                    <div class="plan-price">Primary workspace</div>
                   </div>
+                  <div class="plan-price">Primary operating layer</div>
                 </div>
                 <p class="plan-meta">
                   For teams that want isops.ai to become the system of record for posture, remediation, risks, CAPA,
                   evidence, and exported audit artifacts.
                 </p>
+                <div class="plan-divider"></div>
                 <ul class="plan-list">
                   <li>Unify findings, remediation, control mapping, risk treatment, and evidence workflows.</li>
                   <li>Bring `isops.ai Copilot` into operator workflows where remediation is actually planned.</li>
@@ -1766,17 +1836,19 @@
               </article>
 
               <article class="plan-card reveal">
+                <div class="plan-kicker">Enterprise rollout</div>
                 <div class="plan-head">
-                  <div>
+                  <div class="plan-title-group">
                     <span class="report-tag">Enterprise</span>
                     <h3>Customer trust, audit response, and multi-team adoption</h3>
-                    <div class="plan-price">Custom rollout</div>
                   </div>
+                  <div class="plan-price">Custom rollout</div>
                 </div>
                 <p class="plan-meta">
                   For organizations that need stronger buyer-facing trust workflows, audit support, and program
                   consistency across security, compliance, and engineering stakeholders.
                 </p>
+                <div class="plan-divider"></div>
                 <ul class="plan-list">
                   <li>Multi-team workflows with consistent evidence, reporting, and remediation expectations.</li>
                   <li>Trust-center and customer review support anchored to real operating data.</li>
@@ -1987,9 +2059,9 @@
             <a href="#platform">Platform</a>
             <a href="#ai">AI Copilot</a>
             <a href="#reports">Reports</a>
-            <a href="#engagement">Engagement</a>
+            <a href="#engagement">Plans</a>
             <a href="security.html">Trust center</a>
-            <a href="#compare">Why isops.ai</a>
+            <a href="#compare">Why teams choose us</a>
           </div>
         </div>
       </footer>
