@@ -25,6 +25,9 @@
       name="twitter:description"
       content="AI-native trust and compliance operations for AWS environments."
     />
+    <!-- TODO: Replace with actual hosted image URL (1200x630 recommended) -->
+    <meta property="og:image" content="https://isops.ai/og-image.png" />
+    <meta name="twitter:image" content="https://isops.ai/og-image.png" />
     <link rel="canonical" href="https://isops.ai/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,9 +50,10 @@
         "url": "https://isops.ai/",
         "offers": {
           "@type": "Offer",
-          "price": "0",
           "priceCurrency": "USD",
-          "description": "Custom enterprise pricing"
+          "description": "Contact for enterprise pricing",
+          "availability": "https://schema.org/OnlineOnly",
+          "url": "https://isops.ai/#contact"
         }
       }
     </script>
@@ -388,6 +392,475 @@
           radial-gradient(circle at 88% 18%, rgba(16, 185, 129, 0.14), transparent 26%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(244, 247, 252, 0.25) 100%);
         pointer-events: none;
+      }
+
+      .hero-product {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        gap: 16px;
+      }
+
+      .hero-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        justify-self: start;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.74);
+        color: var(--ink-soft);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: inset 0 0 0 1px rgba(111, 133, 191, 0.14);
+      }
+
+      .product-shell {
+        display: grid;
+        grid-template-columns: 94px minmax(0, 1fr);
+        min-height: 560px;
+        border-radius: 24px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(111, 133, 191, 0.18);
+        box-shadow: 0 28px 72px rgba(21, 36, 76, 0.14);
+      }
+
+      .product-sidebar {
+        padding: 20px 16px;
+        display: grid;
+        align-content: start;
+        gap: 18px;
+        background: linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
+        border-right: 1px solid rgba(111, 133, 191, 0.14);
+      }
+
+      .shell-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        background: linear-gradient(145deg, #5d6afe 0%, #2b43ef 100%);
+        box-shadow: 0 12px 24px rgba(54, 83, 248, 0.18);
+      }
+
+      .shell-nav {
+        display: grid;
+        gap: 10px;
+      }
+
+      .shell-nav-item {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        color: #6b7892;
+      }
+
+      .shell-nav-item.active {
+        background: rgba(230, 236, 255, 0.96);
+        color: var(--brand);
+        box-shadow: inset 0 0 0 1px rgba(111, 133, 191, 0.14);
+      }
+
+      .shell-nav-item svg {
+        width: 21px;
+        height: 21px;
+        stroke: currentColor;
+      }
+
+      .product-main {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-width: 0;
+        background: linear-gradient(180deg, #fbfcff 0%, #f4f7fc 100%);
+      }
+
+      .product-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 22px;
+        border-bottom: 1px solid rgba(111, 133, 191, 0.12);
+        background: rgba(255, 255, 255, 0.82);
+      }
+
+      .product-topbar strong {
+        font-size: 1.12rem;
+        letter-spacing: -0.03em;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .topbar-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: inset 0 0 0 1px rgba(111, 133, 191, 0.14);
+        color: var(--ink-soft);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .topbar-pill .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #f97316;
+      }
+
+      .topbar-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        box-shadow: 0 16px 30px rgba(54, 83, 248, 0.2);
+      }
+
+      .product-canvas {
+        padding: 20px 22px 22px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .mock-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .mock-card {
+        min-width: 0;
+        padding: 16px 16px 15px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(111, 133, 191, 0.14);
+        box-shadow: 0 12px 24px rgba(21, 36, 76, 0.06);
+      }
+
+      .mock-card .label {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--ink-muted);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .mock-card strong {
+        display: block;
+        font-size: 1.68rem;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .mock-card span {
+        display: block;
+        margin-top: 8px;
+        color: var(--ink-soft);
+        font-size: 0.84rem;
+        line-height: 1.5;
+      }
+
+      .mock-card.emphasis {
+        border-color: rgba(98, 117, 255, 0.22);
+        box-shadow:
+          0 18px 34px rgba(54, 83, 248, 0.08),
+          inset 0 0 0 1px rgba(98, 117, 255, 0.16);
+      }
+
+      .mock-card.positive strong {
+        color: var(--teal);
+      }
+
+      .mock-card.alert strong {
+        color: #ef4444;
+      }
+
+      .mock-grid {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 16px;
+      }
+
+      .mock-panel {
+        min-width: 0;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(111, 133, 191, 0.14);
+        box-shadow: 0 14px 30px rgba(21, 36, 76, 0.07);
+      }
+
+      .mock-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .mock-panel-header strong {
+        font-size: 0.92rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #55627b;
+      }
+
+      .mini-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 11px;
+        border-radius: 999px;
+        background: rgba(230, 236, 255, 0.94);
+        color: var(--brand);
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .radar-shell {
+        display: grid;
+        place-items: center;
+        min-height: 248px;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at center, rgba(84, 103, 255, 0.06) 0 29%, transparent 29%),
+          linear-gradient(180deg, rgba(243, 246, 255, 0.96) 0%, rgba(248, 250, 255, 0.96) 100%);
+        border: 1px solid rgba(111, 133, 191, 0.1);
+      }
+
+      .radar {
+        position: relative;
+        width: 220px;
+        aspect-ratio: 1;
+      }
+
+      .radar svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .radar-copy {
+        position: absolute;
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .radar-copy strong {
+        display: block;
+        font-size: 1.7rem;
+        letter-spacing: -0.05em;
+      }
+
+      .radar-copy span {
+        display: block;
+        margin-top: 6px;
+        color: var(--ink-muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .findings-shell {
+        display: grid;
+        gap: 12px;
+      }
+
+      .finding-row {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 12px;
+        align-items: start;
+        padding: 14px 14px 13px;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+        border: 1px solid rgba(111, 133, 191, 0.12);
+      }
+
+      .finding-row strong {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.92rem;
+        line-height: 1.34;
+      }
+
+      .finding-row p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.8rem;
+        line-height: 1.48;
+      }
+
+      .finding-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 62px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .finding-badge.critical {
+        color: #fff1f2;
+        background: rgba(239, 68, 68, 0.9);
+      }
+
+      .finding-badge.high {
+        color: #fff7ed;
+        background: rgba(249, 115, 22, 0.88);
+      }
+
+      .finding-badge.medium {
+        color: #fffbeb;
+        background: rgba(234, 179, 8, 0.86);
+      }
+
+      .finding-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(239, 244, 255, 0.95);
+        color: #5d6c86;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      .mock-foot {
+        display: grid;
+        grid-template-columns: 1fr 0.95fr;
+        gap: 16px;
+      }
+
+      .infra-shell {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .infra-cluster {
+        min-width: 0;
+        padding: 14px 12px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(16, 23, 48, 0.95) 0%, rgba(12, 19, 42, 0.96) 100%);
+        color: #f8fbff;
+      }
+
+      .infra-cluster .cluster-label {
+        display: block;
+        color: rgba(210, 223, 255, 0.72);
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .infra-cluster .cluster-node {
+        width: 52px;
+        height: 52px;
+        margin: 14px 0 12px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .infra-cluster .cluster-node svg {
+        width: 24px;
+        height: 24px;
+        stroke: white;
+      }
+
+      .infra-cluster .cluster-node.critical {
+        box-shadow: inset 0 0 0 4px rgba(248, 113, 113, 0.9);
+      }
+
+      .infra-cluster .cluster-node.warning {
+        box-shadow: inset 0 0 0 4px rgba(251, 191, 36, 0.92);
+      }
+
+      .infra-cluster .cluster-node.clean {
+        box-shadow: inset 0 0 0 4px rgba(52, 211, 153, 0.92);
+      }
+
+      .infra-cluster p {
+        margin: 0;
+        color: rgba(225, 233, 255, 0.86);
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+
+      .copilot-shell {
+        display: grid;
+        gap: 12px;
+      }
+
+      .copilot-shell .mini-pill {
+        justify-self: start;
+      }
+
+      .copilot-shell strong {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .copilot-shell p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.83rem;
+        line-height: 1.58;
+      }
+
+      .copilot-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .copilot-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: var(--ink-soft);
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+
+      .copilot-list li::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        flex: 0 0 auto;
+        margin-top: 0.38rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
       }
 
       .stage-grid {
@@ -1292,6 +1765,20 @@
         transform: translateY(0);
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+
+        .ghost-button,
+        .primary-button,
+        .secondary-button {
+          transition: none;
+        }
+      }
+
       @media (max-width: 1120px) {
         .hero-grid,
         .showcase-grid,
@@ -1352,10 +1839,18 @@
           grid-template-columns: 1fr;
         }
 
+        .mock-metrics,
+        .mock-grid,
+        .mock-foot,
+        .infra-shell,
         .stage-grid,
         .topology-lanes,
         .finding-grid {
           grid-template-columns: 1fr;
+        }
+
+        .product-shell {
+          grid-template-columns: 78px minmax(0, 1fr);
         }
       }
 
@@ -1384,6 +1879,48 @@
           width: 100%;
         }
 
+        .product-stage {
+          padding: 14px;
+        }
+
+        .product-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .product-sidebar {
+          padding: 14px 16px 10px;
+          grid-auto-flow: column;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .shell-nav {
+          grid-auto-flow: column;
+          gap: 8px;
+        }
+
+        .shell-nav-item {
+          width: 40px;
+          height: 40px;
+          border-radius: 14px;
+        }
+
+        .product-topbar,
+        .product-canvas {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .product-topbar {
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .topbar-actions {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+
         .comparison-table th,
         .comparison-table td {
           padding: 14px;
@@ -1395,6 +1932,7 @@
         }
       }
     </style>
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
@@ -1481,123 +2019,193 @@
             </div>
 
             <div class="product-stage reveal is-visible">
-              <div class="stage-grid">
-                <div class="stage-window">
-                  <div class="window">
-                    <div class="window-header">
-                      <strong>Application flow map</strong>
-                      <div class="severity-row">
-                        <span class="severity-chip critical">2 critical</span>
-                        <span class="severity-chip high">12 high</span>
-                      </div>
+              <div class="hero-product">
+                <div class="hero-note">Sanitized product view</div>
+                <div class="product-shell" aria-label="Sanitized isops.ai interface preview">
+                  <aside class="product-sidebar">
+                    <div class="shell-mark">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 3.5l6 2.1v4.17c0 4.73-2.84 8.3-6 9.38-3.16-1.08-6-4.65-6-9.38V5.6L12 3.5z" stroke="white" stroke-width="1.8" stroke-linejoin="round" />
+                        <path d="M9.1 11.8l2 2.03 3.87-4.23" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
                     </div>
-                    <div class="window-body">
-                      <div class="topology-lanes">
-                        <div class="lane">
-                          <div class="lane-title">Edge</div>
-                          <div class="lane-heading">Ingress and public paths</div>
-                          <div class="node clean">
-                            <svg viewBox="0 0 24 24" fill="none">
-                              <path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                          </div>
-                          <ul>
-                            <li>Load balancers and edge routing</li>
-                            <li>DNS and public entry points</li>
-                          </ul>
-                        </div>
-                        <div class="lane">
-                          <div class="lane-title">Network</div>
-                          <div class="lane-heading">Boundaries and trust zones</div>
-                          <div class="node warn">
-                            <svg viewBox="0 0 24 24" fill="none">
-                              <path d="M12 4v16M5 9h14M5 15h14" stroke-width="1.8" stroke-linecap="round" />
-                            </svg>
-                          </div>
-                          <ul>
-                            <li>VPC, subnet, and routing layers</li>
-                            <li>Security groups and control boundaries</li>
-                          </ul>
-                        </div>
-                        <div class="lane">
-                          <div class="lane-title">Workloads</div>
-                          <div class="lane-heading">Services and identity paths</div>
-                          <div class="node risk">
-                            <svg viewBox="0 0 24 24" fill="none">
-                              <path d="M4 7.5h16M7 4v4M17 4v4M5 12h14M5 16h8" stroke-width="1.8" stroke-linecap="round" />
-                            </svg>
-                          </div>
-                          <ul>
-                            <li>Compute, orchestration, and serverless</li>
-                            <li>Identity relationships and execution roles</li>
-                          </ul>
-                        </div>
-                        <div class="lane">
-                          <div class="lane-title">Data</div>
-                          <div class="lane-heading">Persistence and evidence stores</div>
-                          <div class="node clean">
-                            <svg viewBox="0 0 24 24" fill="none">
-                              <ellipse cx="12" cy="6.5" rx="6.5" ry="2.8" stroke-width="1.8" />
-                              <path d="M5.5 6.5v7c0 1.55 2.9 2.8 6.5 2.8s6.5-1.25 6.5-2.8v-7" stroke-width="1.8" />
-                              <path d="M5.5 10c0 1.55 2.9 2.8 6.5 2.8s6.5-1.25 6.5-2.8" stroke-width="1.8" />
-                            </svg>
-                          </div>
-                          <ul>
-                            <li>Primary data services and backups</li>
-                            <li>Evidence artifacts and retention paths</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    <nav class="shell-nav" aria-label="Product sections">
+                      <span class="shell-nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M5 6.5h5v5H5zM14 6.5h5v5h-5zM5 15.5h5v5H5zM14 15.5h5v5h-5z" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span class="shell-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M12 3l7 3.5V12c0 4.42-2.66 7.77-7 8.95C7.66 19.77 5 16.42 5 12V6.5L12 3z" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span class="shell-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M4 8.5h16M6.5 5h11a1.5 1.5 0 0 1 1.5 1.5v11A1.5 1.5 0 0 1 17.5 19h-11A1.5 1.5 0 0 1 5 17.5v-11A1.5 1.5 0 0 1 6.5 5z" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span class="shell-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M7 12h10M12 7v10M5 5h14v14H5z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </nav>
+                  </aside>
 
-                <div class="stage-stack">
-                  <div class="window">
-                    <div class="window-header">
-                      <strong>Live operating state</strong>
-                      <span class="tag">Real scan + workflow context</span>
-                    </div>
-                    <div class="window-body finding-stack">
-                      <div class="finding-pill primary">
-                        <span class="finding-label">Highest priority</span>
-                        <strong>GuardDuty detector missing in eu-west-1</strong>
-                        <p>Critical control gap already mapped to remediation, rollback review, and evidence steps.</p>
-                      </div>
-                      <div class="finding-grid">
-                        <div class="finding-pill">
-                          <strong>CloudTrail coverage gap</strong>
-                          <p>Logging weakness surfaced with blast radius and audit significance already scoped.</p>
-                        </div>
-                        <div class="finding-pill">
-                          <strong>Evidence path prepared</strong>
-                          <p>Control mapping, ownership handoff, and expected evidence package already attached.</p>
-                        </div>
-                      </div>
-                      <div class="copilot-strip">
-                        <strong>isops.ai Copilot</strong>
-                        <p>Generate CLI, Terraform, CloudFormation, validation, rollback, and evidence prompts from the same finding context.</p>
+                  <div class="product-main">
+                    <div class="product-topbar">
+                      <strong>Overview</strong>
+                      <div class="topbar-actions">
+                        <span class="topbar-pill"><span class="dot"></span>Security posture</span>
+                        <span class="topbar-cta">New scan</span>
                       </div>
                     </div>
-                  </div>
 
-                  <div class="window">
-                    <div class="window-header">
-                      <strong>Board-ready outputs</strong>
-                      <span class="report-tag">Customer + auditor review</span>
-                    </div>
-                    <div class="window-body report-stack">
-                      <div class="report-block compact">
-                        <strong>Compliance report</strong>
-                        <p>Control assessment, mapped gaps, remediation priorities, and evidence expectations.</p>
+                    <div class="product-canvas">
+                      <div class="mock-metrics">
+                        <div class="mock-card">
+                          <span class="label">Compliance score</span>
+                          <strong>Truthful</strong>
+                          <span>Only calculated when program data actually exists</span>
+                        </div>
+                        <div class="mock-card emphasis">
+                          <span class="label">Findings queue</span>
+                          <strong>Live</strong>
+                          <span>Scan-backed issues, scoped and reviewable</span>
+                        </div>
+                        <div class="mock-card alert">
+                          <span class="label">Policy coverage</span>
+                          <strong>In review</strong>
+                          <span>Workflow state stays visible instead of being invented</span>
+                        </div>
+                        <div class="mock-card positive">
+                          <span class="label">Evidence freshness</span>
+                          <strong>Tracked</strong>
+                          <span>Evidence appears as it is attached and validated</span>
+                        </div>
                       </div>
-                      <div class="report-block compact">
-                        <strong>Executive summary</strong>
-                        <p>Leadership-ready posture, risk, and audit narrative for security buyers and executives.</p>
+
+                      <div class="mock-grid">
+                        <div class="mock-panel">
+                          <div class="mock-panel-header">
+                            <strong>Compliance score by area</strong>
+                            <span class="mini-pill">Truthful by default</span>
+                          </div>
+                          <div class="radar-shell">
+                            <div class="radar" aria-hidden="true">
+                              <svg viewBox="0 0 220 220" fill="none">
+                                <polygon points="110,24 180,64 180,144 110,188 40,144 40,64" stroke="#c7d2e8" stroke-width="2"/>
+                                <polygon points="110,48 159,76 159,132 110,160 61,132 61,76" stroke="#d6def0" stroke-width="2"/>
+                                <polygon points="110,72 138,88 138,120 110,136 82,120 82,88" stroke="#e2e8f6" stroke-width="2"/>
+                                <path d="M110 24V188M40 64H180M40 144H180M61 76L159 132M61 132L159 76" stroke="#e5ebf8" stroke-width="1.5"/>
+                                <polygon points="110,96 146,96 160,132 110,154 72,124 84,88" fill="rgba(54,83,248,0.12)" stroke="#5c70ff" stroke-width="3" stroke-linejoin="round"/>
+                              </svg>
+                              <div class="radar-copy">
+                                <strong>Areas</strong>
+                                <span>Program view</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mock-panel">
+                          <div class="mock-panel-header">
+                            <strong>Live findings</strong>
+                            <span class="mini-pill">Scoped to latest scan</span>
+                          </div>
+                          <div class="findings-shell">
+                            <div class="finding-row">
+                              <span class="finding-badge critical">Critical</span>
+                              <div>
+                                <strong>Logging coverage gap requires immediate owner review</strong>
+                                <p>Mapped controls, remediation state, and evidence path are already attached.</p>
+                              </div>
+                              <span class="finding-tag">A.8.15</span>
+                            </div>
+                            <div class="finding-row">
+                              <span class="finding-badge high">High</span>
+                              <div>
+                                <strong>Security baseline drift surfaced in active environment scope</strong>
+                                <p>Impact, likelihood, and proposed treatment are visible without leaving the queue.</p>
+                              </div>
+                              <span class="finding-tag">A.8.9</span>
+                            </div>
+                            <div class="finding-row">
+                              <span class="finding-badge medium">Medium</span>
+                              <div>
+                                <strong>Storage control weakness waiting for remediation or accepted risk</strong>
+                                <p>Status, evidence action, and exported report coverage stay in the same workflow.</p>
+                              </div>
+                              <span class="finding-tag">A.8.24</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="report-block compact">
-                        <strong>Evidence package</strong>
-                        <p>Artifacts, owner notes, and validation checkpoints ready for trust review and audit prep.</p>
+
+                      <div class="mock-foot">
+                        <div class="mock-panel">
+                          <div class="mock-panel-header">
+                            <strong>Application flow map</strong>
+                            <span class="mini-pill">Clustered view</span>
+                          </div>
+                          <div class="infra-shell">
+                            <div class="infra-cluster">
+                              <span class="cluster-label">Edge</span>
+                              <div class="cluster-node clean">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                  <path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                              </div>
+                              <p>Entry points and routed traffic</p>
+                            </div>
+                            <div class="infra-cluster">
+                              <span class="cluster-label">Network</span>
+                              <div class="cluster-node warning">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                  <path d="M12 4v16M5 9h14M5 15h14" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </div>
+                              <p>Boundaries, paths, and control zones</p>
+                            </div>
+                            <div class="infra-cluster">
+                              <span class="cluster-label">Workloads</span>
+                              <div class="cluster-node critical">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                  <path d="M4 7.5h16M7 4v4M17 4v4M5 12h14M5 16h8" stroke-width="1.8" stroke-linecap="round" />
+                                </svg>
+                              </div>
+                              <p>Compute and identity-linked services</p>
+                            </div>
+                            <div class="infra-cluster">
+                              <span class="cluster-label">Data</span>
+                              <div class="cluster-node clean">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                  <ellipse cx="12" cy="6.5" rx="6.5" ry="2.8" stroke-width="1.8" />
+                                  <path d="M5.5 6.5v7c0 1.55 2.9 2.8 6.5 2.8s6.5-1.25 6.5-2.8v-7" stroke-width="1.8" />
+                                  <path d="M5.5 10c0 1.55 2.9 2.8 6.5 2.8s6.5-1.25 6.5-2.8" stroke-width="1.8" />
+                                </svg>
+                              </div>
+                              <p>Evidence stores and retained artifacts</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mock-panel">
+                          <div class="mock-panel-header">
+                            <strong>isops.ai Copilot</strong>
+                            <span class="mini-pill">Operator mode</span>
+                          </div>
+                          <div class="copilot-shell">
+                            <strong>Generate remediation, validation, rollback, and evidence steps from the same finding context.</strong>
+                            <p>Copilot stays grounded in scanner output, control mapping, and workflow state instead of producing generic advice disconnected from the platform.</p>
+                            <ul class="copilot-list">
+                              <li>AWS CLI, Terraform, and CloudFormation where appropriate</li>
+                              <li>Evidence attachment guidance mapped to relevant control families</li>
+                              <li>Action plans that remain reviewable and audit-friendly</li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2305,7 +2913,7 @@
 
       <footer class="footer">
         <div class="container footer-row">
-          <div>isops.ai</div>
+          <div>&copy; 2025 isops.ai. All rights reserved.</div>
           <div class="footer-nav">
             <a href="#platform">Platform</a>
             <a href="#ai">AI Copilot</a>
@@ -2314,7 +2922,6 @@
             <a href="security.html">Trust center</a>
             <a href="privacy.html">Privacy</a>
             <a href="subprocessors.html">Subprocessors</a>
-            <a href="#compare">Why teams choose us</a>
           </div>
         </div>
       </footer>

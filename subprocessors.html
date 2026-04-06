@@ -23,6 +23,8 @@
       name="twitter:description"
       content="Subprocessor overview for isops.ai buyers, procurement teams, and security reviewers."
     />
+    <meta property="og:image" content="https://isops.ai/og-image.png" />
+    <meta name="twitter:image" content="https://isops.ai/og-image.png" />
     <link rel="canonical" href="https://isops.ai/subprocessors.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -242,6 +244,13 @@
           flex-wrap: wrap;
         }
       }
+
+      @media (max-width: 720px) {
+        .container { width: min(calc(100% - 28px), var(--max)); }
+        .nav-links { width: 100%; flex-wrap: wrap; }
+        .actions { width: 100%; flex-wrap: wrap; }
+        .actions a { width: 100%; text-align: center; }
+      }
     </style>
   </head>
   <body>
@@ -261,6 +270,7 @@
           <a href="index.html">Product</a>
           <a href="security.html">Security</a>
           <a href="privacy.html">Privacy</a>
+          <a href="subprocessors.html">Subprocessors</a>
         </nav>
 
         <div class="actions">
@@ -275,6 +285,7 @@
         <div class="container">
           <div class="eyebrow">Subprocessors overview</div>
           <h1>Service categories used to deliver isops.ai, reviewed without guesswork.</h1>
+          <p style="margin-top:12px;color:var(--ink-muted);font-size:0.88rem;">Last updated: April 2025</p>
           <p>
             The isops.ai team can route detailed diligence separately, but this page gives procurement, privacy, and
             security reviewers a clean starting point for the service categories commonly involved in delivering the
@@ -379,7 +390,7 @@
 
     <footer class="footer">
       <div class="container footer-row">
-        <div>isops.ai</div>
+        <div>&copy; 2025 isops.ai. All rights reserved.</div>
         <div class="footer-nav">
           <a href="index.html">Product</a>
           <a href="security.html">Security</a>
