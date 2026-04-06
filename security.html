@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isops.ai | Trust and Security</title>
+    <meta name="theme-color" content="#3653f8" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="description"
+      content="Trust and security information for isops.ai, including product principles, data handling posture, AI provider controls, and buyer review guidance."
+    />
+    <meta property="og:title" content="isops.ai | Trust and Security" />
+    <meta
+      property="og:description"
+      content="Review how isops.ai approaches product truthfulness, AI configuration, evidence workflows, and security posture before your walkthrough."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://isops.ai/security.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="isops.ai | Trust and Security" />
+    <meta
+      name="twitter:description"
+      content="Trust and security information for isops.ai buyers, auditors, and security leaders."
+    />
+    <link rel="canonical" href="https://isops.ai/security.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235665ff'/%3E%3Cstop offset='100%25' stop-color='%231f3df3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M32 14l14 5v10c0 10.6-6.4 18.5-14 21-7.6-2.5-14-10.4-14-21V19l14-5z' fill='none' stroke='white' stroke-width='3.2' stroke-linejoin='round'/%3E%3Cpath d='M25 31.5l5 5 9-10' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <style>
+      :root {
+        --bg: #f4f7fc;
+        --surface: rgba(255, 255, 255, 0.8);
+        --ink: #0f172a;
+        --ink-soft: #475569;
+        --ink-muted: #64748b;
+        --brand: #3653f8;
+        --brand-deep: #1d39d8;
+        --brand-soft: #e6ebff;
+        --teal: #10b981;
+        --amber: #f59e0b;
+        --shadow: 0 20px 50px rgba(21, 36, 76, 0.08);
+        --max: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 30%),
+          linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(calc(100% - 40px), var(--max));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(20px);
+        background: rgba(244, 247, 252, 0.86);
+        border-bottom: 1px solid rgba(111, 133, 191, 0.12);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 18px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        background: linear-gradient(145deg, #5f6cff 0%, #2641ee 100%);
+        box-shadow: 0 18px 30px rgba(54, 83, 248, 0.24);
+      }
+
+      .brand-copy {
+        display: grid;
+        gap: 3px;
+      }
+
+      .brand-copy strong,
+      h1,
+      h2,
+      h3 {
+        font-family: "Sora", sans-serif;
+        letter-spacing: -0.045em;
+      }
+
+      .brand-copy span {
+        color: var(--ink-muted);
+        font-size: 0.94rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links a,
+      .ghost,
+      .primary {
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .nav-links a {
+        padding: 10px 14px;
+        color: var(--ink-soft);
+      }
+
+      .nav-links a:hover {
+        background: rgba(230, 235, 255, 0.78);
+        color: var(--ink);
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+      }
+
+      .ghost,
+      .primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 18px;
+      }
+
+      .ghost {
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.12);
+      }
+
+      .primary {
+        color: white;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+        box-shadow: 0 18px 40px rgba(54, 83, 248, 0.24);
+      }
+
+      .hero {
+        padding: 84px 0 34px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--ink-soft);
+        box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.12);
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin: 18px 0 0;
+        font-size: clamp(3rem, 6vw, 5rem);
+        line-height: 0.98;
+      }
+
+      .hero p {
+        max-width: 66ch;
+        margin: 22px 0 0;
+        color: var(--ink-soft);
+        line-height: 1.78;
+        font-size: 1.08rem;
+      }
+
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .contact-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+        margin-top: 34px;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card,
+      .metric,
+      .panel {
+        background: var(--surface);
+        border: 1px solid rgba(111, 133, 191, 0.16);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+      }
+
+      .metric {
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 6px;
+        font-family: "Sora", sans-serif;
+        font-size: 1.2rem;
+      }
+
+      .metric span {
+        color: var(--ink-muted);
+        line-height: 1.6;
+      }
+
+      .panel {
+        padding: 26px;
+        border-radius: 28px;
+      }
+
+      .panel.dark {
+        background: linear-gradient(180deg, rgba(12, 22, 54, 0.97) 0%, rgba(10, 16, 37, 0.95) 100%);
+        color: white;
+      }
+
+      .panel.dark p,
+      .panel.dark li,
+      .panel.dark span {
+        color: rgba(232, 240, 255, 0.86);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 3.4vw, 3.1rem);
+        line-height: 1.05;
+        margin: 0 0 14px;
+      }
+
+      h3 {
+        font-size: 1.18rem;
+        margin: 0 0 10px;
+      }
+
+      .section {
+        padding: 38px 0;
+      }
+
+      .section p,
+      .panel p {
+        color: var(--ink-soft);
+        line-height: 1.74;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(54, 83, 248, 0.1);
+        color: var(--brand);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .checklist {
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .checklist li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        line-height: 1.68;
+        color: var(--ink-soft);
+      }
+
+      .checklist li::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        flex: 0 0 auto;
+        margin-top: 0.42rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
+      }
+
+      .subtle {
+        color: var(--ink-muted);
+        font-size: 0.94rem;
+      }
+
+      .footer {
+        padding: 30px 0 52px;
+        color: var(--ink-muted);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .grid-3,
+        .grid-2,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .container {
+          width: min(calc(100% - 28px), var(--max));
+        }
+
+        .nav-links {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+
+        .actions {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+
+        .actions a {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Back to isops.ai home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2.75l6.5 2.3v4.52c0 5.13-3.08 9.01-6.5 10.18-3.42-1.17-6.5-5.05-6.5-10.18V5.05L12 2.75z"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.85 11.9l2.15 2.18 4.16-4.55"
+                stroke="white"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>isops.ai</strong>
+            <span>Trust and security</span>
+          </span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html#platform">Platform</a>
+          <a href="index.html#ai">AI Copilot</a>
+          <a href="#trust-principles">Trust principles</a>
+          <a href="#security-review">Security review</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="actions">
+          <a class="ghost" href="index.html">Back to product site</a>
+          <a class="primary" href="mailto:hello@isops.ai?subject=isops.ai%20security%20review">Request security review</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="eyebrow">Customer trust and security</div>
+          <h1>Review the way isops.ai handles truth, evidence, and AI.</h1>
+          <p>
+            Buyers, security reviewers, and auditors do not need another polished promise page. They need to know
+            what the product does, what it stores, how it approaches evidence and remediation workflows, and whether
+            AI behavior is grounded in real operator controls.
+          </p>
+
+          <div class="hero-grid">
+            <div class="grid-3">
+              <div class="metric">
+                <strong>Truthful state</strong>
+                <span>The product separates posture, evidence, and workflow maturity instead of inventing green scores.</span>
+              </div>
+              <div class="metric">
+                <strong>AWS-native workflows</strong>
+                <span>Designed around posture, remediation, control mapping, evidence, and exported audit outputs.</span>
+              </div>
+              <div class="metric">
+                <strong>Provider-aware AI</strong>
+                <span>AI copilot is real when configured and explicitly marked when not configured.</span>
+              </div>
+            </div>
+
+            <div class="panel dark">
+              <h3>What this page is for</h3>
+              <p>
+                Use this page as the front door for your security review. Then move into a live walkthrough where the
+                same principles are visible inside the product: DB-backed truth, auditable remediation state, evidence
+                workflows, and exported reports that stay tied to real current state.
+              </p>
+              <div class="chip-row">
+                <span class="chip">DB-first runtime</span>
+                <span class="chip">Evidence-aware</span>
+                <span class="chip">AI configuration required for live generation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="trust-principles">
+        <div class="container">
+          <h2>Trust principles built into the product model</h2>
+          <div class="grid-3">
+            <article class="panel">
+              <h3>No fake completeness</h3>
+              <p>
+                Empty evidence, sparse workflow data, and missing program records are shown honestly. isops.ai does not
+                convert absence into fake 100% metrics or pretend maturity that the operator cannot defend.
+              </p>
+            </article>
+
+            <article class="panel">
+              <h3>Evidence follows remediation</h3>
+              <p>
+                Findings, remediation, risks, CAPA, and evidence are connected so exported reports can reflect real
+                action history instead of a manually stitched narrative built outside the platform.
+              </p>
+            </article>
+
+            <article class="panel">
+              <h3>AI is explicit, not magical</h3>
+              <p>
+                isops.ai Copilot is designed for operator-grade workflows. When a provider is configured, it can help
+                generate plans. When it is not configured, the product says so directly rather than pretending.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="security-review">
+        <div class="container">
+          <div class="grid-2">
+            <article class="panel">
+              <h2>What a buyer or auditor can validate</h2>
+              <ul class="checklist">
+                <li>How the platform distinguishes scan-backed posture from compliance-program maturity.</li>
+                <li>How remediation status, risk linkage, and evidence association are stored with audit trail.</li>
+                <li>How exported reports preserve partial or incomplete states instead of hiding them.</li>
+                <li>How `isops.ai Copilot` fits into controlled operator workflows across findings, risks, CAPA, and evidence.</li>
+              </ul>
+            </article>
+
+            <article class="panel">
+              <h2>AI and data handling posture</h2>
+              <ul class="checklist">
+                <li>AI generation depends on explicitly configured provider credentials.</li>
+                <li>Unconfigured AI surfaces remain available but show a truthful configuration-required state.</li>
+                <li>Evidence and remediation guidance are surfaced where operators act, not hidden in a separate assistant silo.</li>
+                <li>Trust reviews can begin from exported artifacts and move directly into the live system behavior that generated them.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid-2">
+            <article class="panel">
+              <h2>Request a buyer walkthrough</h2>
+              <p>
+                Bring one live backlog, one AWS environment, or one current audit pain point. We will show the exact
+                product flows that convert posture into remediation, evidence, and exported audit output.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Executive review</span>
+                <span class="chip">Operator review</span>
+                <span class="chip">Security review</span>
+              </div>
+            </article>
+
+            <article class="panel">
+              <h2>Need a security questionnaire first?</h2>
+              <p>
+                Start by emailing the isops.ai team with the scope of your review. We can coordinate a trust review,
+                provide product context, and route technical follow-ups before the full product demo.
+              </p>
+              <p class="subtle">Security review and trust inquiries: hello@isops.ai</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <article class="panel">
+            <h2>Continue with the product</h2>
+            <div class="contact-grid">
+              <div>
+                <h3>Go back to the main site</h3>
+                <p>
+                  Review the full product narrative, workflow model, AI copilot story, and report outputs on the main
+                  customer-facing experience.
+                </p>
+                <a class="primary" href="index.html">Open main site</a>
+              </div>
+              <div>
+                <h3>Book a security-focused walkthrough</h3>
+                <p>
+                  If you want the review to focus on truthfulness, remediation controls, exported reports, and AI
+                  configuration boundaries, request the security walkthrough directly.
+                </p>
+                <a class="ghost" href="mailto:hello@isops.ai?subject=isops.ai%20security%20walkthrough">Email isops.ai</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-row">
+        <div>isops.ai</div>
+        <div class="subtle">Trust and security information for customers, auditors, and security reviewers.</div>
+      </div>
+    </footer>
+  </body>
+</html>
