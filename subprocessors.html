@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -53,8 +53,9 @@
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         color: var(--ink);
+        -webkit-font-smoothing: antialiased;
         background:
           radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 30%),
           linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
@@ -90,15 +91,17 @@
         box-shadow: 0 10px 20px rgba(54, 83, 248, 0.18);
       }
 
-      .brand-copy strong,
-      h1,
-      h2,
-      h3 {
-        font-family: "Inter", system-ui, sans-serif;
-        letter-spacing: -0.045em;
+      .brand-copy strong {
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
+        font-size: 0.98rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
       }
 
-      .brand-copy strong { font-size: 0.98rem; font-weight: 700; }
+      h1, h2, h3 {
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.02em;
+      }
       .nav-links { display: flex; align-items: center; gap: 4px; }
       .nav-links a,
       .ghost,
@@ -149,10 +152,11 @@
       }
 
       h1 {
-        max-width: 12ch;
+        max-width: 20ch;
         margin: 18px 0 0;
-        font-size: clamp(3.1rem, 6vw, 5rem);
-        line-height: 0.94;
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+        line-height: 1.12;
+        font-weight: 600;
       }
 
       .hero p {
@@ -205,7 +209,7 @@
 
       .data-table th {
         background: rgba(230, 235, 255, 0.58);
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 0.9rem;
       }
 
@@ -284,13 +288,9 @@
       <section class="hero">
         <div class="container">
           <div class="eyebrow">Subprocessors overview</div>
-          <h1>Service categories used to deliver isops.ai, reviewed without guesswork.</h1>
+          <h1>Service categories used to deliver isops.ai.</h1>
           <p style="margin-top:12px;color:var(--ink-muted);font-size:0.88rem;">Last updated: April 2025</p>
-          <p>
-            The isops.ai team can route detailed diligence separately, but this page gives procurement, privacy, and
-            security reviewers a clean starting point for the service categories commonly involved in delivering the
-            platform.
-          </p>
+          <p>A clean starting point for procurement, privacy, and security reviewers.</p>
         </div>
       </section>
 
@@ -299,24 +299,15 @@
           <div class="grid-3">
             <article class="card">
               <h3>Infrastructure and hosting</h3>
-              <p>
-                Service providers used to host and operate the application, store platform data, and support secure
-                delivery of customer-facing workflows.
-              </p>
+              <p>Hosting, storage, and secure delivery of the platform.</p>
             </article>
             <article class="card">
               <h3>Communications and support</h3>
-              <p>
-                Service providers used for transactional email, product communication, support coordination, or buyer
-                review routing.
-              </p>
+              <p>Transactional email, notifications, and buyer review routing.</p>
             </article>
             <article class="card">
               <h3>AI provider category</h3>
-              <p>
-                AI generation is provider-configurable. When enabled by the operator, the configured provider supports
-                copilot generation for remediation, evidence planning, and control operations.
-              </p>
+              <p>Configurable LLM provider for copilot generation. Used only when explicitly enabled.</p>
             </article>
           </div>
         </div>
@@ -369,18 +360,11 @@
           <div class="grid-2">
             <article class="card">
               <h2>How to request the current list</h2>
-              <p>
-                For a live customer or procurement review, contact isops.ai and reference the scope of your diligence.
-                The team can provide the current subprocessor set and route any follow-up around security, privacy, or
-                AI provider configuration.
-              </p>
+              <p>Contact isops.ai with your diligence scope to receive the current subprocessor set.</p>
             </article>
             <article class="card">
               <h2>Related trust pages</h2>
-              <p>
-                Complete the review flow with the linked privacy and security pages so your buyer team can evaluate
-                product boundaries, trust posture, and review paths in one place.
-              </p>
+              <p>Continue the review with linked privacy and security pages.</p>
               <p><strong>Links:</strong> <a href="security.html">Security</a> · <a href="privacy.html">Privacy</a></p>
             </article>
           </div>

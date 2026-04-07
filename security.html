@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -58,8 +58,9 @@
 
       body {
         margin: 0;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         color: var(--ink);
+        -webkit-font-smoothing: antialiased;
         background:
           radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 30%),
           linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
@@ -113,17 +114,16 @@
         align-items: center;
       }
 
-      .brand-copy strong,
-      h1,
-      h2,
-      h3 {
-        font-family: "Inter", system-ui, sans-serif;
-        letter-spacing: -0.035em;
-      }
-
       .brand-copy strong {
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 0.98rem;
         font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      h1, h2, h3 {
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.02em;
       }
 
       .nav-links {
@@ -194,11 +194,11 @@
       }
 
       h1 {
-        max-width: 12ch;
+        max-width: 20ch;
         margin: 18px 0 0;
-        font-size: clamp(3.1rem, 6vw, 5.1rem);
-        line-height: 0.94;
-        letter-spacing: -0.05em;
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+        line-height: 1.12;
+        font-weight: 600;
       }
 
       .hero p {
@@ -249,7 +249,7 @@
       .metric strong {
         display: block;
         margin-bottom: 6px;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 1.2rem;
       }
 
@@ -441,19 +441,15 @@
       <section class="hero">
         <div class="container">
           <div class="eyebrow">Customer trust and security</div>
-          <h1>Review the way isops.ai handles truth, evidence, and AI.</h1>
+          <h1>How isops.ai handles truth, evidence, and AI.</h1>
           <p style="margin-top:12px;color:var(--ink-muted);font-size:0.88rem;">Last updated: April 2025</p>
-          <p>
-            Buyers, security reviewers, and auditors do not need another polished promise page. They need to know
-            what the product does, what it stores, how it approaches evidence and remediation workflows, and whether
-            AI behavior is grounded in real operator controls.
-          </p>
+          <p>What the product stores, how it approaches evidence, and how AI behavior is controlled.</p>
 
           <div class="hero-grid">
             <div class="grid-3">
               <div class="metric">
                 <strong>Truthful state</strong>
-                <span>The product separates posture, evidence, and workflow maturity instead of inventing green scores.</span>
+                <span>Posture, evidence, and maturity shown separately. No invented scores.</span>
               </div>
               <div class="metric">
                 <strong>AWS-native workflows</strong>
@@ -467,11 +463,7 @@
 
             <div class="panel dark">
               <h3>What this page is for</h3>
-              <p>
-                Use this page as the front door for your security review. Then move into a live walkthrough where the
-                same principles are visible inside the product: DB-backed truth, auditable remediation state, evidence
-                workflows, and exported reports that stay tied to real current state.
-              </p>
+              <p>Start your security review here, then move into a live walkthrough.</p>
               <div class="chip-row">
                 <span class="chip">DB-first runtime</span>
                 <span class="chip">Evidence-aware</span>
@@ -488,26 +480,17 @@
           <div class="grid-3">
             <article class="panel">
               <h3>No fake completeness</h3>
-              <p>
-                Empty evidence, sparse workflow data, and missing program records are shown honestly. isops.ai does not
-                convert absence into fake 100% metrics or pretend maturity that the operator cannot defend.
-              </p>
+              <p>Missing data is shown honestly. No fake 100% metrics.</p>
             </article>
 
             <article class="panel">
               <h3>Evidence follows remediation</h3>
-              <p>
-                Findings, remediation, risks, CAPA, and evidence are connected so exported reports can reflect real
-                action history instead of a manually stitched narrative built outside the platform.
-              </p>
+              <p>Reports reflect real action history, not manually stitched narratives.</p>
             </article>
 
             <article class="panel">
               <h3>AI is explicit, not magical</h3>
-              <p>
-                isops.ai Copilot is designed for operator-grade workflows. When a provider is configured, it can help
-                generate plans. When it is not configured, the product says so directly rather than pretending.
-              </p>
+              <p>Configured providers enable generation. Unconfigured states are shown directly.</p>
             </article>
           </div>
         </div>
@@ -544,10 +527,7 @@
           <div class="grid-2">
             <article class="panel">
               <h2>Request a buyer walkthrough</h2>
-              <p>
-                Bring one live backlog, one AWS environment, or one current audit pain point. We will show the exact
-                product flows that convert posture into remediation, evidence, and exported audit output.
-              </p>
+              <p>Bring one backlog, one environment, or one audit pain point. We show the workflow live.</p>
               <div class="chip-row">
                 <span class="chip">Executive review</span>
                 <span class="chip">Operator review</span>
@@ -557,14 +537,7 @@
 
             <article class="panel">
               <h2>Need a security questionnaire first?</h2>
-              <p>
-                Start by emailing the isops.ai team with the scope of your review. We can coordinate a trust review,
-                provide product context, and route technical follow-ups before the full product demo.
-              </p>
-              <p>
-                For lighter-weight diligence, start with the privacy and subprocessors pages and then escalate into
-                the live security walkthrough only where needed.
-              </p>
+              <p>Email the scope of your review. We coordinate trust review and route follow-ups before the demo.</p>
               <p class="subtle">Security review and trust inquiries: hello@isops.ai</p>
             </article>
           </div>
@@ -578,18 +551,12 @@
             <div class="contact-grid">
               <div>
                 <h3>Go back to the main site</h3>
-                <p>
-                  Review the full product narrative, workflow model, AI copilot story, and report outputs on the main
-                  customer-facing experience.
-                </p>
+                <p>See the full product, workflow model, and report outputs.</p>
                 <a class="primary" href="index.html">Open main site</a>
               </div>
               <div>
                 <h3>Book a security-focused walkthrough</h3>
-                <p>
-                  If you want the review to focus on truthfulness, remediation controls, exported reports, and AI
-                  configuration boundaries, request the security walkthrough directly.
-                </p>
+                <p>Request a walkthrough focused on truthfulness, controls, and AI boundaries.</p>
                 <a class="ghost" href="mailto:hello@isops.ai?subject=isops.ai%20security%20walkthrough">Email isops.ai</a>
               </div>
             </div>

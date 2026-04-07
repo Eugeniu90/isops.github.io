@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -54,8 +54,9 @@
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         color: var(--ink);
+        -webkit-font-smoothing: antialiased;
         background:
           radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 30%),
           linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
@@ -91,15 +92,17 @@
         box-shadow: 0 10px 20px rgba(54, 83, 248, 0.18);
       }
 
-      .brand-copy strong,
-      h1,
-      h2,
-      h3 {
-        font-family: "Inter", system-ui, sans-serif;
-        letter-spacing: -0.045em;
+      .brand-copy strong {
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
+        font-size: 0.98rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
       }
 
-      .brand-copy strong { font-size: 0.98rem; font-weight: 700; }
+      h1, h2, h3 {
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.02em;
+      }
       .nav-links { display: flex; align-items: center; gap: 4px; }
       .nav-links a,
       .ghost,
@@ -150,10 +153,11 @@
       }
 
       h1 {
-        max-width: 12ch;
+        max-width: 20ch;
         margin: 18px 0 0;
-        font-size: clamp(3.1rem, 6vw, 5rem);
-        line-height: 0.94;
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+        line-height: 1.12;
+        font-weight: 600;
       }
 
       .hero p {
@@ -237,7 +241,7 @@
 
       .data-table th {
         background: rgba(230, 235, 255, 0.58);
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 0.9rem;
       }
 
@@ -316,13 +320,9 @@
       <section class="hero">
         <div class="container">
           <div class="eyebrow">Privacy overview</div>
-          <h1>Privacy answers for buyer review, without the usual back-and-forth.</h1>
+          <h1>Privacy answers for buyer review.</h1>
           <p style="margin-top:12px;color:var(--ink-muted);font-size:0.88rem;">Last updated: April 2025</p>
-          <p>
-            isops.ai is built for compliance operators, which means privacy and evidence boundaries need to stay clear.
-            This page explains what kind of information the platform is designed to handle, how customer review should
-            start, and where to route deeper diligence.
-          </p>
+          <p>What the platform handles, how review starts, and where to route deeper diligence.</p>
         </div>
       </section>
 
@@ -331,24 +331,15 @@
           <div class="grid-3">
             <article class="card">
               <h3>Operator-focused data model</h3>
-              <p>
-                The platform is centered on findings, controls, remediation, evidence, topology, and audit workflows.
-                It is not positioned as a consumer data platform or ad-tech data processor.
-              </p>
+              <p>Centered on findings, controls, remediation, evidence, and audit workflows.</p>
             </article>
             <article class="card">
               <h3>Explicit AI boundaries</h3>
-              <p>
-                AI generation depends on explicit provider configuration. If no provider is configured, the product
-                does not pretend to generate live output.
-              </p>
+              <p>AI generation requires explicit provider configuration. No pretending.</p>
             </article>
             <article class="card">
               <h3>Trust review friendly</h3>
-              <p>
-                Buyer and auditor review can begin from exported evidence and reports, then move into the live product
-                behavior that generated them.
-              </p>
+              <p>Start from exported evidence, then move into the live product.</p>
             </article>
           </div>
         </div>
@@ -405,11 +396,7 @@
             </article>
             <article class="card">
               <h2>Next step for your team</h2>
-              <p>
-                If your privacy or procurement process needs a quick answer path before a live walkthrough, email the
-                isops.ai team and include the name of your framework, data sensitivity concerns, and desired review
-                timeline.
-              </p>
+              <p>Email the team with your framework, data concerns, and review timeline.</p>
               <p><strong>Email:</strong> <a href="mailto:hello@isops.ai?subject=isops.ai%20privacy%20review">hello@isops.ai</a></p>
               <p><strong>Related pages:</strong> <a href="security.html">Security</a> · <a href="subprocessors.html">Subprocessors</a></p>
             </article>

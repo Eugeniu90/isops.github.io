@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -93,8 +93,9 @@
 
       body {
         margin: 0;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         color: var(--ink);
+        -webkit-font-smoothing: antialiased;
         background:
           radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 28%),
           radial-gradient(circle at top right, rgba(16, 185, 129, 0.11), transparent 22%),
@@ -171,7 +172,7 @@
       }
 
       .brand-copy strong {
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 0.98rem;
         font-weight: 700;
         letter-spacing: -0.03em;
@@ -283,9 +284,12 @@
         position: relative;
         z-index: 1;
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
-        gap: 48px;
-        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+
+      .hero-text {
+        text-align: center;
       }
 
       .eyebrow {
@@ -308,20 +312,23 @@
       h3,
       h4 {
         margin: 0;
-        font-family: "Inter", system-ui, sans-serif;
-        letter-spacing: -0.04em;
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.02em;
       }
 
       h1 {
-        max-width: 11ch;
-        font-size: clamp(3.3rem, 6vw, 5.7rem);
-        line-height: 0.93;
-        letter-spacing: -0.055em;
+        max-width: 20ch;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: clamp(2.6rem, 5vw, 4.2rem);
+        line-height: 1.12;
+        font-weight: 600;
+        letter-spacing: -0.02em;
       }
 
       .hero p {
         max-width: 60ch;
-        margin: 24px 0 0;
+        margin: 24px auto 0;
         color: var(--ink-soft);
         font-size: 1.08rem;
         line-height: 1.78;
@@ -332,6 +339,7 @@
         flex-wrap: wrap;
         gap: 14px;
         margin-top: 30px;
+        justify-content: center;
       }
 
       .hero-metrics {
@@ -339,6 +347,9 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
         margin-top: 34px;
+        max-width: 860px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .metric-card,
@@ -363,7 +374,7 @@
 
       .metric-card strong {
         display: block;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 1.25rem;
         margin-bottom: 6px;
       }
@@ -926,7 +937,7 @@
 
       .lane-heading {
         margin-top: 12px;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 0.96rem;
         line-height: 1.25;
         color: #f8fbff;
@@ -1369,7 +1380,7 @@
 
       .plan-price {
         margin-top: 12px;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 1.65rem;
         line-height: 1;
         letter-spacing: -0.05em;
@@ -1455,7 +1466,7 @@
       }
 
       .report-preview .title {
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 1rem;
         margin-bottom: 16px;
       }
@@ -1508,7 +1519,7 @@
       }
 
       .comparison-table th {
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 0.9rem;
         background: rgba(230, 235, 255, 0.58);
       }
@@ -1559,7 +1570,7 @@
         list-style: none;
         cursor: pointer;
         padding: 24px 0;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 1.04rem;
       }
 
@@ -1609,7 +1620,7 @@
       .contact-strip strong {
         display: block;
         margin-bottom: 8px;
-        font-family: "Inter", system-ui, sans-serif;
+        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         font-size: 1rem;
       }
 
@@ -1780,7 +1791,6 @@
       }
 
       @media (max-width: 1120px) {
-        .hero-grid,
         .showcase-grid,
         .copilot-grid,
         .comparison-layout,
@@ -1860,8 +1870,8 @@
         }
 
         h1 {
-          max-width: 10ch;
-          font-size: clamp(2.6rem, 14vw, 4rem);
+          max-width: 16ch;
+          font-size: clamp(2.6rem, 10vw, 4rem);
         }
 
         .section-header {
@@ -1986,15 +1996,13 @@
       <main>
         <section class="hero" id="top">
           <div class="container hero-grid">
-            <div class="reveal is-visible">
+            <div class="hero-text reveal is-visible">
               <div class="eyebrow">
                 <span>AI-native compliance operations</span>
               </div>
               <h1>Move from AWS findings to audit-ready evidence.</h1>
               <p>
-                isops.ai gives security, compliance, and platform teams one operating system for posture, remediation,
-                evidence, and exported audit artifacts. It is built for real customer review, real control ownership,
-                and real audit scrutiny, without pushing the hardest work back into spreadsheets and status meetings.
+                One platform for AWS posture, remediation, evidence, and audit reporting — so your team stops stitching spreadsheets and starts passing reviews.
               </p>
 
               <div class="hero-actions">
@@ -2020,8 +2028,8 @@
 
             <div class="product-stage reveal is-visible">
               <div class="hero-product">
-                <div class="hero-note">Sanitized product view</div>
-                <div class="product-shell" aria-label="Sanitized isops.ai interface preview">
+                <div class="hero-note">Platform preview</div>
+                <div class="product-shell" aria-label="isops.ai platform preview">
                   <aside class="product-sidebar">
                     <div class="shell-mark">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -2226,10 +2234,7 @@
                   </svg>
                 </div>
                 <h3>Truthful by default</h3>
-                <p>
-                  Empty means empty. Partial means partial. Security posture is separate from compliance-program
-                  maturity, so customers never get fake certainty dressed up as a score.
-                </p>
+                <p>Posture and maturity are shown separately. No fake scores, no invented certainty.</p>
               </article>
 
               <article class="feature-card reveal">
@@ -2239,10 +2244,7 @@
                   </svg>
                 </div>
                 <h3>One operational surface</h3>
-                <p>
-                  Findings, risks, CAPA, evidence, topology, and reports live in one model. Teams do not have to
-                  bounce between five disconnected tools to close one control gap.
-                </p>
+                <p>Findings, risks, CAPA, evidence, and reports in one connected model.</p>
               </article>
 
               <article class="feature-card reveal">
@@ -2253,10 +2255,7 @@
                   </svg>
                 </div>
                 <h3>AI-native remediation</h3>
-                <p>
-                  isops.ai Copilot helps generate operator-grade remediation plans, evidence steps, and change-safe
-                  implementation details where teams actually need them.
-                </p>
+                <p>Copilot generates remediation plans, evidence steps, and implementation details inline.</p>
               </article>
 
               <article class="feature-card reveal">
@@ -2268,10 +2267,7 @@
                   </svg>
                 </div>
                 <h3>Report outputs worth sending</h3>
-                <p>
-                  Generate customer-facing compliance reports, executive summaries, and evidence packages that read
-                  like audit artifacts rather than dashboard printouts.
-                </p>
+                <p>Compliance reports and evidence packages that read like audit artifacts.</p>
               </article>
             </div>
           </div>
@@ -2283,11 +2279,7 @@
               <div>
                 <div class="section-kicker">Platform</div>
                 <h2>One operating system for posture, remediation, evidence, and audit readiness.</h2>
-                <p>
-                  isops.ai is designed for what actually happens in security and compliance teams: findings arrive
-                  from AWS, remediation must be coordinated, evidence has to be collected, and reports need to hold
-                  up in front of real customers and auditors.
-                </p>
+                <p>Findings, remediation, evidence, and reports that hold up in front of real customers and auditors.</p>
               </div>
             </div>
 
@@ -2300,10 +2292,7 @@
                     </svg>
                   </div>
                   <h3>AWS topology that explains blast radius</h3>
-                  <p>
-                    Start from a clean clustered flow map, drill into service-level dependencies, and move directly
-                    from architecture context to the underlying finding, control mapping, and evidence path.
-                  </p>
+                  <p>Clustered flow map with drill-down to findings, control mapping, and evidence paths.</p>
                   <ul class="workflow-list">
                     <li><span class="workflow-index">1</span><span>Clustered application flow map instead of dumping hundreds of raw nodes.</span></li>
                     <li><span class="workflow-index">2</span><span>Risk and compliance overlays for internet exposure, control coverage, and evidence gaps.</span></li>
@@ -2319,10 +2308,7 @@
                     </svg>
                   </div>
                   <h3>Findings that do not stop at severity badges</h3>
-                  <p>
-                    Findings live with remediation status, risk linkage, evidence actions, control mapping, and
-                    explainable heatmap logic so the team understands why a gap matters and what to do next.
-                  </p>
+                  <p>Each finding carries remediation status, risk linkage, evidence actions, and control mapping.</p>
                 </article>
               </div>
 
@@ -2362,10 +2348,7 @@
               <div>
                 <div class="section-kicker">Workflow</div>
                 <h2>From finding to evidence without losing the narrative.</h2>
-                <p>
-                  Most platforms stop at a list of gaps. isops.ai follows the full operational path: detect, assess,
-                  remediate, validate, document, and package the output for internal review or external audit.
-                </p>
+                <p>Detect, assess, remediate, validate, document, and package — one connected path.</p>
               </div>
             </div>
 
@@ -2425,11 +2408,7 @@
               <div>
                 <div class="section-kicker">AI Copilot</div>
                 <h2>Give operators a copilot, not another button.</h2>
-                <p>
-                  isops.ai Copilot shows up where decisions are being made: findings, remediation playbooks, CAPA,
-                  risk treatment, and evidence planning. When AI is configured, the assistant works inside the
-                  workflow. When it is not configured, the product stays honest.
-                </p>
+                <p>AI assistance embedded in findings, remediation, CAPA, and evidence — honest when unconfigured.</p>
               </div>
             </div>
 
@@ -2468,11 +2447,7 @@
 
               <article class="glass-card reveal">
                 <h3>Built for operator-grade output</h3>
-                <p>
-                  The copilot is meant to reduce the distance between detection and execution, not just summarize the
-                  problem in nicer language. It helps teams produce implementation-ready and auditor-ready output at
-                  the same time.
-                </p>
+                <p>Implementation-ready and auditor-ready output from the same workflow.</p>
                 <ul class="copilot-checklist">
                   <li>Generate CLI, Terraform, and CloudFormation paths when they are relevant.</li>
                   <li>Suggest rollback and validation so changes can pass review before someone touches production.</li>
@@ -2490,11 +2465,7 @@
               <div>
                 <div class="section-kicker">Reports</div>
                 <h2>Export artifacts buyers, auditors, and leadership can actually use.</h2>
-                <p>
-                  Reporting is not an afterthought in isops.ai. The product is designed so exported artifacts preserve
-                  the same truth model the operators see inside the platform: real posture, real gaps, real remediation
-                  paths, and clear notes when data is partial.
-                </p>
+                <p>Exported artifacts preserve the same truth model operators see inside the platform.</p>
               </div>
               <a class="ghost-button" href="#contact">See the audit pack live</a>
             </div>
@@ -2514,10 +2485,7 @@
                   <div class="line full"></div>
                   <div class="line medium"></div>
                 </div>
-                <p>
-                  Designed for control owners and auditors who need to understand not only the control status but the
-                  evidence posture, mapped findings, and remaining remediation obligations.
-                </p>
+                <p>Control status, evidence posture, and remaining remediation obligations in one document.</p>
               </article>
 
               <article class="report-card reveal">
@@ -2534,10 +2502,7 @@
                   <div class="line short"></div>
                   <div class="line medium"></div>
                 </div>
-                <p>
-                  Connects scan-derived risk, formal risk register entries, planned treatment, and what still needs
-                  executive decision or accepted-risk signoff.
-                </p>
+                <p>Scan-derived risk, register entries, planned treatment, and pending decisions.</p>
               </article>
 
               <article class="report-card reveal">
@@ -2554,10 +2519,7 @@
                   <div class="line medium"></div>
                   <div class="line short"></div>
                 </div>
-                <p>
-                  Gives leadership the essential truth fast: what changed, what is risky, what is still blocked, and
-                  where the compliance program is relying on real evidence versus scan-only signals.
-                </p>
+                <p>What changed, what is risky, and where the program relies on real evidence.</p>
               </article>
             </div>
           </div>
@@ -2569,11 +2531,7 @@
               <div>
                 <div class="section-kicker">Evaluation paths</div>
                 <h2>Three ways teams usually adopt isops.ai.</h2>
-                <p>
-                  The fastest path is not always a full rollout. Some teams start with one AWS environment and one
-                  live backlog. Others need a broader operating layer across posture, evidence, and customer trust
-                  reviews from day one.
-                </p>
+                <p>Start with one environment and one backlog, or go broader from day one.</p>
               </div>
             </div>
 
@@ -2618,7 +2576,7 @@
                 <div class="plan-divider"></div>
                 <ul class="plan-list">
                   <li>Unify findings, remediation, control mapping, risk treatment, and evidence workflows.</li>
-                  <li>Bring `isops.ai Copilot` into operator workflows where remediation is actually planned.</li>
+                  <li>Bring isops.ai Copilot into operator workflows where remediation is actually planned.</li>
                   <li>Give leadership and auditors one coherent narrative instead of stitched artifacts.</li>
                 </ul>
                 <div class="signal-strip">
@@ -2661,22 +2619,14 @@
               <div>
                 <div class="section-kicker">Why teams switch</div>
                 <h2>Replace manual coordination, not just evidence collection.</h2>
-                <p>
-                  AWS Audit Manager helps gather AWS evidence. Point tools help in slices. isops.ai is built as the
-                  operating layer that connects posture, remediation, evidence, and exported trust artifacts into one
-                  customer-facing system.
-                </p>
+                <p>One operating layer instead of point tools and manual stitching.</p>
               </div>
             </div>
 
             <div class="comparison-layout">
               <article class="comparison-card reveal">
                 <h3>The difference</h3>
-                <p>
-                  isops.ai is designed around the working reality of cloud security and compliance teams: scan results,
-                  remediation workflows, evidence collection, control narratives, and audit-ready output all need to
-                  stay in sync without inventing state.
-                </p>
+                <p>Scan results, remediation, evidence, and audit output stay in sync — without inventing state.</p>
                 <div style="display:grid;gap:10px;margin-top:20px;">
                   <span class="comparison-pill good">Truthful runtime state</span>
                   <span class="comparison-pill good">AI-native remediation and evidence planning</span>
@@ -2738,35 +2688,22 @@
             <div class="faq-grid">
               <details class="faq-item reveal" open>
                 <summary>How is this different from AWS Audit Manager?</summary>
-                <p>
-                  Audit Manager is useful for collecting AWS-oriented evidence. isops.ai is the broader operating
-                  surface that connects posture, remediation, risk treatment, evidence, and exported trust artifacts
-                  into one workflow model.
-                </p>
+                <p>Audit Manager collects AWS evidence. isops.ai connects posture, remediation, evidence, and trust artifacts into one workflow.</p>
               </details>
 
               <details class="faq-item reveal">
                 <summary>Can we bring our own AI provider?</summary>
-                <p>
-                  Yes. The platform supports configured AI providers for live copilot generation, and it stays honest
-                  when no provider is configured by exposing a setup-required state instead of simulating output.
-                </p>
+                <p>Yes. Bring your own provider for live generation. When unconfigured, the product says so honestly.</p>
               </details>
 
               <details class="faq-item reveal">
                 <summary>What happens if our compliance workflow data is still sparse?</summary>
-                <p>
-                  isops.ai separates security posture from compliance-program maturity. If policies, evidence, CAPA,
-                  or training records are missing, the platform shows that clearly instead of manufacturing a clean score.
-                </p>
+                <p>Missing data is shown clearly. The platform never manufactures a clean score from sparse inputs.</p>
               </details>
 
               <details class="faq-item reveal">
                 <summary>Can this help customer-facing trust reviews?</summary>
-                <p>
-                  That is one of the design goals. The exported reports and evidence packages are meant to be usable
-                  for customer security reviews, internal readiness checks, and audit support.
-                </p>
+                <p>Yes. Reports and evidence packages are built for customer security reviews and audit support.</p>
               </details>
             </div>
           </div>
@@ -2780,11 +2717,7 @@
                   <div>
                     <div class="section-kicker">Book a serious evaluation</div>
                     <h2>Start with the backlog, environment, or buyer review that is creating the most drag today.</h2>
-                    <p>
-                      The fastest way to evaluate isops.ai is to bring one real environment, one active framework, and
-                      one current remediation or audit bottleneck. We will show how posture, remediation, evidence, and
-                      report output stay connected without inventing state.
-                    </p>
+                    <p>Bring one environment, one framework, and one bottleneck. We show the connected workflow live.</p>
                   </div>
                   <div class="trust-note">
                     Need security review material before a live walkthrough? Start with the
@@ -2793,7 +2726,7 @@
                   </div>
                   <div class="contact-strip">
                     <strong>What the first session covers</strong>
-                    <span>Executive reporting, live findings, remediation controls, evidence capture, and the exact trust posture your own customers will eventually inspect.</span>
+                    <span>Executive reporting, live findings, remediation, evidence, and customer-facing trust posture.</span>
                   </div>
                   <div class="contact-points">
                     <div class="contact-point">
@@ -2825,7 +2758,7 @@
                         </svg>
                       </div>
                       <strong>Audit readiness</strong>
-                      <span>Validate how partial evidence, scan-backed posture, and workflow maturity are kept explicit and honest.</span>
+                      <span>See how partial evidence and workflow maturity are kept explicit.</span>
                     </div>
 
                     <div class="contact-point">
@@ -2836,16 +2769,13 @@
                         </svg>
                       </div>
                       <strong>AI-native controls ops</strong>
-                      <span>See how isops.ai Copilot supports change-safe remediation and evidence planning without inventing output.</span>
+                      <span>Copilot for change-safe remediation and evidence planning.</span>
                     </div>
                   </div>
                 </div>
                 <div class="demo-form">
                   <h3>Request a buyer-ready walkthrough</h3>
-                  <p>
-                    Fill this out once and your mail client will be preloaded with the right scope, so your team can
-                    move directly into scheduling and review instead of rewriting context.
-                  </p>
+                  <p>Fill this out and your mail client opens with the right scope pre-loaded.</p>
                   <form id="demo-form">
                     <div class="form-grid">
                       <div class="field">
