@@ -451,7 +451,7 @@
         box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
       }
 
-      .preview-content { padding: 20px; overflow: hidden; flex: 1; }
+      .preview-content { padding: 20px; flex: 1; position: relative; }
 
       /* KPI grid */
       .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px; }
@@ -462,12 +462,13 @@
         border: 1px solid rgba(45, 58, 79, 0.5);
         border-radius: 12px;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
       }
       .kpi::before {
         content: '';
         position: absolute; top: 0; left: 0; right: 0; height: 1px;
         background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent);
+        border-radius: 12px 12px 0 0;
         opacity: 0;
         transition: opacity 0.2s;
       }
@@ -972,6 +973,240 @@
       }
       @keyframes hero-rise { to { opacity: 1; transform: none; } }
 
+      /* ============================================================
+         PREMIUM CURSOR LAYER — spotlight, tilt, magnet, data-reveal
+         ============================================================ */
+
+      /* ---- Hero cursor spotlight (tracks mouse) ---- */
+      .hero {
+        --mx: 50%; --my: 30%;
+      }
+      .hero::before {
+        content: '';
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(520px 420px at var(--mx) var(--my),
+            rgba(129, 140, 248, 0.18),
+            rgba(99, 102, 241, 0.06) 40%,
+            transparent 70%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        z-index: 0;
+        mix-blend-mode: screen;
+      }
+      .hero.is-lit::before { opacity: 1; }
+      .hero > .container { position: relative; z-index: 1; }
+
+      /* ---- 3D perspective product preview ---- */
+      .preview-wrap {
+        --rx: 0deg; --ry: 0deg;
+        perspective: 1600px;
+        transform-style: preserve-3d;
+      }
+      .preview {
+        transform: rotateX(var(--rx)) rotateY(var(--ry));
+        transform-style: preserve-3d;
+        transition: transform 0.18s cubic-bezier(.22,1,.36,1), box-shadow 0.25s ease;
+        will-change: transform;
+      }
+      .preview-wrap.is-hot .preview {
+        box-shadow:
+          0 60px 120px -20px rgba(0,0,0,0.75),
+          0 0 0 1px rgba(99,102,241,0.18),
+          0 0 80px -10px rgba(99, 102, 241, 0.35),
+          inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+      .preview-wrap .preview-glow { transition: opacity 0.4s ease, transform 0.4s ease; }
+      .preview-wrap.is-hot .preview-glow { opacity: 1.15; }
+
+      /* ---- Finding rows: hover reveals remediation detail ---- */
+      .finding-row {
+        position: relative; cursor: pointer;
+        transition: background 0.2s ease, padding 0.25s ease, border-color 0.2s ease;
+        padding-left: 8px; padding-right: 8px;
+        margin: 0 -8px;
+        border-radius: 8px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.35);
+      }
+      .finding-row:hover {
+        background: linear-gradient(90deg, rgba(99,102,241,0.08), rgba(99,102,241,0.02));
+        border-color: rgba(99,102,241,0.28);
+      }
+      .finding-row::after {
+        content: '';
+        position: absolute; right: 10px; top: 50%;
+        width: 10px; height: 10px; margin-top: -5px;
+        border-right: 1.5px solid var(--brand-400);
+        border-top: 1.5px solid var(--brand-400);
+        transform: rotate(45deg) translateX(-6px);
+        opacity: 0; transition: opacity 0.2s ease, transform 0.25s ease;
+      }
+      .finding-row:hover::after { opacity: 1; transform: rotate(45deg) translateX(0); }
+      .finding-detail {
+        display: none;
+        font-size: 11px; color: var(--gray-400);
+        font-family: var(--font-mono);
+        line-height: 1.55;
+        margin-top: 0;
+      }
+      .finding-row.is-open { flex-wrap: wrap; padding-top: 11px; padding-bottom: 11px; }
+      .finding-row.is-open .finding-detail {
+        display: block;
+        flex-basis: 100%;
+        margin-top: 8px;
+        animation: detail-in 0.28s cubic-bezier(.22,1,.36,1) both;
+      }
+      @keyframes detail-in {
+        from { opacity: 0; transform: translateY(-4px); }
+        to   { opacity: 1; transform: none; }
+      }
+      .finding-detail .map {
+        color: var(--brand-300); background: rgba(99,102,241,0.1);
+        padding: 1px 6px; border-radius: 4px; margin-right: 6px;
+      }
+      .finding-detail .act {
+        display: inline-block; margin-top: 6px;
+        padding: 3px 8px; border-radius: 6px;
+        background: var(--brand-600); color: #fff; font-size: 10px;
+        font-family: var(--font-sans); font-weight: 600;
+      }
+
+      /* ---- KPI hover tooltip ---- */
+      .kpi {
+        --cx: 50%; --cy: 50%;
+        cursor: default;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .kpi::after {
+        content: '';
+        position: absolute; inset: 0; border-radius: 12px;
+        background: radial-gradient(180px 140px at var(--cx) var(--cy),
+          rgba(99,102,241,0.22), transparent 60%);
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .kpi:hover { border-color: rgba(99,102,241,0.35); }
+      .kpi:hover::after { opacity: 1; }
+      .kpi-tip {
+        position: absolute;
+        top: calc(100% + 8px); left: 50%; transform: translate(-50%, 6px);
+        min-width: 170px;
+        padding: 8px 11px;
+        background: rgba(15, 22, 41, 0.96);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(99,102,241,0.28);
+        border-radius: 10px;
+        font-size: 10.5px; color: var(--gray-300);
+        line-height: 1.45;
+        font-family: var(--font-sans);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.55);
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.2s ease, transform 0.25s ease, visibility 0s linear 0.2s;
+        z-index: 4;
+        pointer-events: none;
+      }
+      .kpi-tip b { color: #fff; font-weight: 600; }
+      .kpi:hover .kpi-tip {
+        opacity: 1; visibility: visible;
+        transform: translate(-50%, 0);
+        transition: opacity 0.2s ease, transform 0.25s ease, visibility 0s;
+      }
+      .kpi-tip .spark {
+        display: flex; align-items: flex-end; gap: 2px;
+        height: 18px; margin-top: 6px;
+      }
+      .kpi-tip .spark i {
+        display: block; width: 4px; border-radius: 2px;
+        background: linear-gradient(180deg, var(--brand-400), var(--brand-700));
+      }
+
+      /* ---- Posture ring hover: segments come alive ---- */
+      .posture-ring { cursor: default; }
+      .posture-ring svg circle[data-posture-ring] {
+        transition: filter 0.3s ease;
+      }
+      .posture-ring:hover svg circle[data-posture-ring] {
+        filter: drop-shadow(0 0 10px rgba(99,102,241,0.5));
+      }
+      .posture-legend span {
+        transition: color 0.2s ease, transform 0.2s ease;
+        cursor: default;
+      }
+      .posture-legend span:hover {
+        color: #fff; transform: translateY(-1px);
+      }
+
+      /* ---- Magnetic primary CTA ---- */
+      .btn-primary {
+        --tx: 0px; --ty: 0px;
+        transform: translate(var(--tx), var(--ty));
+        transition: transform 0.2s cubic-bezier(.22,1,.36,1), box-shadow 0.2s ease, background 0.15s ease;
+      }
+      .btn-primary:hover {
+        transform: translate(var(--tx), calc(var(--ty) - 1px));
+      }
+
+      /* ---- Cursor spotlight on feature / step / faq / framework cards ---- */
+      .feature, .step, .faq-item, .framework-chip {
+        --sx: 50%; --sy: 50%;
+        position: relative;
+      }
+      .feature::after,
+      .step::after,
+      .faq-item::after,
+      .framework-chip::after {
+        content: '';
+        position: absolute; inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(220px 180px at var(--sx) var(--sy),
+          rgba(99,102,241,0.14), transparent 55%);
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 0;
+      }
+      .feature:hover::after,
+      .step:hover::after,
+      .faq-item:hover::after,
+      .framework-chip:hover::after { opacity: 1; }
+      .feature > *, .step > *, .faq-item > *, .framework-chip > * { position: relative; z-index: 1; }
+
+      /* ---- Copilot: clickable state when hovered ---- */
+      .copilot { cursor: default; }
+      .copilot:hover {
+        border-color: rgba(99, 102, 241, 0.55);
+        box-shadow: 0 20px 52px rgba(0,0,0,0.55), 0 0 0 1px rgba(99,102,241,0.25), 0 0 40px -10px rgba(99,102,241,0.45);
+      }
+      .copilot-input {
+        transition: border-color 0.2s ease, color 0.2s ease;
+      }
+      .copilot:hover .copilot-input {
+        border-color: rgba(99,102,241,0.4);
+        color: var(--gray-300);
+      }
+
+      /* ---- Hero signals: subtle rise on cursor proximity ---- */
+      .hero-signal { transition: color 0.2s ease, transform 0.2s ease; cursor: default; }
+      .hero-signal:hover { color: var(--gray-200); transform: translateY(-1px); }
+
+      /* ---- Sidebar nav items: hover coloring for realness ---- */
+      .sb-item { cursor: pointer; }
+      .sb-item:hover:not(.active) {
+        background: rgba(99,102,241,0.06);
+        color: #fff;
+      }
+      .top-btn { transition: background 0.15s ease, transform 0.15s ease; cursor: pointer; }
+      .top-btn:hover { background: var(--brand-500); transform: translateY(-1px); }
+
+      /* Disable tilt/magnet on reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        .preview { transform: none !important; }
+        .btn-primary { transform: none !important; }
+        .hero::before { display: none; }
+        .feature::after, .step::after, .faq-item::after, .framework-chip::after,
+        .kpi::after { display: none; }
+      }
+
       /* ========== Accessibility ========== */
       :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
       @media (prefers-reduced-motion: reduce) {
@@ -1127,6 +1362,13 @@
                           <div class="kpi-ring-center" data-count="86" data-suffix="%">86%</div>
                         </div>
                       </div>
+                      <div class="kpi-tip">
+                        <b>Compliance score</b><br/>
+                        98/114 controls passing across ISO 27001 &amp; SOC 2.
+                        <div class="spark">
+                          <i style="height:40%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:72%"></i><i style="height:78%"></i><i style="height:86%"></i>
+                        </div>
+                      </div>
                     </div>
                     <div class="kpi">
                       <div class="kpi-label">Active findings</div>
@@ -1134,6 +1376,13 @@
                       <div class="kpi-delta down">
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"/></svg>
                         −8 this week
+                      </div>
+                      <div class="kpi-tip">
+                        <b>Active findings</b><br/>
+                        1 critical · 4 high · 7 medium. Down from 20 last week.
+                        <div class="spark">
+                          <i style="height:90%"></i><i style="height:85%"></i><i style="height:70%"></i><i style="height:60%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:40%"></i>
+                        </div>
                       </div>
                     </div>
                     <div class="kpi">
@@ -1143,6 +1392,13 @@
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"/></svg>
                         +36 auto
                       </div>
+                      <div class="kpi-tip">
+                        <b>Evidence artifacts</b><br/>
+                        214 time-stamped items. 36 auto-attached this week.
+                        <div class="spark">
+                          <i style="height:30%"></i><i style="height:45%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:72%"></i><i style="height:84%"></i><i style="height:95%"></i>
+                        </div>
+                      </div>
                     </div>
                     <div class="kpi">
                       <div class="kpi-label">Controls</div>
@@ -1150,6 +1406,13 @@
                       <div class="kpi-delta up">
                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"/></svg>
                         ISO 27001 A
+                      </div>
+                      <div class="kpi-tip">
+                        <b>Controls passing</b><br/>
+                        93/114 ISO 27001 Annex A. 21 in progress, 0 failing.
+                        <div class="spark">
+                          <i style="height:40%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:65%"></i><i style="height:72%"></i><i style="height:78%"></i><i style="height:82%"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1160,30 +1423,55 @@
                         <div class="card-h-title">Top findings</div>
                         <div class="card-h-link">View all →</div>
                       </div>
-                      <div class="finding-row">
+                      <div class="finding-row" data-finding>
                         <span class="severity crit">Critical</span>
                         <span class="finding-title">S3 bucket publicly readable (prod-artifacts)</span>
                         <span class="finding-source">aws/s3</span>
+                        <div class="finding-detail">
+                          <span class="map">ISO 27001 A.8.3</span><span class="map">SOC 2 CC6.1</span><br/>
+                          Fix: block public ACLs + enable bucket owner enforced.
+                          <span class="act">Draft fix →</span>
+                        </div>
                       </div>
-                      <div class="finding-row">
+                      <div class="finding-row" data-finding>
                         <span class="severity high">High</span>
                         <span class="finding-title">IAM access keys older than 90 days</span>
                         <span class="finding-source">aws/iam</span>
+                        <div class="finding-detail">
+                          <span class="map">ISO 27001 A.9.2.5</span><span class="map">SOC 2 CC6.2</span><br/>
+                          Fix: rotate 3 keys, notify owners, attach evidence.
+                          <span class="act">Auto-rotate →</span>
+                        </div>
                       </div>
-                      <div class="finding-row">
+                      <div class="finding-row" data-finding>
                         <span class="severity high">High</span>
                         <span class="finding-title">Security group allows 0.0.0.0/0 on port 22</span>
                         <span class="finding-source">aws/ec2</span>
+                        <div class="finding-detail">
+                          <span class="map">ISO 27001 A.13.1</span><span class="map">CIS 5.2</span><br/>
+                          Fix: restrict inbound 22 to bastion CIDR / SSM only.
+                          <span class="act">Draft fix →</span>
+                        </div>
                       </div>
-                      <div class="finding-row">
+                      <div class="finding-row" data-finding>
                         <span class="severity med">Medium</span>
                         <span class="finding-title">RDS without automated backups</span>
                         <span class="finding-source">aws/rds</span>
+                        <div class="finding-detail">
+                          <span class="map">ISO 27001 A.12.3</span><span class="map">SOC 2 A1.2</span><br/>
+                          Fix: enable automated backups, 7-day retention min.
+                          <span class="act">Draft fix →</span>
+                        </div>
                       </div>
-                      <div class="finding-row">
+                      <div class="finding-row" data-finding>
                         <span class="severity med">Medium</span>
                         <span class="finding-title">CloudTrail log file validation disabled</span>
                         <span class="finding-source">aws/cloudtrail</span>
+                        <div class="finding-detail">
+                          <span class="map">ISO 27001 A.12.4</span><span class="map">SOC 2 CC7.2</span><br/>
+                          Fix: enable log-file integrity validation on trail.
+                          <span class="act">Draft fix →</span>
+                        </div>
                       </div>
                     </div>
                     <div class="card-panel">
@@ -1542,7 +1830,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© 2026 OTALA. All rights reserved.</span>
+          <span>© 2026 isops.ai — All rights reserved.</span>
           <span>Built for security teams who ship.</span>
         </div>
       </div>
@@ -1672,6 +1960,109 @@
           };
           setTimeout(tick, 1600);
         }
+
+        // ============================================================
+        // PREMIUM CURSOR LAYER
+        // ============================================================
+
+        // 11) Finding row — click to expand (works on touch + desktop)
+        document.querySelectorAll('[data-finding]').forEach((row) => {
+          row.addEventListener('click', () => {
+            row.parentElement.querySelectorAll('[data-finding].is-open').forEach((r) => {
+              if (r !== row) r.classList.remove('is-open');
+            });
+            row.classList.toggle('is-open');
+          });
+        });
+
+        // Skip cursor-follow effects on touch or reduced-motion
+        const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (prefersReduced || !hasFinePointer) return;
+
+        // 6) Hero spotlight — tracks mouse
+        const hero = document.querySelector('.hero');
+        if (hero) {
+          hero.addEventListener('pointermove', (e) => {
+            const r = hero.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100;
+            const y = ((e.clientY - r.top) / r.height) * 100;
+            hero.style.setProperty('--mx', x + '%');
+            hero.style.setProperty('--my', y + '%');
+            if (!hero.classList.contains('is-lit')) hero.classList.add('is-lit');
+          });
+          hero.addEventListener('pointerleave', () => {
+            hero.classList.remove('is-lit');
+          });
+        }
+
+        // 7) 3D tilt on product preview
+        const previewWrap = document.querySelector('.preview-wrap');
+        if (previewWrap) {
+          const MAX = 4; // degrees max
+          let rafId = null;
+          const onMove = (e) => {
+            const r = previewWrap.getBoundingClientRect();
+            const px = (e.clientX - r.left) / r.width;  // 0..1
+            const py = (e.clientY - r.top) / r.height;  // 0..1
+            const rx = (0.5 - py) * MAX;
+            const ry = (px - 0.5) * MAX;
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(() => {
+              previewWrap.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+              previewWrap.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+            });
+          };
+          previewWrap.addEventListener('pointerenter', () => previewWrap.classList.add('is-hot'));
+          previewWrap.addEventListener('pointermove', onMove);
+          previewWrap.addEventListener('pointerleave', () => {
+            previewWrap.classList.remove('is-hot');
+            previewWrap.style.setProperty('--rx', '0deg');
+            previewWrap.style.setProperty('--ry', '0deg');
+          });
+        }
+
+        // 8) Magnetic primary CTAs
+        document.querySelectorAll('.btn-primary').forEach((btn) => {
+          const STRENGTH = 0.25;
+          btn.addEventListener('pointermove', (e) => {
+            const r = btn.getBoundingClientRect();
+            const cx = r.left + r.width / 2;
+            const cy = r.top + r.height / 2;
+            const dx = (e.clientX - cx) * STRENGTH;
+            const dy = (e.clientY - cy) * STRENGTH;
+            btn.style.setProperty('--tx', dx.toFixed(1) + 'px');
+            btn.style.setProperty('--ty', dy.toFixed(1) + 'px');
+          });
+          btn.addEventListener('pointerleave', () => {
+            btn.style.setProperty('--tx', '0px');
+            btn.style.setProperty('--ty', '0px');
+          });
+        });
+
+        // 9) KPI internal spotlight
+        document.querySelectorAll('.kpi').forEach((card) => {
+          card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100;
+            const y = ((e.clientY - r.top) / r.height) * 100;
+            card.style.setProperty('--cx', x + '%');
+            card.style.setProperty('--cy', y + '%');
+          });
+        });
+
+        // 10) Cursor spotlight on pillar / step / faq / framework cards
+        const spotCards = document.querySelectorAll('.feature, .step, .faq-item, .framework-chip');
+        spotCards.forEach((card) => {
+          card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100;
+            const y = ((e.clientY - r.top) / r.height) * 100;
+            card.style.setProperty('--sx', x + '%');
+            card.style.setProperty('--sy', y + '%');
+          });
+        });
+
+        // 12) Posture legend hover covered via CSS :hover.
       })();
     </script>
   </body>
