@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -24,10 +24,12 @@
         place-items: center;
         font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
         -webkit-font-smoothing: antialiased;
-        color: #0f172a;
+        color: #0a0f1f;
         background:
-          radial-gradient(circle at top left, rgba(54, 83, 248, 0.12), transparent 30%),
-          linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
+          radial-gradient(1200px 600px at 8% -12%, rgba(76, 93, 255, 0.16), transparent 55%),
+          radial-gradient(900px 500px at 88% -18%, rgba(16, 185, 129, 0.09), transparent 60%),
+          radial-gradient(1100px 900px at 50% 110%, rgba(139, 92, 246, 0.07), transparent 70%),
+          linear-gradient(180deg, #fafbff 0%, #f5f7fd 48%, #f0f3fc 100%);
       }
 
       .container {
@@ -36,11 +38,11 @@
       }
 
       .code {
-        font-family: "Playfair Display", Georgia, serif;
+        font-family: "Instrument Serif", Georgia, serif;
         font-size: clamp(4rem, 12vw, 8rem);
-        font-weight: 800;
+        font-weight: 400;
         letter-spacing: -0.06em;
-        background: linear-gradient(135deg, #3653f8 0%, #1d39d8 100%);
+        background: linear-gradient(135deg, #6b7cff 0%, #4c5dff 50%, #2d3dcc 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -49,10 +51,10 @@
       }
 
       h1 {
-        font-family: "Playfair Display", Georgia, serif;
-        font-size: 1.4rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        font-family: "Instrument Serif", Georgia, serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: -0.03em;
         margin: 0 0 12px;
       }
 
@@ -72,8 +74,11 @@
         color: white;
         font-weight: 600;
         text-decoration: none;
-        background: linear-gradient(135deg, #3653f8 0%, #1d39d8 100%);
-        box-shadow: 0 18px 40px rgba(54, 83, 248, 0.24);
+        background: linear-gradient(180deg, #6b7cff 0%, #4c5dff 55%, #3545dd 100%);
+        box-shadow:
+          0 14px 28px rgba(76, 93, 255, 0.28),
+          0 4px 8px rgba(76, 93, 255, 0.14),
+          inset 0 1px 0 rgba(255, 255, 255, 0.24);
         transition: transform 160ms ease;
       }
 
