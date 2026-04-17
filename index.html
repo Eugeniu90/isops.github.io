@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>isops.ai | AI-Native Trust and Compliance Operations</title>
-    <meta name="theme-color" content="#6366f1" />
+    <title>isops.ai — Trust &amp; compliance, on autopilot.</title>
+    <meta name="theme-color" content="#0a0e1a" />
     <meta name="robots" content="index,follow" />
     <meta
       name="description"
-      content="isops.ai turns AWS posture, remediation, evidence, and audit reporting into one AI-native operating surface for ISO 27001 and SOC 2 teams."
+      content="From AWS finding to audit-ready evidence in minutes. ISO 27001 &amp; SOC 2, powered by AI. Built for security teams that ship."
     />
     <meta name="application-name" content="isops.ai" />
     <meta property="og:site_name" content="isops.ai" />
-    <meta property="og:title" content="isops.ai" />
+    <meta property="og:title" content="isops.ai — Trust &amp; compliance, on autopilot." />
     <meta
       property="og:description"
-      content="Move from AWS findings to audit-ready evidence without the spreadsheet detour."
+      content="From AWS finding to audit-ready evidence in minutes. ISO 27001 &amp; SOC 2, powered by AI."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://isops.ai/" />
@@ -23,20 +23,21 @@
     <meta name="twitter:title" content="isops.ai" />
     <meta
       name="twitter:description"
-      content="AI-native trust and compliance operations for AWS environments."
+      content="Trust &amp; compliance, on autopilot. ISO 27001 &amp; SOC 2 for AWS — in minutes."
     />
-    <!-- TODO: Replace with actual hosted image URL (1200x630 recommended) -->
     <meta property="og:image" content="https://isops.ai/og-image.png" />
     <meta name="twitter:image" content="https://isops.ai/og-image.png" />
     <link rel="canonical" href="https://isops.ai/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Same fonts as the platform: Inter + JetBrains Mono -->
     <link
-  href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet"
-/>
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
+      type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20style%3D%22stop-color%3A%236366f1%22%2F%3E%3Cstop%20offset%3D%2250%25%22%20style%3D%22stop-color%3A%234338ca%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20style%3D%22stop-color%3A%23312e81%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22url(%23g)%22%2F%3E%3Cpath%20d%3D%22M16%204L7%209V15C7%2021%2010.8%2026.2%2016%2027.5C21.2%2026.2%2025%2021%2025%2015V9L16%204Z%22%20fill%3D%22rgba(255%2C255%2C255%2C0.15)%22%20stroke%3D%22white%22%20stroke-width%3D%221.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M16%206.5L9%2010.5V15C9%2019.8%2012%2024%2016%2025.2C20%2024%2023%2019.8%2023%2015V10.5L16%206.5Z%22%20fill%3D%22rgba(255%2C255%2C255%2C0.1)%22%2F%3E%3Cpath%20d%3D%22M11.5%2015.5L14.2%2018.2L20.5%2011.5%22%20stroke%3D%22white%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E"
     />
     <script type="application/ld+json">
@@ -58,2737 +59,1619 @@
       }
     </script>
     <style>
+      /* ============================================================
+         isops.ai — marketing site
+         Exactly matches platform: Inter + JetBrains Mono, indigo,
+         dark surface. Same design tokens, same card paradigm.
+         ============================================================ */
+
       :root {
-    /* Surfaces */
-    --bg: #fafbff;
-    --bg-accent: #f4f6ff;
-    --surface: rgba(255, 255, 255, 0.72);
-    --surface-strong: #ffffff;
-    --surface-ink: #f5f7ff;
+        /* Brand — identical to platform tailwind config */
+        --brand-50:  #eef2ff;
+        --brand-100: #e0e7ff;
+        --brand-200: #c7d2fe;
+        --brand-300: #a5b4fc;
+        --brand-400: #818cf8;
+        --brand-500: #6366f1;
+        --brand-600: #4f46e5;
+        --brand-700: #4338ca;
+        --brand-800: #3730a3;
+        --brand-900: #312e81;
 
-    /* Ink */
-    --ink: #0a0f1f;
-    --ink-soft: #3f4a66;
-    --ink-muted: #5a6b8c;
+        /* Surface — identical to platform */
+        --surface:     #0a0e1a;
+        --surface-50:  #0f1629;
+        --surface-100: #151d33;
+        --surface-200: #1e293b;
+        --surface-300: #2d3a4f;
 
-    /* Lines */
-    --line: rgba(99, 115, 163, 0.14);
-    --line-strong: rgba(52, 73, 132, 0.22);
+        /* Gray */
+        --gray-50:  #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-300: #d1d5db;
+        --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
 
-    /* Brand */
-    --brand: #6366f1;
-    --brand-deep: #4338ca;
-    --brand-bright: #818cf8;
-    --brand-soft: #eef2ff;
+        /* Semantic */
+        --green-400: #34d399;
+        --green-500: #10b981;
+        --red-400:   #f87171;
+        --red-500:   #ef4444;
+        --amber-400: #fbbf24;
+        --orange-400: #fb923c;
 
-    /* Accents */
-    --teal: #0ea47f;
-    --amber: #f59e0b;
-    --rose: #e11d48;
-    --violet: #8b5cf6;
-
-    /* Shadows — multi-layered for depth */
-    --shadow-sm: 0 1px 2px rgba(14, 24, 56, 0.04), 0 2px 6px rgba(14, 24, 56, 0.04);
-    --shadow-md: 0 2px 8px rgba(14, 24, 56, 0.05), 0 8px 24px rgba(14, 24, 56, 0.06);
-    --shadow-lg: 0 4px 14px rgba(14, 24, 56, 0.05), 0 20px 42px rgba(14, 24, 56, 0.08);
-    --shadow-xl: 0 8px 22px rgba(14, 24, 56, 0.06), 0 40px 84px rgba(14, 24, 56, 0.12);
-    --shadow-glow: 0 18px 42px rgba(99, 102, 241, 0.16), 0 6px 14px rgba(99, 102, 241, 0.08);
-
-    /* Radii */
-    --radius-xs: 10px;
-    --radius-sm: 14px;
-    --radius-md: 18px;
-    --radius-lg: 22px;
-    --radius-xl: 30px;
-    --radius-2xl: 40px;
-
-    /* Layout */
-    --max: 1220px;
-}
-
-      * {
-        box-sizing: border-box;
+        /* Fonts */
+        --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
       body {
-    margin: 0;
-    font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-    color: var(--ink);
-    -webkit-font-smoothing: antialiased;
-    background:
-        radial-gradient(1200px 600px at 8% -12%, rgba(99, 102, 241, 0.16), transparent 55%),
-        radial-gradient(900px 500px at 88% -18%, rgba(16, 185, 129, 0.09), transparent 60%),
-        radial-gradient(1100px 900px at 50% 110%, rgba(139, 92, 246, 0.07), transparent 70%),
-        linear-gradient(180deg, #fafbff 0%, #f5f7fd 48%, #f0f3fc 100%);
-    min-height: 100vh;
-}
-
-      a {
-        color: inherit;
-        text-decoration: none;
+        font-family: var(--font-sans);
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+        background: var(--surface);
+        color: #e5e7eb;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
       }
 
-      img {
-        max-width: 100%;
+      /* ========== Ambient background ========== */
+      body::before {
+        content: '';
+        position: fixed; inset: 0;
+        background:
+          radial-gradient(1000px 600px at 10% -10%, rgba(99, 102, 241, 0.20), transparent 60%),
+          radial-gradient(800px 500px at 90% 10%, rgba(67, 56, 202, 0.16), transparent 60%),
+          radial-gradient(600px 400px at 50% 110%, rgba(49, 46, 129, 0.14), transparent 60%);
+        z-index: -2;
+        pointer-events: none;
+      }
+      body::after {
+        content: '';
+        position: fixed; inset: 0;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+        -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+        z-index: -1;
+        pointer-events: none;
       }
 
-      .noise {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    display: none;
-}
+      /* ========== Typography ========== */
+      h1, h2, h3, h4, h5, h6 { margin: 0; letter-spacing: -0.02em; font-weight: 600; }
+      h1 { font-weight: 700; letter-spacing: -0.04em; }
+      p { margin: 0; }
+      a { color: inherit; text-decoration: none; }
+      .mono { font-family: var(--font-mono); font-feature-settings: 'zero'; }
 
-      .page {
-        position: relative;
-        z-index: 1;
+      /* ========== Layout ========== */
+      .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+      @media (min-width: 1024px) { .container { padding: 0 32px; } }
+
+      /* ========== Navigation ========== */
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(10, 14, 26, 0.75);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border-bottom: 1px solid rgba(45, 58, 79, 0.3);
       }
-
-      .container {
-        width: min(calc(100% - 48px), var(--max));
-        margin: 0 auto;
+      .nav-inner {
+        display: flex; align-items: center; justify-content: space-between;
+        height: 64px;
       }
-
-      .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    background: rgba(250, 251, 255, 0.72);
-    border-bottom: 1px solid rgba(111, 133, 191, 0.08);
-}
-
-      .nav-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 18px 0;
+      .nav-brand {
+        display: flex; align-items: center; gap: 10px;
+        font-weight: 600; font-size: 15px; color: #fff;
       }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
+      .nav-brand-icon {
+        width: 28px; height: 28px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 50%, var(--brand-900) 100%);
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3), inset 0 1px 0 rgba(255,255,255,0.15);
       }
-
-      .brand-mark {
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4338ca 100%);
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35), inset 0 1px 0 rgba(255,255,255,0.18);
-}
-
-      .brand-copy {
-        display: flex;
-        align-items: center;
-      }
-
-      .brand-copy strong {
-    font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-    font-size: 1.02rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-}
-
       .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
+        display: none; align-items: center; gap: 28px;
+        font-size: 13.5px; color: var(--gray-400); font-weight: 500;
+      }
+      @media (min-width: 900px) { .nav-links { display: flex; } }
+      .nav-links a { transition: color 0.15s; }
+      .nav-links a:hover { color: #fff; }
+      .nav-actions { display: flex; align-items: center; gap: 8px; }
 
-.nav-links a {
-    padding: 8px 14px;
-    border-radius: 10px;
-    color: var(--ink-soft);
-    font-weight: 500;
-    font-size: 0.88rem;
-    letter-spacing: -0.01em;
-    transition: color 150ms ease, background 150ms ease;
-}
+      /* ========== Buttons ========== */
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        padding: 9px 16px;
+        font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
+        border: none; border-radius: 10px;
+        cursor: pointer; transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.15s ease;
+        text-decoration: none; white-space: nowrap;
+      }
+      .btn-primary {
+        background: var(--brand-600); color: #fff;
+        box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+      }
+      .btn-primary:hover {
+        background: var(--brand-500);
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+      }
+      .btn-ghost {
+        background: rgba(255,255,255,0.04); color: #fff;
+        border: 1px solid rgba(255,255,255,0.08);
+      }
+      .btn-ghost:hover {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.18);
+        transform: translateY(-1px);
+      }
+      .btn-lg { padding: 12px 22px; font-size: 14.5px; border-radius: 12px; }
+      .btn svg { width: 14px; height: 14px; }
+      .btn-primary::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+      .btn-primary { position: relative; overflow: hidden; }
+      .btn-primary:hover::after { opacity: 1; animation: btn-shimmer 1.2s ease; }
+      @keyframes btn-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 
-.nav-links a:hover,
-.nav-links a.is-active {
-    color: var(--ink);
-    background: rgba(230, 235, 255, 0.6);
-}
+      /* ========== Hero ========== */
+      .hero { padding: 72px 0 40px; position: relative; }
+      @media (min-width: 900px) { .hero { padding: 104px 0 60px; } }
 
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      .hero-chip {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 5px 14px 5px 8px;
+        background: rgba(99, 102, 241, 0.08);
+        border: 1px solid rgba(99, 102, 241, 0.28);
+        border-radius: 9999px;
+        font-size: 12px; font-weight: 500; color: var(--brand-300);
+        margin-bottom: 28px;
+        backdrop-filter: blur(8px);
+      }
+      .hero-chip-dot {
+        position: relative;
+        width: 7px; height: 7px;
+        background: var(--green-400);
+        border-radius: 50%;
+        margin-left: 2px;
+      }
+      .hero-chip-dot::before {
+        content: '';
+        position: absolute; inset: -2px;
+        border-radius: 50%;
+        background: var(--green-400);
+        opacity: 0.4;
+        animation: pulse-ring 2s ease-out infinite;
+      }
+      @keyframes pulse-ring {
+        0%   { transform: scale(1);   opacity: 0.7; }
+        100% { transform: scale(2.4); opacity: 0; }
       }
 
-      .ghost-button,
-.primary-button,
-.secondary-button {
-    border: 0;
-    border-radius: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font: inherit;
-    font-weight: 600;
-    font-size: 0.88rem;
-    letter-spacing: -0.01em;
-    cursor: pointer;
-    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
+      .hero h1 {
+        font-size: clamp(44px, 7vw, 80px);
+        line-height: 1.0;
+        font-weight: 700;
+        color: #fff;
+        max-width: 920px;
+        letter-spacing: -0.04em;
+      }
+      .hero h1 .grad {
+        background: linear-gradient(120deg, var(--brand-300) 0%, var(--brand-400) 35%, var(--brand-500) 70%, var(--brand-400) 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: grad-shift 8s linear infinite;
+      }
+      @keyframes grad-shift {
+        0%, 100% { background-position: 0% center; }
+        50%      { background-position: 100% center; }
+      }
 
-.ghost-button {
-    padding: 10px 16px;
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.1);
-}
+      .hero-sub {
+        margin-top: 24px;
+        font-size: clamp(16px, 1.3vw, 19px);
+        line-height: 1.55;
+        color: var(--gray-400);
+        max-width: 580px;
+      }
+      .hero-sub strong { color: #fff; font-weight: 600; }
 
-.primary-button {
-    padding: 11px 20px;
-    color: white;
-    background: linear-gradient(180deg, #818cf8 0%, #6366f1 55%, #4338ca 100%);
-    box-shadow:
-        0 14px 28px rgba(99, 102, 241, 0.28),
-        0 4px 8px rgba(99, 102, 241, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.24);
-}
+      .hero-cta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
-.secondary-button {
-    padding: 11px 20px;
-    color: var(--ink);
-    background: rgba(255, 255, 255, 0.82);
-    box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.12), 0 2px 6px rgba(14, 24, 56, 0.04);
-}
+      .hero-signals {
+        margin-top: 40px;
+        display: flex; flex-wrap: wrap; gap: 20px 32px;
+        font-size: 12.5px; color: var(--gray-500);
+      }
+      .hero-signal { display: inline-flex; align-items: center; gap: 8px; }
+      .hero-signal svg { width: 14px; height: 14px; color: var(--green-400); flex-shrink: 0; }
 
-.primary-button:hover {
-    transform: translateY(-1px);
-    box-shadow:
-        0 18px 34px rgba(99, 102, 241, 0.34),
-        0 6px 12px rgba(99, 102, 241, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
+      /* ========== Product preview — looks like the real app ========== */
+      .preview-wrap { margin-top: 64px; position: relative; }
+      @media (min-width: 900px) { .preview-wrap { margin-top: 80px; } }
 
-.ghost-button:hover,
-.secondary-button:hover {
-    transform: translateY(-1px);
-    box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.18), 0 10px 24px rgba(14, 24, 56, 0.06);
-}
+      .preview-glow {
+        position: absolute; inset: -60px -30px -30px -30px;
+        background:
+          radial-gradient(50% 60% at 50% 0%, rgba(99, 102, 241, 0.45), transparent 70%),
+          radial-gradient(30% 40% at 20% 80%, rgba(67, 56, 202, 0.3), transparent 70%),
+          radial-gradient(30% 40% at 80% 80%, rgba(52, 211, 153, 0.2), transparent 70%);
+        filter: blur(40px); z-index: 0; pointer-events: none;
+      }
 
-      .menu-toggle {
+      .preview {
+        position: relative; z-index: 1;
+        background: var(--surface-50);
+        border: 1px solid rgba(99, 102, 241, 0.15);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow:
+          0 40px 100px -20px rgba(0,0,0,0.65),
+          0 0 0 1px rgba(99, 102, 241, 0.06),
+          inset 0 1px 0 rgba(255,255,255,0.04);
+      }
+
+      /* Window chrome */
+      .preview-chrome {
+        display: flex; align-items: center; gap: 10px;
+        padding: 12px 16px;
+        background: var(--surface-100);
+        border-bottom: 1px solid rgba(45, 58, 79, 0.5);
+      }
+      .preview-dots { display: flex; gap: 6px; }
+      .preview-dots span {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+      }
+      .preview-dots span:nth-child(1) { background: #ff5f57; opacity: 0.6; }
+      .preview-dots span:nth-child(2) { background: #febc2e; opacity: 0.6; }
+      .preview-dots span:nth-child(3) { background: #28c840; opacity: 0.6; }
+      .preview-url {
+        flex: 1; max-width: 380px; margin: 0 auto;
+        padding: 5px 12px; border-radius: 6px;
+        background: rgba(0,0,0,0.3); border: 1px solid rgba(45, 58, 79, 0.4);
+        font-family: var(--font-mono); font-size: 11.5px;
+        color: var(--gray-400); text-align: center;
+      }
+      .preview-url .lock {
+        display: inline-block; vertical-align: middle;
+        color: var(--green-400); margin-right: 6px; font-size: 10px;
+      }
+      .preview-scan {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 4px 9px; border-radius: 6px;
+        background: rgba(52, 211, 153, 0.1);
+        border: 1px solid rgba(52, 211, 153, 0.25);
+        font-size: 10.5px; font-weight: 500; color: var(--green-400);
+      }
+      .preview-scan-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--green-400);
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+        animation: live-pulse 1.6s ease-out infinite;
+      }
+      @keyframes live-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+        50%      { box-shadow: 0 0 0 5px rgba(52, 211, 153, 0); }
+      }
+
+      /* Body layout */
+      .preview-body { display: flex; min-height: 560px; }
+
+      /* Sidebar */
+      .preview-sidebar {
+        width: 220px; flex-shrink: 0;
+        background: var(--surface-50);
+        border-right: 1px solid rgba(45, 58, 79, 0.5);
+        padding: 16px 12px;
         display: none;
       }
+      @media (min-width: 900px) { .preview-sidebar { display: block; } }
+      .sb-logo {
+        display: flex; align-items: center; gap: 10px;
+        padding: 0 8px 14px; margin-bottom: 8px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.4);
+      }
+      .sb-logo-icon {
+        width: 28px; height: 28px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand-500), var(--brand-700) 50%, var(--brand-900));
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+      }
+      .sb-logo span { font-size: 13px; font-weight: 600; color: #fff; }
+      .sb-nav { display: flex; flex-direction: column; gap: 2px; }
+      .sb-item {
+        display: flex; align-items: center; gap: 10px;
+        padding: 7px 10px; border-radius: 10px;
+        font-size: 12.5px; font-weight: 500; color: var(--gray-500);
+        transition: background 0.15s, color 0.15s;
+      }
+      .sb-item svg { width: 15px; height: 15px; flex-shrink: 0; }
+      .sb-item:hover { background: rgba(255,255,255,0.03); color: var(--gray-300); }
+      .sb-item.active { background: rgba(99, 102, 241, 0.12); color: #fff; }
+      .sb-item .pill {
+        margin-left: auto; padding: 1px 7px; border-radius: 9999px;
+        font-size: 10px; font-weight: 700;
+        background: rgba(248, 113, 113, 0.2); color: var(--red-400);
+      }
 
-      .hero {
-    padding: 72px 0 40px;
-    position: relative;
-    overflow: hidden;
-}
+      /* Main content */
+      .preview-main {
+        flex: 1; min-width: 0; position: relative;
+        display: flex; flex-direction: column;
+      }
+      .preview-top {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.4);
+        background: rgba(15, 22, 41, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      .preview-top-title { font-size: 13.5px; font-weight: 600; color: #fff; }
+      .preview-top-right { display: flex; align-items: center; gap: 10px; }
+      .top-badge {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 4px 10px; border-radius: 8px;
+        background: rgba(15, 22, 41, 0.8); border: 1px solid rgba(45, 58, 79, 0.5);
+        font-size: 11px; color: var(--gray-400);
+      }
+      .top-badge-grade {
+        width: 18px; height: 18px; border-radius: 50%;
+        background: rgba(52, 211, 153, 0.2); color: var(--green-400);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 9.5px; font-weight: 700;
+      }
+      .top-btn {
+        padding: 5px 12px; border-radius: 8px;
+        background: var(--brand-600); color: #fff;
+        font-size: 11px; font-weight: 600;
+        box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+      }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.5), transparent 24%),
-        radial-gradient(circle at 82% 14%, rgba(99, 102, 241, 0.12), transparent 28%),
-        radial-gradient(circle at 68% 62%, rgba(16, 185, 129, 0.07), transparent 26%);
-    pointer-events: none;
-}
+      .preview-content { padding: 20px; overflow: hidden; flex: 1; }
 
-.hero::after {
-    content: none;
-}
-
-.hero-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 44px;
-}
-
-.hero-text {
-    text-align: center;
-}
-
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-    padding: 7px 14px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.82);
-    color: var(--ink-soft);
-    box-shadow: inset 0 0 0 1px rgba(84, 104, 164, 0.1), 0 2px 6px rgba(14, 24, 56, 0.04);
-    font-weight: 600;
-    font-size: 0.78rem;
-    letter-spacing: 0.01em;
-}
-
-.eyebrow::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
-    box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
-}
-
-h1, h2, h3, h4 {
-    margin: 0;
-    font-family: "Instrument Serif", Georgia, serif;
-    letter-spacing: -0.02em;
-    font-weight: 400;
-}
-
-h1 {
-    max-width: 22ch;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: clamp(2.8rem, 5.4vw, 4.6rem);
-    line-height: 1.02;
-    font-weight: 400;
-    letter-spacing: -0.035em;
-    color: var(--ink);
-}
-
-.hero p {
-    max-width: 58ch;
-    margin: 22px auto 0;
-    color: var(--ink-soft);
-    font-size: 1.08rem;
-    line-height: 1.65;
-    font-weight: 400;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 32px;
-    justify-content: center;
-}
-
-.hero-metrics {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 40px;
-    max-width: 880px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-      .metric-card,
-.glass-card,
-.feature-card,
-.workflow-card,
-.report-card,
-.faq-item,
-.comparison-card,
-.contact-card {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
-    transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
-}
-
-.feature-card:hover,
-.workflow-card:hover,
-.report-card:hover,
-.comparison-card:hover {
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(99, 102, 241, 0.18);
-    transform: translateY(-2px);
-}
-
-.metric-card {
-    padding: 18px 20px;
-    border-radius: 16px;
-}
-
-.metric-card strong {
-    display: block;
-    font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-    font-size: 1.08rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 6px;
-    color: var(--ink);
-}
-
-.metric-card span {
-    color: var(--ink-muted);
-    font-size: 0.9rem;
-    line-height: 1.55;
-}
-
-      .product-stage {
-    position: relative;
-    overflow: hidden;
-    padding: 16px;
-    border-radius: 28px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(235, 241, 255, 0.72) 100%);
-    border: 1px solid rgba(111, 133, 191, 0.18);
-    box-shadow:
-        0 2px 4px rgba(14, 24, 56, 0.04),
-        0 32px 80px rgba(14, 24, 56, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-.product-stage::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 15%, rgba(99, 102, 241, 0.18), transparent 32%),
-        radial-gradient(circle at 88% 18%, rgba(16, 185, 129, 0.14), transparent 28%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(244, 247, 252, 0.2) 100%);
-    pointer-events: none;
-}
-
-      .hero-product {
+      /* KPI grid */
+      .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px; }
+      @media (max-width: 700px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+      .kpi {
+        padding: 14px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 12px;
         position: relative;
-        z-index: 1;
-        display: grid;
-        gap: 16px;
-      }
-
-      .hero-note {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        justify-self: start;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.74);
-        color: var(--ink-soft);
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        box-shadow: inset 0 0 0 1px rgba(111, 133, 191, 0.14);
-      }
-
-      .product-shell {
-        display: grid;
-        grid-template-columns: 94px minmax(0, 1fr);
-        min-height: 560px;
-        border-radius: 24px;
-        overflow: hidden;
-        background: rgba(255, 255, 255, 0.96);
-        border: 1px solid rgba(111, 133, 191, 0.18);
-        box-shadow: 0 28px 72px rgba(21, 36, 76, 0.14);
-      }
-
-      .product-sidebar {
-        padding: 20px 16px;
-        display: grid;
-        align-content: start;
-        gap: 18px;
-        background: linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
-        border-right: 1px solid rgba(111, 133, 191, 0.14);
-      }
-
-      .shell-mark {
-        width: 38px;
-        height: 38px;
-        display: grid;
-        place-items: center;
-        border-radius: 13px;
-        background: linear-gradient(145deg, #5d6afe 0%, #2b43ef 100%);
-        box-shadow: 0 12px 24px rgba(99, 102, 241, 0.18);
-      }
-
-      .shell-nav {
-        display: grid;
-        gap: 10px;
-      }
-
-      .shell-nav-item {
-        display: grid;
-        place-items: center;
-        width: 46px;
-        height: 46px;
-        border-radius: 16px;
-        color: #6b7892;
-      }
-
-      .shell-nav-item.active {
-        background: rgba(230, 236, 255, 0.96);
-        color: var(--brand);
-        box-shadow: inset 0 0 0 1px rgba(111, 133, 191, 0.14);
-      }
-
-      .shell-nav-item svg {
-        width: 21px;
-        height: 21px;
-        stroke: currentColor;
-      }
-
-      .product-main {
-        display: grid;
-        grid-template-rows: auto 1fr;
-        min-width: 0;
-        background: linear-gradient(180deg, #fbfcff 0%, #f4f7fc 100%);
-      }
-
-      .product-topbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 18px 22px;
-        border-bottom: 1px solid rgba(111, 133, 191, 0.12);
-        background: rgba(255, 255, 255, 0.82);
-      }
-
-      .product-topbar strong {
-        font-size: 1.12rem;
-        letter-spacing: -0.03em;
-      }
-
-      .topbar-actions {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .topbar-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: inset 0 0 0 1px rgba(111, 133, 191, 0.14);
-        color: var(--ink-soft);
-        font-size: 0.78rem;
-        font-weight: 700;
-      }
-
-      .topbar-pill .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 999px;
-        background: #f97316;
-      }
-
-      .topbar-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 16px;
-        border-radius: 14px;
-        background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
-        color: white;
-        font-size: 0.8rem;
-        font-weight: 700;
-        box-shadow: 0 16px 30px rgba(99, 102, 241, 0.2);
-      }
-
-      .product-canvas {
-        padding: 20px 22px 22px;
-        display: grid;
-        gap: 18px;
-      }
-
-      .mock-metrics {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .mock-card {
-        min-width: 0;
-        padding: 16px 16px 15px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.94);
-        border: 1px solid rgba(111, 133, 191, 0.14);
-        box-shadow: 0 12px 24px rgba(21, 36, 76, 0.06);
-      }
-
-      .mock-card .label {
-        display: block;
-        margin-bottom: 10px;
-        color: var(--ink-muted);
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .mock-card strong {
-        display: block;
-        font-size: 1.68rem;
-        line-height: 1;
-        letter-spacing: -0.05em;
-      }
-
-      .mock-card span {
-        display: block;
-        margin-top: 8px;
-        color: var(--ink-soft);
-        font-size: 0.84rem;
-        line-height: 1.5;
-      }
-
-      .mock-card.emphasis {
-        border-color: rgba(98, 117, 255, 0.22);
-        box-shadow:
-          0 18px 34px rgba(99, 102, 241, 0.08),
-          inset 0 0 0 1px rgba(98, 117, 255, 0.16);
-      }
-
-      .mock-card.positive strong {
-        color: var(--teal);
-      }
-
-      .mock-card.alert strong {
-        color: #ef4444;
-      }
-
-      .mock-grid {
-        display: grid;
-        grid-template-columns: 1.08fr 0.92fr;
-        gap: 16px;
-      }
-
-      .mock-panel {
-        min-width: 0;
-        padding: 18px;
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.94);
-        border: 1px solid rgba(111, 133, 191, 0.14);
-        box-shadow: 0 14px 30px rgba(21, 36, 76, 0.07);
-      }
-
-      .mock-panel-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        margin-bottom: 16px;
-      }
-
-      .mock-panel-header strong {
-        font-size: 0.92rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: #55627b;
-      }
-
-      .mini-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 7px 11px;
-        border-radius: 999px;
-        background: rgba(230, 236, 255, 0.94);
-        color: var(--brand);
-        font-size: 0.72rem;
-        font-weight: 700;
-      }
-
-      .radar-shell {
-        display: grid;
-        place-items: center;
-        min-height: 248px;
-        border-radius: 18px;
-        background:
-          radial-gradient(circle at center, rgba(84, 103, 255, 0.06) 0 29%, transparent 29%),
-          linear-gradient(180deg, rgba(243, 246, 255, 0.96) 0%, rgba(248, 250, 255, 0.96) 100%);
-        border: 1px solid rgba(111, 133, 191, 0.1);
-      }
-
-      .radar {
-        position: relative;
-        width: 220px;
-        aspect-ratio: 1;
-      }
-
-      .radar svg {
-        width: 100%;
-        height: 100%;
-      }
-
-      .radar-copy {
-        position: absolute;
-        inset: 50% auto auto 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-      }
-
-      .radar-copy strong {
-        display: block;
-        font-size: 1.7rem;
-        letter-spacing: -0.05em;
-      }
-
-      .radar-copy span {
-        display: block;
-        margin-top: 6px;
-        color: var(--ink-muted);
-        font-size: 0.76rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .findings-shell {
-        display: grid;
-        gap: 12px;
-      }
-
-      .finding-row {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 12px;
-        align-items: start;
-        padding: 14px 14px 13px;
-        border-radius: 16px;
-        background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
-        border: 1px solid rgba(111, 133, 191, 0.12);
-      }
-
-      .finding-row strong {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 0.92rem;
-        line-height: 1.34;
-      }
-
-      .finding-row p {
-        margin: 0;
-        color: var(--ink-soft);
-        font-size: 0.8rem;
-        line-height: 1.48;
-      }
-
-      .finding-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 62px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        font-size: 0.7rem;
-        font-weight: 800;
-        text-transform: uppercase;
-      }
-
-      .finding-badge.critical {
-        color: #fff1f2;
-        background: rgba(239, 68, 68, 0.9);
-      }
-
-      .finding-badge.high {
-        color: #fff7ed;
-        background: rgba(249, 115, 22, 0.88);
-      }
-
-      .finding-badge.medium {
-        color: #fffbeb;
-        background: rgba(234, 179, 8, 0.86);
-      }
-
-      .finding-tag {
-        display: inline-flex;
-        align-items: center;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(239, 244, 255, 0.95);
-        color: #5d6c86;
-        font-size: 0.7rem;
-        font-weight: 700;
-      }
-
-      .mock-foot {
-        display: grid;
-        grid-template-columns: 1fr 0.95fr;
-        gap: 16px;
-      }
-
-      .infra-shell {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .infra-cluster {
-        min-width: 0;
-        padding: 14px 12px;
-        border-radius: 18px;
-        background: linear-gradient(180deg, rgba(16, 23, 48, 0.95) 0%, rgba(12, 19, 42, 0.96) 100%);
-        color: #f8fbff;
-      }
-
-      .infra-cluster .cluster-label {
-        display: block;
-        color: rgba(210, 223, 255, 0.72);
-        font-size: 0.65rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .infra-cluster .cluster-node {
-        width: 52px;
-        height: 52px;
-        margin: 14px 0 12px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      .infra-cluster .cluster-node svg {
-        width: 24px;
-        height: 24px;
-        stroke: white;
-      }
-
-      .infra-cluster .cluster-node.critical {
-        box-shadow: inset 0 0 0 4px rgba(248, 113, 113, 0.9);
-      }
-
-      .infra-cluster .cluster-node.warning {
-        box-shadow: inset 0 0 0 4px rgba(251, 191, 36, 0.92);
-      }
-
-      .infra-cluster .cluster-node.clean {
-        box-shadow: inset 0 0 0 4px rgba(52, 211, 153, 0.92);
-      }
-
-      .infra-cluster p {
-        margin: 0;
-        color: rgba(225, 233, 255, 0.86);
-        font-size: 0.78rem;
-        line-height: 1.45;
-      }
-
-      .copilot-shell {
-        display: grid;
-        gap: 12px;
-      }
-
-      .copilot-shell .mini-pill {
-        justify-self: start;
-      }
-
-      .copilot-shell strong {
-        display: block;
-        font-size: 1rem;
-        line-height: 1.35;
-      }
-
-      .copilot-shell p {
-        margin: 0;
-        color: var(--ink-soft);
-        font-size: 0.83rem;
-        line-height: 1.58;
-      }
-
-      .copilot-list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 9px;
-      }
-
-      .copilot-list li {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        color: var(--ink-soft);
-        font-size: 0.8rem;
-        line-height: 1.5;
-      }
-
-      .copilot-list li::before {
-        content: "";
-        width: 10px;
-        height: 10px;
-        flex: 0 0 auto;
-        margin-top: 0.38rem;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
-      }
-
-      .stage-grid {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 16px;
-      }
-
-      .stage-window,
-      .stage-stack {
-        display: grid;
-        gap: 16px;
-      }
-
-      .window {
-        border-radius: 22px;
-        background: rgba(11, 18, 40, 0.94);
-        color: #f8fbff;
-        box-shadow: inset 0 0 0 1px rgba(150, 174, 255, 0.12);
         overflow: hidden;
       }
-
-      .window-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 16px 18px;
-        border-bottom: 1px solid rgba(150, 174, 255, 0.12);
+      .kpi::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), transparent);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .kpi:hover::before { opacity: 1; }
+      .kpi-label {
+        font-size: 9px; font-weight: 600; color: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+      .kpi-value {
+        font-size: 22px; font-weight: 700; color: #fff;
+        font-variant-numeric: tabular-nums;
+      }
+      .kpi-delta { display: inline-flex; align-items: center; gap: 3px; font-size: 10.5px; font-weight: 600; margin-top: 4px; }
+      .kpi-delta.up   { color: var(--green-400); }
+      .kpi-delta.down { color: var(--red-400); }
+      .kpi-ring-wrap {
+        display: flex; align-items: center; justify-content: center;
+        height: 56px;
+      }
+      .kpi-ring { position: relative; width: 56px; height: 56px; }
+      .kpi-ring svg { transform: rotate(-90deg); display: block; }
+      .kpi-ring-center {
+        position: absolute; inset: 0;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px; font-weight: 700; color: #fff;
+        font-variant-numeric: tabular-nums;
       }
 
-      .window-header strong {
-        font-size: 0.98rem;
-        line-height: 1.2;
+      /* Two-col row */
+      .row-2 { display: grid; grid-template-columns: 1.5fr 1fr; gap: 12px; }
+      @media (max-width: 800px) { .row-2 { grid-template-columns: 1fr; } }
+
+      .card-panel {
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 12px;
+        padding: 14px;
       }
-
-      .window-body {
-        padding: 18px;
-      }
-
-      .topology-lanes {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .lane {
-        min-height: 184px;
-        padding: 16px 14px;
-        border-radius: 16px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
-        border: 1px solid rgba(150, 174, 255, 0.12);
-      }
-
-      .lane-title {
-        font-size: 0.68rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: rgba(219, 229, 255, 0.72);
-      }
-
-      .lane-heading {
-        margin-top: 12px;
-        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-        font-size: 0.96rem;
-        line-height: 1.25;
-        color: #f8fbff;
-      }
-
-      .node {
-        width: 60px;
-        height: 60px;
-        margin: 16px 0 0;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.08);
-        box-shadow: inset 0 0 0 2px rgba(116, 199, 255, 0.18);
-      }
-
-      .node.risk {
-        box-shadow: inset 0 0 0 4px rgba(248, 113, 113, 0.92);
-      }
-
-      .node.warn {
-        box-shadow: inset 0 0 0 4px rgba(251, 191, 36, 0.92);
-      }
-
-      .node.clean {
-        box-shadow: inset 0 0 0 4px rgba(52, 211, 153, 0.92);
-      }
-
-      .node svg {
-        width: 28px;
-        height: 28px;
-        stroke: white;
-      }
-
-      .lane ul {
-        margin: 14px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 8px;
-      }
-
-      .lane li {
-        font-size: 0.82rem;
-        line-height: 1.45;
-        color: rgba(225, 233, 255, 0.82);
-      }
-
-      .finding-stack,
-      .report-stack,
-      .copilot-thread {
-        display: grid;
-        gap: 12px;
-      }
-
-      .finding-pill,
-      .thread-card,
-      .report-block {
-        padding: 16px 17px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(150, 174, 255, 0.1);
-      }
-
-      .finding-pill.primary {
-        padding: 18px 18px 16px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.05) 100%);
-        border-color: rgba(150, 174, 255, 0.14);
-      }
-
-      .finding-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 10px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        color: rgba(218, 228, 255, 0.82);
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .finding-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .copilot-strip {
-        display: grid;
-        gap: 10px;
-        padding: 16px 17px;
-        border-radius: 16px;
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.18) 0%, rgba(41, 61, 186, 0.08) 100%);
-        border: 1px solid rgba(126, 149, 255, 0.16);
-      }
-
-      .copilot-strip strong {
-        font-size: 0.92rem;
-      }
-
-      .copilot-strip p {
-        margin: 0;
-        color: rgba(225, 233, 255, 0.86);
-        font-size: 0.82rem;
-        line-height: 1.55;
-      }
-
-      .report-block.compact {
-        padding: 14px 16px;
-      }
-
-      .finding-pill strong,
-      .thread-card strong,
-      .report-block strong {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 0.98rem;
-        line-height: 1.32;
-      }
-
-      .finding-pill p,
-      .thread-card p,
-      .report-block p {
-        margin: 0;
-        font-size: 0.83rem;
-        line-height: 1.62;
-        color: rgba(225, 233, 255, 0.82);
-      }
-
-      .severity-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-
-      .severity-chip,
-      .tag,
-      .report-tag,
-      .comparison-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 7px 10px;
-        border-radius: 999px;
-        font-size: 0.75rem;
-        font-weight: 700;
-      }
-
-      .severity-chip.critical {
-        color: #fff0f0;
-        background: rgba(239, 68, 68, 0.9);
-      }
-
-      .severity-chip.high {
-        color: #fff7ed;
-        background: rgba(249, 115, 22, 0.88);
-      }
-
-      .severity-chip.medium {
-        color: #fffbeb;
-        background: rgba(234, 179, 8, 0.88);
-      }
-
-      .severity-chip.low {
-        color: #eff6ff;
-        background: rgba(59, 130, 246, 0.88);
-      }
-
-      .section {
-    padding: 60px 0;
-}
-
-.section-header {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 32px;
-}
-
-.section-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 14px;
-    padding: 5px 12px;
-    border-radius: 999px;
-    background: rgba(99, 102, 241, 0.08);
-    color: var(--brand);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    width: fit-content;
-}
-
-.section-header h2 {
-    font-size: clamp(2rem, 3.6vw, 3.4rem);
-    line-height: 1.04;
-    font-weight: 400;
-    letter-spacing: -0.03em;
-    max-width: 20ch;
-}
-
-.section-header p {
-    max-width: 60ch;
-    margin: 14px 0 0;
-    color: var(--ink-soft);
-    line-height: 1.65;
-    font-size: 1.02rem;
-}
-
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .feature-card {
-    padding: 26px;
-    border-radius: 20px;
-}
-
-.feature-icon,
-.workflow-icon,
-.contact-icon {
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.04) 100%);
-    color: var(--brand);
-    box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.16);
-}
-
-.feature-icon svg,
-.workflow-icon svg,
-.contact-icon svg {
-    width: 22px;
-    height: 22px;
-    stroke: currentColor;
-}
-
-.feature-card h3,
-.workflow-card h3,
-.report-card h3,
-.contact-card h3 {
-    margin-top: 20px;
-    font-size: 1.28rem;
-    line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-}
-
-.feature-card p,
-.workflow-card p,
-.report-card p,
-.contact-card p,
-.comparison-card p {
-    margin: 10px 0 0;
-    color: var(--ink-soft);
-    line-height: 1.62;
-    font-size: 0.96rem;
-}
-
-      .showcase-grid {
-        display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 18px;
-      }
-
-      .workflow-column {
-        display: grid;
-        gap: 18px;
-      }
-
-      .workflow-card {
-        padding: 24px;
-        border-radius: 18px;
-      }
-
-      .workflow-list {
-        margin: 16px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 12px;
-      }
-
-      .workflow-list li {
-        display: flex;
-        gap: 12px;
-        align-items: start;
-        color: var(--ink-soft);
-        line-height: 1.6;
-      }
-
-      .workflow-index {
-        width: 30px;
-        height: 30px;
-        flex: 0 0 auto;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--brand-soft);
-        color: var(--brand);
-        font-size: 0.85rem;
-        font-weight: 700;
-      }
-
-      .copilot-grid {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 18px;
-      }
-
-      .glass-card {
-        padding: 26px;
-        border-radius: 20px;
-      }
-
-      .thread-card.user {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0.08) 100%);
-      }
-
-      .thread-card.assistant {
-        background: rgba(9, 14, 33, 0.96);
-        color: white;
-      }
-
-      .thread-card.assistant p {
-        color: rgba(232, 240, 255, 0.88);
-      }
-
-      .copilot-toolbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 18px;
-      }
-
-      .tag,
-      .report-tag,
-      .comparison-pill {
-        background: rgba(99, 102, 241, 0.1);
-        color: var(--brand);
-      }
-
-      .window .tag,
-      .window .report-tag {
-        background: rgba(71, 96, 224, 0.18);
-        color: #cad6ff;
-      }
-
-      .copilot-checklist {
-        margin: 18px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 10px;
-      }
-
-      .copilot-checklist li {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        color: var(--ink-soft);
-      }
-
-      .copilot-checklist li::before {
-        content: "";
-        width: 12px;
-        height: 12px;
-        flex: 0 0 auto;
-        margin-top: 0.38rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--teal) 0%, #34d399 100%);
-      }
-
-      .reports-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .engagement-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .plan-card {
-    padding: 28px;
-    border-radius: 22px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(22px) saturate(160%);
-    transition: box-shadow 220ms ease, transform 220ms ease, border-color 220ms ease;
-}
-
-.plan-card:hover {
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(99, 102, 241, 0.22);
-    transform: translateY(-3px);
-}
-
-.plan-card.featured {
-    background: linear-gradient(180deg, rgba(10, 15, 31, 0.98) 0%, rgba(14, 22, 48, 0.98) 100%);
-    color: white;
-    border-color: rgba(120, 142, 230, 0.24);
-    box-shadow: var(--shadow-xl), 0 24px 52px rgba(14, 22, 48, 0.34);
-}
-
-.plan-card.featured:hover {
-    border-color: rgba(120, 142, 230, 0.4);
-}
-
-      .plan-card.featured p,
-      .plan-card.featured li,
-      .plan-card.featured .plan-meta {
-        color: rgba(232, 240, 255, 0.84);
-      }
-
-      .plan-card.featured .report-tag {
-        background: rgba(89, 113, 255, 0.18);
-        color: #dfe7ff;
-      }
-
-      .plan-kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
+      .card-h {
+        display: flex; align-items: center; justify-content: space-between;
         margin-bottom: 12px;
-        color: var(--ink-muted);
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
+      }
+      .card-h-title { font-size: 12px; font-weight: 600; color: #fff; }
+      .card-h-link {
+        font-size: 10.5px; color: var(--brand-400); font-weight: 500;
+        transition: color 0.15s;
       }
 
-      .plan-head {
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-        gap: 16px;
+      /* Findings list */
+      .finding-row {
+        display: flex; align-items: center; gap: 10px;
+        padding: 9px 0;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.35);
+        font-size: 11.5px;
+      }
+      .finding-row:last-child { border-bottom: 0; }
+      .severity {
+        display: inline-flex; align-items: center; gap: 4px;
+        padding: 2px 7px; border-radius: 6px;
+        font-size: 9.5px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.03em;
+        flex-shrink: 0;
+      }
+      .severity.crit { background: rgba(239, 68, 68, 0.15); color: var(--red-400); }
+      .severity.high { background: rgba(251, 146, 60, 0.15); color: var(--orange-400); }
+      .severity.med  { background: rgba(251, 191, 36, 0.15); color: var(--amber-400); }
+      .finding-title {
+        color: var(--gray-200); font-weight: 500;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 1;
+      }
+      .finding-source {
+        color: var(--gray-500); font-size: 10.5px;
+        font-family: var(--font-mono); flex-shrink: 0;
+      }
+
+      /* Posture ring */
+      .posture-ring {
+        width: 140px; height: 140px; margin: 10px auto 12px;
+        position: relative;
+      }
+      .posture-ring svg { transform: rotate(-90deg); }
+      .posture-ring-center {
+        position: absolute; inset: 0;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+      }
+      .posture-ring-num { font-size: 30px; font-weight: 700; color: #fff; font-variant-numeric: tabular-nums; }
+      .posture-ring-grade {
+        font-size: 10px; font-weight: 700;
+        padding: 2px 8px; border-radius: 9999px;
+        background: rgba(52, 211, 153, 0.2); color: var(--green-400);
+        margin-top: 2px;
+      }
+      .posture-legend {
+        display: flex; justify-content: space-around;
+        font-size: 10.5px; color: var(--gray-400);
+      }
+      .posture-legend span { display: inline-flex; align-items: center; gap: 5px; }
+      .posture-legend .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+      /* Copilot mini */
+      .copilot {
+        position: absolute;
+        bottom: 16px; right: 16px;
+        width: 284px;
+        background: rgba(15, 22, 41, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(99, 102, 241, 0.28);
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,102,241,0.08);
+        display: none;
+        z-index: 3;
+      }
+      @media (min-width: 1100px) { .copilot { display: block; } }
+      .copilot-h {
+        display: flex; align-items: center; gap: 8px;
+        margin-bottom: 10px;
+      }
+      .copilot-h-icon {
+        width: 22px; height: 22px; border-radius: 6px;
+        background: var(--brand-600);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .copilot-h span { font-size: 11.5px; font-weight: 600; color: #fff; }
+      .copilot-bubble {
+        padding: 9px 11px;
+        background: var(--surface-50);
+        border-radius: 10px 10px 10px 2px;
+        font-size: 11.5px; color: var(--gray-300); line-height: 1.5;
+        margin-bottom: 8px;
+        min-height: 46px;
+      }
+      .copilot-bubble .typed::after {
+        content: '';
+        display: inline-block;
+        width: 1px; height: 12px;
+        background: var(--brand-400);
+        vertical-align: text-bottom;
+        margin-left: 2px;
+        animation: blink 1s step-end infinite;
+      }
+      .copilot-input {
+        padding: 7px 10px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 8px;
+        font-size: 11px; color: var(--gray-500);
+        display: flex; align-items: center; gap: 6px;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      /* ========== Trust strip ========== */
+      .trust-strip {
+        padding: 56px 0 32px;
+        border-top: 1px solid rgba(45, 58, 79, 0.3);
+        margin-top: 96px;
+      }
+      .trust-label {
+        text-align: center;
+        font-size: 11.5px; font-weight: 600; color: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.14em;
+        margin-bottom: 28px;
+      }
+      .trust-row {
+        display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+        gap: 40px 56px;
+      }
+      .trust-item {
+        display: inline-flex; align-items: center; gap: 10px;
+        font-size: 14.5px; font-weight: 600; color: var(--gray-400);
+        letter-spacing: -0.01em;
+        opacity: 0.72;
+        transition: opacity 0.2s, color 0.2s;
+      }
+      .trust-item:hover { opacity: 1; color: #fff; }
+      .trust-item svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+      /* ========== Section defaults ========== */
+      section { padding: 96px 0; position: relative; }
+      .section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+      .section-eyebrow {
+        display: inline-block;
+        font-size: 11.5px; font-weight: 600; color: var(--brand-400);
+        text-transform: uppercase; letter-spacing: 0.12em;
         margin-bottom: 14px;
       }
-
-      .plan-title-group {
-        display: grid;
-        gap: 10px;
+      .section-title {
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.08; font-weight: 700; color: #fff;
+        letter-spacing: -0.03em;
+      }
+      .section-sub {
+        margin-top: 16px;
+        font-size: 17px; color: var(--gray-400); line-height: 1.55;
       }
 
-      .plan-title-group h3 {
-        max-width: 16ch;
-        line-height: 1.18;
+      /* ========== Features (3 pillars) ========== */
+      .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
+
+      .feature {
+        position: relative;
+        padding: 32px 28px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 20px;
+        transition: all 0.2s ease;
+        overflow: hidden;
       }
-
-      .plan-price {
-    margin-top: 14px;
-    font-family: "Instrument Serif", Georgia, serif;
-    font-size: 2.2rem;
-    line-height: 1;
-    font-weight: 400;
-    letter-spacing: -0.04em;
-    color: var(--ink);
-}
-
-.plan-card.featured .plan-price {
-    color: white;
-}
-
-      .plan-meta {
-        margin-top: 10px;
-        color: var(--ink-soft);
-        line-height: 1.72;
-        font-size: 0.97rem;
+      .feature::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: radial-gradient(60% 80% at 50% 0%, rgba(99,102,241,0.06), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.25s;
+        pointer-events: none;
       }
-
-      .plan-divider {
-        height: 1px;
-        margin: 18px 0 16px;
-        background: linear-gradient(90deg, rgba(111, 133, 191, 0.16) 0%, rgba(111, 133, 191, 0.04) 100%);
+      .feature:hover {
+        border-color: rgba(99, 102, 241, 0.4);
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px -20px rgba(99, 102, 241, 0.25);
       }
-
-      .plan-list {
-        margin: 18px 0 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 12px;
+      .feature:hover::before { opacity: 1; }
+      .feature-icon {
+        width: 44px; height: 44px; border-radius: 12px;
+        background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(67,56,202,0.2));
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        display: flex; align-items: center; justify-content: center;
+        color: var(--brand-300);
+        margin-bottom: 20px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
       }
+      .feature-icon svg { width: 22px; height: 22px; }
+      .feature h3 { font-size: 18px; color: #fff; margin-bottom: 8px; letter-spacing: -0.015em; }
+      .feature p { font-size: 14.5px; color: var(--gray-400); line-height: 1.55; }
 
-      .plan-list li {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        color: var(--ink-soft);
-        line-height: 1.65;
+      /* ========== How it works ========== */
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+      @media (max-width: 900px) { .steps { grid-template-columns: 1fr; gap: 32px; } }
+
+      .step { position: relative; padding: 0 24px; }
+      .step-num {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 34px; height: 34px; border-radius: 9px;
+        background: rgba(99, 102, 241, 0.12);
+        border: 1px solid rgba(99, 102, 241, 0.35);
+        color: var(--brand-300);
+        font-size: 13px; font-weight: 700; font-family: var(--font-mono);
+        margin-bottom: 20px;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
       }
-
-      .plan-list li::before {
-        content: "";
-        width: 12px;
-        height: 12px;
-        flex: 0 0 auto;
-        margin-top: 0.42rem;
-        border-radius: 999px;
-        background: linear-gradient(135deg, var(--brand) 0%, var(--teal) 100%);
+      .step h3 { font-size: 18px; color: #fff; margin-bottom: 8px; letter-spacing: -0.015em; }
+      .step p { font-size: 14px; color: var(--gray-400); line-height: 1.55; }
+      .step-code {
+        margin-top: 12px;
+        padding: 8px 12px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 8px;
+        font-family: var(--font-mono); font-size: 11.5px;
+        color: var(--gray-400);
       }
-
-      .signal-strip {
-        margin-top: 20px;
-        padding: 16px 18px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.58);
-        border: 1px solid rgba(111, 133, 191, 0.14);
+      .step-code .k { color: var(--brand-400); }
+      .step-arrow {
+        position: absolute; top: 17px; right: -14px;
+        width: 28px; height: 1px;
+        background: linear-gradient(90deg, rgba(99,102,241,0.4), transparent);
       }
+      @media (max-width: 900px) { .step-arrow { display: none; } }
 
-      .signal-strip strong {
-        display: block;
-        margin-bottom: 6px;
+      /* ========== Testimonial ========== */
+      .testimonial {
+        max-width: 820px; margin: 0 auto; text-align: center;
+        padding: 48px 32px;
+        background:
+          radial-gradient(80% 120% at 50% 0%, rgba(99,102,241,0.10), transparent 70%),
+          var(--surface-50);
+        border: 1px solid rgba(99, 102, 241, 0.15);
+        border-radius: 24px;
+        position: relative;
+        overflow: hidden;
       }
-
-      .signal-strip span {
-        color: var(--ink-soft);
-        line-height: 1.65;
-        font-size: 0.94rem;
+      .testimonial-quote {
+        font-size: clamp(20px, 2.2vw, 26px);
+        line-height: 1.4; font-weight: 500; color: #fff;
+        letter-spacing: -0.015em;
       }
-
-      .report-card {
-        padding: 26px;
-        border-radius: 18px;
+      .testimonial-quote .hl { color: var(--brand-300); }
+      .testimonial-attr {
+        margin-top: 24px;
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 6px 14px 6px 6px;
+        background: var(--surface-100);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 9999px;
+        font-size: 12.5px; color: var(--gray-300);
       }
-
-      .report-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 18px;
+      .testimonial-avatar {
+        width: 26px; height: 26px; border-radius: 50%;
+        background: linear-gradient(135deg, var(--brand-500), var(--brand-700));
+        display: flex; align-items: center; justify-content: center;
+        color: #fff; font-size: 10px; font-weight: 700;
       }
+      .testimonial-attr b { color: #fff; font-weight: 600; margin-right: 4px; }
 
-      .report-preview {
-        min-height: 230px;
-        padding: 18px;
-        border-radius: 22px;
-        background: linear-gradient(180deg, #ffffff 0%, #f3f6fd 100%);
-        border: 1px solid rgba(111, 133, 191, 0.15);
-      }
-
-      .report-preview .title {
-        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-        font-size: 1rem;
-        margin-bottom: 16px;
-      }
-
-      .report-preview .line {
-        height: 10px;
-        margin-top: 10px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, rgba(99, 102, 241, 0.18) 0%, rgba(99, 102, 241, 0.06) 100%);
-      }
-
-      .report-preview .line.short {
-        width: 56%;
-      }
-
-      .report-preview .line.medium {
-        width: 74%;
-      }
-
-      .report-preview .line.full {
-        width: 100%;
-      }
-
-      .comparison-layout {
-        display: grid;
-        grid-template-columns: 0.72fr 1.28fr;
-        gap: 18px;
-      }
-
-      .comparison-card {
-        padding: 26px;
+      /* ========== Proof numbers ========== */
+      .proof {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
+        padding: 32px 20px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
         border-radius: 20px;
       }
-
-      .comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--line);
-    backdrop-filter: blur(22px);
-}
-
-.comparison-table th,
-.comparison-table td {
-    padding: 18px 22px;
-    text-align: left;
-    border-bottom: 1px solid var(--line);
-    vertical-align: top;
-    font-size: 0.96rem;
-}
-
-.comparison-table th {
-    font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-muted);
-    background: rgba(99, 102, 241, 0.04);
-}
-
-.comparison-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-      .comparison-table td:first-child,
-      .comparison-table th:first-child {
-        width: 28%;
+      @media (max-width: 800px) { .proof { grid-template-columns: repeat(2, 1fr); } }
+      .proof-item {
+        text-align: center; padding: 12px 16px;
+        border-right: 1px solid rgba(45, 58, 79, 0.4);
       }
-
-      .comparison-table td strong {
-        font-size: 0.94rem;
+      .proof-item:last-child { border-right: 0; }
+      @media (max-width: 800px) {
+        .proof-item { border-right: 0; border-bottom: 1px solid rgba(45, 58, 79, 0.4); }
+        .proof-item:nth-last-child(-n+2) { border-bottom: 0; }
       }
-
-      .comparison-table td p {
-        margin: 8px 0 0;
-        color: var(--ink-soft);
-        line-height: 1.6;
-        font-size: 0.95rem;
-      }
-
-      .comparison-pill.good {
-        color: #0f766e;
-        background: rgba(20, 184, 166, 0.14);
-      }
-
-      .comparison-pill.warn {
-        color: #92400e;
-        background: rgba(245, 158, 11, 0.16);
-      }
-
-      .comparison-pill.soft {
-        color: var(--ink-soft);
-        background: rgba(100, 116, 139, 0.12);
-      }
-
-      .faq-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .faq-item {
-    border-radius: 18px;
-    padding: 0 26px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    backdrop-filter: blur(22px);
-    transition: border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.faq-item:hover {
-    border-color: rgba(99, 102, 241, 0.18);
-    box-shadow: var(--shadow-md);
-}
-
-.faq-item summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 22px 0;
-    font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-}
-
-.faq-item summary::-webkit-details-marker {
-    display: none;
-}
-
-.faq-item[open] summary {
-    color: var(--brand);
-}
-
-.faq-item p {
-    margin: 0 0 24px;
-    color: var(--ink-soft);
-    line-height: 1.65;
-    font-size: 0.96rem;
-}
-
-      .contact-card {
-    padding: 36px;
-    border-radius: 26px;
-}
-
-      .trust-note {
-        margin-top: 20px;
-        padding: 16px 18px;
-        border-radius: 20px;
-        background: rgba(230, 235, 255, 0.58);
-        color: var(--ink-soft);
-        line-height: 1.7;
-      }
-
-      .contact-layout {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 24px;
-        align-items: start;
-      }
-
-      .contact-stack {
-        display: grid;
-        gap: 18px;
-      }
-
-      .contact-strip {
-        padding: 18px 20px;
-        border-radius: 18px;
-        background: rgba(230, 235, 255, 0.48);
-        border: 1px solid rgba(111, 133, 191, 0.14);
-      }
-
-      .contact-strip strong {
-        display: block;
-        margin-bottom: 8px;
-        font-family: "Plus Jakarta Sans", -apple-system, sans-serif;
-        font-size: 1rem;
-      }
-
-      .contact-strip span {
-        color: var(--ink-soft);
-        line-height: 1.7;
-        font-size: 0.95rem;
-      }
-
-      .contact-points {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 22px;
-      }
-
-      .contact-point {
-        padding: 18px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid rgba(111, 133, 191, 0.14);
-      }
-
-      .contact-point strong {
-        display: block;
-        margin-top: 14px;
-        font-size: 0.98rem;
-      }
-
-      .contact-point span {
-        display: block;
-        margin-top: 8px;
-        color: var(--ink-soft);
-        line-height: 1.6;
-        font-size: 0.94rem;
-      }
-
-      .demo-form {
-    padding: 26px;
-    border-radius: 22px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid var(--line);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), var(--shadow-sm);
-}
-
-.demo-form h3 {
-    font-size: 1.4rem;
-    letter-spacing: -0.02em;
-}
-
-      .demo-form p {
-        margin: 10px 0 0;
-        color: var(--ink-soft);
-      }
-
-      .form-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 20px;
-      }
-
-      .field {
-        display: grid;
-        gap: 8px;
-      }
-
-      .field.full {
-        grid-column: 1 / -1;
-      }
-
-      .field label {
-        font-size: 0.84rem;
+      .proof-num {
+        font-size: clamp(30px, 3.5vw, 42px);
         font-weight: 700;
-        color: var(--ink-soft);
+        letter-spacing: -0.03em; line-height: 1;
+        background: linear-gradient(135deg, #fff, var(--brand-300));
+        -webkit-background-clip: text; background-clip: text;
+        color: transparent;
+        font-variant-numeric: tabular-nums;
+      }
+      .proof-label { margin-top: 10px; font-size: 13px; color: var(--gray-400); }
+
+      /* ========== Frameworks ========== */
+      .frameworks {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;
+      }
+      .framework {
+        display: flex; align-items: center; gap: 14px;
+        padding: 16px 18px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 14px;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      .framework:hover {
+        border-color: rgba(99, 102, 241, 0.35);
+        transform: translateY(-2px);
+      }
+      .framework-icon {
+        width: 36px; height: 36px; border-radius: 9px;
+        background: rgba(99,102,241,0.12); color: var(--brand-300);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .framework-name { font-size: 13.5px; color: #fff; font-weight: 500; letter-spacing: -0.01em; }
+      .framework-meta { font-size: 11.5px; color: var(--gray-500); margin-top: 2px; }
+
+      /* ========== CTA ========== */
+      .cta {
+        position: relative;
+        padding: 80px 40px;
+        background:
+          linear-gradient(135deg, rgba(99,102,241,0.14), rgba(67,56,202,0.08));
+        border: 1px solid rgba(99, 102, 241, 0.25);
+        border-radius: 24px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .cta::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: radial-gradient(60% 60% at 50% 0%, rgba(99,102,241,0.3), transparent 70%);
+        pointer-events: none;
+      }
+      .cta::after {
+        content: '';
+        position: absolute; inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: conic-gradient(from 0deg, transparent 0deg, rgba(99,102,241,0.6) 90deg, transparent 180deg, transparent 360deg);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor; mask-composite: exclude;
+        animation: rotate-border 8s linear infinite;
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      @keyframes rotate-border { to { transform: rotate(360deg); } }
+      .cta > * { position: relative; z-index: 1; }
+      .cta h2 {
+        font-size: clamp(30px, 3.8vw, 42px);
+        line-height: 1.12; color: #fff;
+        letter-spacing: -0.03em;
+      }
+      .cta p {
+        margin-top: 14px; font-size: 16.5px; color: var(--gray-400);
+        max-width: 560px; margin-left: auto; margin-right: auto;
+      }
+      .cta-actions {
+        margin-top: 32px; display: inline-flex; flex-wrap: wrap;
+        gap: 10px; justify-content: center;
+      }
+
+      /* ========== FAQ ========== */
+      .faq { max-width: 780px; margin: 0 auto; }
+      .faq-item {
+        padding: 20px 22px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 14px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      }
+      .faq-item:hover { border-color: rgba(99, 102, 241, 0.3); }
+      .faq-item[open] { border-color: rgba(99, 102, 241, 0.35); }
+      .faq-item summary {
+        display: flex; align-items: center; justify-content: space-between;
+        list-style: none;
+        font-size: 15px; font-weight: 600; color: #fff;
         letter-spacing: -0.01em;
       }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after {
+        content: '+';
+        font-size: 22px; font-weight: 300; color: var(--gray-400);
+        transition: transform 0.2s, color 0.2s;
+        line-height: 1;
+      }
+      .faq-item[open] summary::after { content: '−'; color: var(--brand-400); }
+      .faq-item p {
+        margin-top: 14px; font-size: 14px; color: var(--gray-400); line-height: 1.6;
+      }
+      .faq-item p code {
+        font-family: var(--font-mono); font-size: 12.5px;
+        padding: 1px 5px; border-radius: 4px;
+        background: rgba(99,102,241,0.1); color: var(--brand-300);
+      }
+      .faq-item p a { color: var(--brand-400); text-decoration: underline; text-decoration-color: rgba(99,102,241,0.4); text-underline-offset: 2px; }
 
-      .field input,
-.field select,
-.field textarea {
-    width: 100%;
-    border: 1px solid rgba(111, 133, 191, 0.18);
-    border-radius: 12px;
-    padding: 13px 15px;
-    font: inherit;
-    font-size: 0.94rem;
-    color: var(--ink);
-    background: rgba(250, 251, 255, 0.96);
-    transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
-
-      .field textarea {
-        min-height: 132px;
-        resize: vertical;
+      /* ========== Footer ========== */
+      footer {
+        padding: 64px 0 40px;
+        border-top: 1px solid rgba(45, 58, 79, 0.3);
+        margin-top: 80px;
+      }
+      .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+      }
+      @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+      .footer-brand {
+        font-size: 13.5px; color: var(--gray-500); line-height: 1.6;
+        max-width: 320px; margin-top: 14px;
+      }
+      .footer-col h4 {
+        font-size: 11px; font-weight: 600; color: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block; font-size: 13px; color: var(--gray-400);
+        padding: 4px 0; transition: color 0.15s;
+      }
+      .footer-col a:hover { color: #fff; }
+      .footer-bottom {
+        margin-top: 48px; padding-top: 24px;
+        border-top: 1px solid rgba(45, 58, 79, 0.3);
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 12px; color: var(--gray-500);
+        flex-wrap: wrap; gap: 10px;
       }
 
-      .field input:focus,
-.field select:focus,
-.field textarea:focus {
-    outline: none;
-    border-color: rgba(99, 102, 241, 0.42);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-    background: white;
-}
-
-      .form-hint {
-        margin-top: 14px;
-        color: var(--ink-muted);
-        line-height: 1.65;
-        font-size: 0.9rem;
-      }
-
-      .form-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 18px;
-      }
-
-      .demo-note {
-        margin-top: 14px;
-        color: var(--ink-soft);
-        font-size: 0.92rem;
-        line-height: 1.65;
-      }
-
-      .footer {
-    padding: 32px 0 60px;
-    color: var(--ink-muted);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--line);
-    margin-top: 20px;
-}
-
-.footer-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: center;
-}
-
-.footer-nav {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-nav a {
-    color: var(--ink-muted);
-    transition: color 150ms ease;
-}
-
-.footer-nav a:hover {
-    color: var(--ink);
-}
-
+      /* ========== Motion — scroll reveal ========== */
       .reveal {
         opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 500ms ease, transform 500ms ease;
+        transform: translateY(14px);
+        transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
       }
+      .reveal.is-visible { opacity: 1; transform: none; }
 
-      .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
+      .hero h1,
+      .hero-chip,
+      .hero-sub,
+      .hero-cta,
+      .hero-signals {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: hero-rise 0.7s cubic-bezier(.22,1,.36,1) forwards;
       }
+      .hero-chip   { animation-delay: 0.05s; }
+      .hero h1     { animation-delay: 0.12s; }
+      .hero-sub    { animation-delay: 0.22s; }
+      .hero-cta    { animation-delay: 0.30s; }
+      .hero-signals{ animation-delay: 0.38s; }
+      .preview-wrap {
+        opacity: 0; transform: translateY(20px);
+        animation: hero-rise 0.9s 0.42s cubic-bezier(.22,1,.36,1) forwards;
+      }
+      @keyframes hero-rise { to { opacity: 1; transform: none; } }
 
+      /* ========== Accessibility ========== */
+      :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
       @media (prefers-reduced-motion: reduce) {
-        .reveal {
-          opacity: 1;
-          transform: none;
-          transition: none;
-        }
-
-        .ghost-button,
-        .primary-button,
-        .secondary-button {
-          transition: none;
-        }
-      }
-
-      @media (max-width: 1120px) {
-        .showcase-grid,
-        .copilot-grid,
-        .comparison-layout,
-        .contact-layout {
-          grid-template-columns: 1fr;
-        }
-
-        .feature-grid,
-        .reports-grid,
-        .engagement-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .faq-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 920px) {
-        .nav-links,
-        .nav-actions .ghost-button {
-          display: none;
-        }
-
-        .menu-toggle {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          width: 44px;
-          height: 44px;
-          border-radius: 14px;
-          border: 1px solid rgba(84, 104, 164, 0.12);
-          background: rgba(255, 255, 255, 0.8);
-        }
-
-        .topbar.is-open .nav-links {
-          display: grid;
-          width: 100%;
-          padding-top: 14px;
-        }
-
-        .topbar.is-open .nav-row {
-          flex-wrap: wrap;
-        }
-
-        .hero {
-          padding-top: 72px;
-        }
-
-        .hero-metrics,
-        .feature-grid,
-        .reports-grid,
-        .engagement-grid,
-        .contact-points,
-        .form-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .mock-metrics,
-        .mock-grid,
-        .mock-foot,
-        .infra-shell,
-        .stage-grid,
-        .topology-lanes,
-        .finding-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .product-shell {
-          grid-template-columns: 78px minmax(0, 1fr);
-        }
-      }
-
-      @media (max-width: 640px) {
-        .container {
-          width: min(calc(100% - 28px), var(--max));
-        }
-
-        h1 {
-          max-width: 16ch;
-          font-size: clamp(2.6rem, 10vw, 4rem);
-        }
-
-        .section-header {
-          display: block;
-        }
-
-        .hero-actions,
-        .nav-actions {
-          width: 100%;
-        }
-
-        .hero-actions a,
-        .hero-actions button,
-        .nav-actions a {
-          width: 100%;
-        }
-
-        .product-stage {
-          padding: 14px;
-        }
-
-        .product-shell {
-          grid-template-columns: 1fr;
-        }
-
-        .product-sidebar {
-          padding: 14px 16px 10px;
-          grid-auto-flow: column;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .shell-nav {
-          grid-auto-flow: column;
-          gap: 8px;
-        }
-
-        .shell-nav-item {
-          width: 40px;
-          height: 40px;
-          border-radius: 14px;
-        }
-
-        .product-topbar,
-        .product-canvas {
-          padding-left: 16px;
-          padding-right: 16px;
-        }
-
-        .product-topbar {
-          align-items: start;
-          flex-direction: column;
-        }
-
-        .topbar-actions {
-          width: 100%;
-          flex-wrap: wrap;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-          padding: 14px;
-        }
-
-        .footer-row {
-          display: grid;
-          gap: 12px;
-        }
+        *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
+        .reveal { opacity: 1; transform: none; }
       }
     </style>
-    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-    <div class="page">
-      <header class="topbar" id="topbar">
-        <div class="container nav-row">
-          <a class="brand" href="#top" aria-label="isops.ai home">
-            <span class="brand-mark" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 2.75l6.5 2.3v4.52c0 5.13-3.08 9.01-6.5 10.18-3.42-1.17-6.5-5.05-6.5-10.18V5.05L12 2.75z"
-                  stroke="white"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M8.85 11.9l2.15 2.18 4.16-4.55"
-                  stroke="white"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-            <span class="brand-copy">
-              <strong>isops.ai</strong>
-            </span>
+    <!-- =================== NAV =================== -->
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="/" class="nav-brand" aria-label="isops.ai home">
+          <span class="nav-brand-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          isops.ai
+        </a>
+        <div class="nav-links">
+          <a href="#product">Product</a>
+          <a href="#how">How it works</a>
+          <a href="#frameworks">Frameworks</a>
+          <a href="security.html">Security</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#contact" class="btn btn-ghost">Book demo</a>
+          <a href="#contact" class="btn btn-primary">Get started</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =================== HERO =================== -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-chip">
+          <span class="hero-chip-dot" aria-hidden="true"></span>
+          Live · AI copilot for ISO 27001 &amp; SOC 2
+        </span>
+
+        <h1>
+          Trust &amp; compliance,<br/>
+          <span class="grad">on autopilot.</span>
+        </h1>
+
+        <p class="hero-sub">
+          From AWS finding to audit-ready evidence in <strong>minutes</strong>. One surface. Zero spreadsheets.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary btn-lg">
+            Book a demo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
           </a>
+          <a href="#product" class="btn btn-ghost btn-lg">See it live</a>
+        </div>
 
-          <nav class="nav-links" id="nav-links">
-            <a href="#platform">Platform</a>
-            <a href="#ai">Copilot</a>
-            <a href="#reports">Reports</a>
-            <a href="#engagement">Plans</a>
-            <a href="security.html">Trust</a>
-            <a href="#faq">FAQ</a>
-          </nav>
+        <div class="hero-signals">
+          <span class="hero-signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg> Read-only AWS</span>
+          <span class="hero-signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg> EU &amp; US residency</span>
+          <span class="hero-signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg> 15-minute setup</span>
+        </div>
 
-          <div class="nav-actions">
-            <a class="ghost-button" href="security.html">Security</a>
-            <a class="primary-button" href="#contact">Book demo</a>
-            <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
-              </svg>
-            </button>
+        <!-- ========== Live product preview ========== -->
+        <div class="preview-wrap" id="product">
+          <div class="preview-glow" aria-hidden="true"></div>
+          <div class="preview" role="img" aria-label="isops.ai dashboard preview">
+            <div class="preview-chrome">
+              <div class="preview-dots"><span></span><span></span><span></span></div>
+              <div class="preview-url"><span class="lock">●</span>app.isops.ai/overview</div>
+              <div class="preview-scan">
+                <span class="preview-scan-dot" aria-hidden="true"></span>
+                <span>Scanning · <span class="mono" data-scan-count>127</span>/142</span>
+              </div>
+            </div>
+            <div class="preview-body">
+              <!-- Sidebar (mirrors app) -->
+              <aside class="preview-sidebar" aria-hidden="true">
+                <div class="sb-logo">
+                  <span class="sb-logo-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>isops.ai</span>
+                </div>
+                <div class="sb-nav">
+                  <div class="sb-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
+                    Overview
+                  </div>
+                  <div class="sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z"/></svg>
+                    Findings
+                    <span class="pill">12</span>
+                  </div>
+                  <div class="sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Compliance
+                  </div>
+                  <div class="sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3"/></svg>
+                    Infrastructure
+                  </div>
+                  <div class="sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+                    Evidence
+                  </div>
+                  <div class="sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"/></svg>
+                    Remediation
+                  </div>
+                  <div class="sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                    Reports
+                  </div>
+                </div>
+              </aside>
+
+              <!-- Main -->
+              <div class="preview-main">
+                <div class="preview-top">
+                  <div class="preview-top-title">Overview</div>
+                  <div class="preview-top-right">
+                    <div class="top-badge">
+                      <span class="top-badge-grade">A</span>
+                      <span>Posture · <b style="color:#fff" data-count="87">87</b></span>
+                    </div>
+                    <div class="top-btn">New scan</div>
+                  </div>
+                </div>
+                <div class="preview-content">
+                  <div class="kpi-grid">
+                    <div class="kpi">
+                      <div class="kpi-label">Compliance</div>
+                      <div class="kpi-ring-wrap">
+                        <div class="kpi-ring">
+                          <svg width="56" height="56" viewBox="0 0 56 56">
+                            <circle cx="28" cy="28" r="22" fill="none" stroke="rgba(45,58,79,0.5)" stroke-width="5"/>
+                            <circle cx="28" cy="28" r="22" fill="none" stroke="url(#kpig1)" stroke-width="5" stroke-linecap="round"
+                                    stroke-dasharray="138.23" stroke-dashoffset="19.4" data-kpi-ring="86"/>
+                            <defs>
+                              <linearGradient id="kpig1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#a5b4fc"/>
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <div class="kpi-ring-center" data-count="86" data-suffix="%">86%</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="kpi">
+                      <div class="kpi-label">Active findings</div>
+                      <div class="kpi-value" data-count="12">12</div>
+                      <div class="kpi-delta down">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"/></svg>
+                        −8 this week
+                      </div>
+                    </div>
+                    <div class="kpi">
+                      <div class="kpi-label">Evidence</div>
+                      <div class="kpi-value" data-count="214">214</div>
+                      <div class="kpi-delta up">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"/></svg>
+                        +36 auto
+                      </div>
+                    </div>
+                    <div class="kpi">
+                      <div class="kpi-label">Controls</div>
+                      <div class="kpi-value"><span data-count="93">93</span> / 114</div>
+                      <div class="kpi-delta up">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"/></svg>
+                        ISO 27001 A
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row-2">
+                    <div class="card-panel">
+                      <div class="card-h">
+                        <div class="card-h-title">Top findings</div>
+                        <div class="card-h-link">View all →</div>
+                      </div>
+                      <div class="finding-row">
+                        <span class="severity crit">Critical</span>
+                        <span class="finding-title">S3 bucket publicly readable (prod-artifacts)</span>
+                        <span class="finding-source">aws/s3</span>
+                      </div>
+                      <div class="finding-row">
+                        <span class="severity high">High</span>
+                        <span class="finding-title">IAM access keys older than 90 days</span>
+                        <span class="finding-source">aws/iam</span>
+                      </div>
+                      <div class="finding-row">
+                        <span class="severity high">High</span>
+                        <span class="finding-title">Security group allows 0.0.0.0/0 on port 22</span>
+                        <span class="finding-source">aws/ec2</span>
+                      </div>
+                      <div class="finding-row">
+                        <span class="severity med">Medium</span>
+                        <span class="finding-title">RDS without automated backups</span>
+                        <span class="finding-source">aws/rds</span>
+                      </div>
+                      <div class="finding-row">
+                        <span class="severity med">Medium</span>
+                        <span class="finding-title">CloudTrail log file validation disabled</span>
+                        <span class="finding-source">aws/cloudtrail</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="card-h">
+                        <div class="card-h-title">Posture</div>
+                      </div>
+                      <div class="posture-ring">
+                        <svg width="140" height="140" viewBox="0 0 140 140">
+                          <circle cx="70" cy="70" r="58" fill="none" stroke="rgba(45,58,79,0.5)" stroke-width="10"/>
+                          <circle cx="70" cy="70" r="58" fill="none" stroke="url(#rg)" stroke-width="10" stroke-linecap="round"
+                                  stroke-dasharray="364.4" stroke-dashoffset="51" data-posture-ring="87"/>
+                          <defs>
+                            <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stop-color="#6366f1"/>
+                              <stop offset="100%" stop-color="#34d399"/>
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        <div class="posture-ring-center">
+                          <span class="posture-ring-num" data-count="87">87</span>
+                          <span class="posture-ring-grade">Grade A</span>
+                        </div>
+                      </div>
+                      <div class="posture-legend">
+                        <span><span class="dot" style="background:var(--brand-500)"></span>IAM <b style="color:#fff;margin-left:2px">92</b></span>
+                        <span><span class="dot" style="background:var(--green-400)"></span>Data <b style="color:#fff;margin-left:2px">88</b></span>
+                        <span><span class="dot" style="background:var(--amber-400)"></span>Net <b style="color:#fff;margin-left:2px">72</b></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Copilot floating panel -->
+                <div class="copilot" aria-hidden="true">
+                  <div class="copilot-h">
+                    <span class="copilot-h-icon">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+                    </span>
+                    <span>isops.ai Copilot</span>
+                  </div>
+                  <div class="copilot-bubble">
+                    <span class="typed" data-typed="Draft remediation for the 3 high IAM findings and attach evidence for ISO 27001 A.9.2.5."></span>
+                  </div>
+                  <div class="copilot-input">Ask about posture, controls, evidence…</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </header>
 
-      <main>
-        <section class="hero" id="top">
-          <div class="container hero-grid">
-            <div class="hero-text reveal is-visible">
-              <div class="eyebrow">
-                <span>AI-native compliance</span>
-              </div>
-              <h1>Compliance that keeps up with your AWS.</h1>
-              <p>
-                Posture, evidence, and audit — one platform, zero spreadsheets.
-              </p>
+        <!-- ========== Trust strip ========== -->
+        <div class="trust-strip">
+          <div class="trust-label">The stack you already trust</div>
+          <div class="trust-row">
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="#FF9900"><path d="M13.5 10.8c0 .4.1.7.2 1 .1.3.3.5.5.8l.1.1c0 .1-.1.2-.2.3l-.5.3c-.1.1-.2.1-.2.1-.1 0-.2 0-.2-.1-.1-.1-.2-.3-.3-.4-.1-.1-.2-.3-.2-.5-.6.7-1.4 1.1-2.3 1.1-.7 0-1.2-.2-1.5-.6-.4-.4-.6-.9-.6-1.6 0-.7.2-1.3.7-1.7.5-.4 1.2-.7 2.1-.7.3 0 .6 0 .9.1.3.1.6.1.9.2v-.7c0-.6-.1-1-.4-1.2-.3-.2-.8-.4-1.5-.4-.3 0-.6 0-.9.1-.3.1-.6.2-.9.3-.1.1-.2.1-.3.1h-.2v-.8c0-.1 0-.2.1-.2.1-.1.2-.1.3-.2.4-.2.8-.4 1.2-.5.4-.1.9-.2 1.4-.2 1.1 0 1.9.3 2.4.7.5.5.7 1.2.7 2.2v2.9zm-3.2 1.2c.3 0 .5 0 .8-.1.3-.1.5-.2.7-.4.1-.1.2-.3.3-.5.1-.2.1-.4.1-.6v-.3c-.2-.1-.4-.1-.7-.1-.2-.1-.5-.1-.7-.1-.5 0-.9.1-1.2.3-.3.2-.4.5-.4.9 0 .4.1.6.3.8.2.2.5.3.8.1zm6.4.9c-.1 0-.2 0-.3-.1-.1-.1-.1-.2-.2-.3l-1.8-6c0-.1-.1-.2-.1-.3 0-.1.1-.2.1-.2h.8c.1 0 .2 0 .3.1.1.1.1.2.2.3l1.3 5 1.2-5c0-.1.1-.2.1-.3.1-.1.2-.1.3-.1h.7c.1 0 .2 0 .3.1.1.1.1.2.2.3l1.2 5 1.3-5c0-.1.1-.2.1-.3.1-.1.2-.1.3-.1h.7c.1 0 .2.1.2.2v.2l-.1.2-1.8 6c0 .1-.1.2-.2.3-.1.1-.2.1-.3.1h-.7c-.1 0-.2 0-.3-.1-.1-.1-.1-.2-.2-.3l-1.2-4.9-1.2 4.9c0 .1-.1.2-.1.3-.1.1-.2.1-.3.1h-.8zm10.1.2c-.5 0-.9-.1-1.4-.2-.4-.1-.8-.3-1-.5-.1-.1-.2-.2-.2-.2 0-.1-.1-.2-.1-.3v-.5c0-.2.1-.3.2-.3.1 0 .1 0 .2.1.1 0 .2.1.3.1.3.1.6.2.9.3.3.1.6.1.9.1.5 0 .9-.1 1.1-.2.3-.2.4-.4.4-.7 0-.2-.1-.4-.2-.5-.1-.2-.3-.3-.7-.4l-1-.3c-.5-.2-.9-.4-1.1-.7-.2-.3-.3-.6-.3-.9 0-.3.1-.5.2-.7.1-.2.3-.4.5-.6.2-.2.4-.3.7-.4.3-.1.6-.1.9-.1.2 0 .3 0 .5.1.2 0 .3.1.5.1.1 0 .3.1.4.1.1 0 .2.1.3.1.1.1.2.1.2.2v.5c0 .2-.1.3-.2.3-.1 0-.2 0-.4-.1-.6-.3-1.2-.4-1.9-.4-.4 0-.8.1-1 .2-.2.1-.4.4-.4.7 0 .2.1.4.2.6.1.1.4.3.8.4l1 .3c.5.2.9.4 1.1.6.2.2.3.6.3.9 0 .3-.1.6-.2.8-.1.2-.3.5-.5.7-.2.2-.5.3-.8.4-.3.1-.6.2-1 .2z"/><path fill="#FF9900" d="M20.5 16.3c-2.3 1.7-5.7 2.6-8.6 2.6-4.1 0-7.7-1.5-10.5-4-.2-.2 0-.5.3-.3 3 1.7 6.7 2.8 10.5 2.8 2.6 0 5.4-.5 8-1.6.4-.2.8.2.3.5zm1-1c-.3-.4-1.9-.2-2.7-.1-.2 0-.3-.2-.1-.3 1.3-.9 3.4-.6 3.6-.3.2.3-.1 2.4-1.3 3.4-.2.2-.4.1-.3-.1.3-.7.8-2.2.6-2.6z"/></svg>
+              AWS
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a5b4fc">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              ISO 27001
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a5b4fc">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5M9 9.75h.008v.008H9V9.75zm0 3h.008v.008H9v-.008zm3.75-3h.008v.008h-.008V9.75zm0 3h.008v.008h-.008v-.008z"/>
+              </svg>
+              SOC 2
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a5b4fc">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 12l2 2 4-4m-6-3.75h6a2.25 2.25 0 012.25 2.25v.75"/>
+              </svg>
+              PCI-DSS
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a5b4fc">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM3 12h1.5m15 0H21M12 3v1.5M12 19.5V21m-6.364-2.636l1.06-1.06m9.546-9.546l1.06-1.06M5.636 5.636l1.06 1.06m9.546 9.546l1.06 1.06"/>
+              </svg>
+              GDPR
+            </span>
+            <span class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#a5b4fc">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m5-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              NIS2
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <div class="hero-actions">
-                <a class="primary-button" href="#contact">Book a demo</a>
-                <a class="secondary-button" href="#platform">See the platform</a>
-              </div>
+    <!-- =================== 3 PILLARS =================== -->
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Platform</span>
+          <h2 class="section-title">One surface. Continuous trust.</h2>
+          <p class="section-sub">Everything your security team needs — and nothing you'd throw into a spreadsheet.</p>
+        </div>
 
-              <div class="hero-metrics">
-                <div class="metric-card">
-                  <strong>AWS-native</strong>
-                  <span>Designed around live posture.</span>
-                </div>
-                <div class="metric-card">
-                  <strong>Truthful state</strong>
-                  <span>Runtime data, not invented scores.</span>
-                </div>
-                <div class="metric-card">
-                  <strong>Operator AI</strong>
-                  <span>Copilot grounded in real findings.</span>
-                </div>
-              </div>
+        <div class="features">
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
+            <h3>See your posture</h3>
+            <p>Continuous scans across IAM, data, network, and compute. Grade-A posture without the busywork.</p>
+          </div>
 
-            <div class="product-stage reveal is-visible">
-              <div class="hero-product">
-                <div class="hero-note">Platform preview</div>
-                <div class="product-shell" aria-label="isops.ai platform preview">
-                  <aside class="product-sidebar">
-                    <div class="shell-mark">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M12 3.5l6 2.1v4.17c0 4.73-2.84 8.3-6 9.38-3.16-1.08-6-4.65-6-9.38V5.6L12 3.5z" stroke="white" stroke-width="1.8" stroke-linejoin="round" />
-                        <path d="M9.1 11.8l2 2.03 3.87-4.23" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </div>
-                    <nav class="shell-nav" aria-label="Product sections">
-                      <span class="shell-nav-item active">
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path d="M5 6.5h5v5H5zM14 6.5h5v5h-5zM5 15.5h5v5H5zM14 15.5h5v5h-5z" stroke-width="1.8" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      <span class="shell-nav-item">
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path d="M12 3l7 3.5V12c0 4.42-2.66 7.77-7 8.95C7.66 19.77 5 16.42 5 12V6.5L12 3z" stroke-width="1.8" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      <span class="shell-nav-item">
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path d="M4 8.5h16M6.5 5h11a1.5 1.5 0 0 1 1.5 1.5v11A1.5 1.5 0 0 1 17.5 19h-11A1.5 1.5 0 0 1 5 17.5v-11A1.5 1.5 0 0 1 6.5 5z" stroke-width="1.8" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      <span class="shell-nav-item">
-                        <svg viewBox="0 0 24 24" fill="none">
-                          <path d="M7 12h10M12 7v10M5 5h14v14H5z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                    </nav>
-                  </aside>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+            </div>
+            <h3>Fix with AI</h3>
+            <p>The copilot drafts remediation, maps it to controls, attaches evidence — you review and ship.</p>
+          </div>
 
-                  <div class="product-main">
-                    <div class="product-topbar">
-                      <strong>Overview</strong>
-                      <div class="topbar-actions">
-                        <span class="topbar-pill"><span class="dot"></span>Security posture</span>
-                        <span class="topbar-cta">New scan</span>
-                      </div>
-                    </div>
+          <div class="feature reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+            </div>
+            <h3>Prove it to auditors</h3>
+            <p>One-click audit packs — timestamped evidence, control mappings, reviewer-ready exports.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                    <div class="product-canvas">
-                      <div class="mock-metrics">
-                        <div class="mock-card">
-                          <span class="label">Compliance score</span>
-                          <strong>Truthful</strong>
-                          <span>Only calculated when program data actually exists</span>
-                        </div>
-                        <div class="mock-card emphasis">
-                          <span class="label">Findings queue</span>
-                          <strong>Live</strong>
-                          <span>Scan-backed issues, scoped and reviewable</span>
-                        </div>
-                        <div class="mock-card alert">
-                          <span class="label">Policy coverage</span>
-                          <strong>In review</strong>
-                          <span>Workflow state stays visible instead of being invented</span>
-                        </div>
-                        <div class="mock-card positive">
-                          <span class="label">Evidence freshness</span>
-                          <strong>Tracked</strong>
-                          <span>Evidence appears as it is attached and validated</span>
-                        </div>
-                      </div>
+    <!-- =================== HOW IT WORKS =================== -->
+    <section id="how" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">How it works</span>
+          <h2 class="section-title">Three steps to audit-ready.</h2>
+        </div>
 
-                      <div class="mock-grid">
-                        <div class="mock-panel">
-                          <div class="mock-panel-header">
-                            <strong>Compliance score by area</strong>
-                            <span class="mini-pill">Truthful by default</span>
-                          </div>
-                          <div class="radar-shell">
-                            <div class="radar" aria-hidden="true">
-                              <svg viewBox="0 0 220 220" fill="none">
-                                <polygon points="110,24 180,64 180,144 110,188 40,144 40,64" stroke="#c7d2e8" stroke-width="2"/>
-                                <polygon points="110,48 159,76 159,132 110,160 61,132 61,76" stroke="#d6def0" stroke-width="2"/>
-                                <polygon points="110,72 138,88 138,120 110,136 82,120 82,88" stroke="#e2e8f6" stroke-width="2"/>
-                                <path d="M110 24V188M40 64H180M40 144H180M61 76L159 132M61 132L159 76" stroke="#e5ebf8" stroke-width="1.5"/>
-                                <polygon points="110,96 146,96 160,132 110,154 72,124 84,88" fill="rgba(99,102,241,0.12)" stroke="#818cf8" stroke-width="3" stroke-linejoin="round"/>
-                              </svg>
-                              <div class="radar-copy">
-                                <strong>Areas</strong>
-                                <span>Program view</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <h3>Connect AWS</h3>
+            <p>Read-only role. 15-minute setup. We never write to your accounts.</p>
+            <div class="step-code"><span class="k">$</span> isops connect --role arn:aws:iam::…</div>
+            <div class="step-arrow"></div>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">02</div>
+            <h3>Scan &amp; score</h3>
+            <p>Continuous posture across 40+ AWS services. Critical findings in under a minute.</p>
+            <div class="step-code"><span class="k">→</span> 142 checks · <span style="color:var(--green-400)">A</span> 87 · 12 findings</div>
+            <div class="step-arrow"></div>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">03</div>
+            <h3>Ship evidence</h3>
+            <p>Auto-mapped to ISO 27001, SOC 2, PCI, GDPR. Audit packs in one click.</p>
+            <div class="step-code"><span class="k">✓</span> evidence.pdf · ISO27001-A.pdf</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                        <div class="mock-panel">
-                          <div class="mock-panel-header">
-                            <strong>Live findings</strong>
-                            <span class="mini-pill">Scoped to latest scan</span>
-                          </div>
-                          <div class="findings-shell">
-                            <div class="finding-row">
-                              <span class="finding-badge critical">Critical</span>
-                              <div>
-                                <strong>Logging coverage gap requires immediate owner review</strong>
-                                <p>Mapped controls, remediation state, and evidence path are already attached.</p>
-                              </div>
-                              <span class="finding-tag">A.8.15</span>
-                            </div>
-                            <div class="finding-row">
-                              <span class="finding-badge high">High</span>
-                              <div>
-                                <strong>Security baseline drift surfaced in active environment scope</strong>
-                                <p>Impact, likelihood, and proposed treatment are visible without leaving the queue.</p>
-                              </div>
-                              <span class="finding-tag">A.8.9</span>
-                            </div>
-                            <div class="finding-row">
-                              <span class="finding-badge medium">Medium</span>
-                              <div>
-                                <strong>Storage control weakness waiting for remediation or accepted risk</strong>
-                                <p>Status, evidence action, and exported report coverage stay in the same workflow.</p>
-                              </div>
-                              <span class="finding-tag">A.8.24</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+    <!-- =================== TESTIMONIAL =================== -->
+    <section style="padding-top: 0; padding-bottom: 72px;">
+      <div class="container">
+        <div class="testimonial reveal">
+          <p class="testimonial-quote">
+            "We retired <span class="hl">three tools</span> and cut audit prep by <span class="hl">80%</span>. The copilot writes evidence faster than we could delete the old spreadsheets."
+          </p>
+          <div class="testimonial-attr">
+            <span class="testimonial-avatar">S</span>
+            <span><b>Security lead</b> · fintech, Series B</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                      <div class="mock-foot">
-                        <div class="mock-panel">
-                          <div class="mock-panel-header">
-                            <strong>Application flow map</strong>
-                            <span class="mini-pill">Clustered view</span>
-                          </div>
-                          <div class="infra-shell">
-                            <div class="infra-cluster">
-                              <span class="cluster-label">Edge</span>
-                              <div class="cluster-node clean">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                  <path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                              </div>
-                              <p>Entry points and routed traffic</p>
-                            </div>
-                            <div class="infra-cluster">
-                              <span class="cluster-label">Network</span>
-                              <div class="cluster-node warning">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                  <path d="M12 4v16M5 9h14M5 15h14" stroke-width="1.8" stroke-linecap="round" />
-                                </svg>
-                              </div>
-                              <p>Boundaries, paths, and control zones</p>
-                            </div>
-                            <div class="infra-cluster">
-                              <span class="cluster-label">Workloads</span>
-                              <div class="cluster-node critical">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                  <path d="M4 7.5h16M7 4v4M17 4v4M5 12h14M5 16h8" stroke-width="1.8" stroke-linecap="round" />
-                                </svg>
-                              </div>
-                              <p>Compute and identity-linked services</p>
-                            </div>
-                            <div class="infra-cluster">
-                              <span class="cluster-label">Data</span>
-                              <div class="cluster-node clean">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                  <ellipse cx="12" cy="6.5" rx="6.5" ry="2.8" stroke-width="1.8" />
-                                  <path d="M5.5 6.5v7c0 1.55 2.9 2.8 6.5 2.8s6.5-1.25 6.5-2.8v-7" stroke-width="1.8" />
-                                  <path d="M5.5 10c0 1.55 2.9 2.8 6.5 2.8s6.5-1.25 6.5-2.8" stroke-width="1.8" />
-                                </svg>
-                              </div>
-                              <p>Evidence stores and retained artifacts</p>
-                            </div>
-                          </div>
-                        </div>
+    <!-- =================== PROOF =================== -->
+    <section style="padding-top: 0;">
+      <div class="container">
+        <div class="proof reveal">
+          <div class="proof-item">
+            <div class="proof-num"><span data-count="15" data-suffix=" min">15 min</span></div>
+            <div class="proof-label">To first scan</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num"><span data-count="40" data-suffix="+">40+</span></div>
+            <div class="proof-label">AWS services</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num"><span data-count="114">114</span></div>
+            <div class="proof-label">ISO 27001 controls</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-num"><span data-count="10" data-suffix="×">10×</span></div>
+            <div class="proof-label">Faster than spreadsheets</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                        <div class="mock-panel">
-                          <div class="mock-panel-header">
-                            <strong>isops.ai Copilot</strong>
-                            <span class="mini-pill">Operator mode</span>
-                          </div>
-                          <div class="copilot-shell">
-                            <strong>Generate remediation, validation, rollback, and evidence steps from the same finding context.</strong>
-                            <p>Copilot stays grounded in scanner output, control mapping, and workflow state instead of producing generic advice disconnected from the platform.</p>
-                            <ul class="copilot-list">
-                              <li>AWS CLI, Terraform, and CloudFormation where appropriate</li>
-                              <li>Evidence attachment guidance mapped to relevant control families</li>
-                              <li>Action plans that remain reviewable and audit-friendly</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- =================== FRAMEWORKS =================== -->
+    <section id="frameworks">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">Frameworks</span>
+          <h2 class="section-title">One scan, every standard.</h2>
+        </div>
+
+        <div class="frameworks">
+          <div class="framework reveal">
+            <div class="framework-icon">ISO</div>
+            <div>
+              <div class="framework-name">ISO 27001:2022</div>
+              <div class="framework-meta">114 controls mapped</div>
             </div>
           </div>
-        </section>
-
-        <section class="section">
-          <div class="container">
-            <div class="feature-grid">
-              <article class="feature-card reveal">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2.75l6.5 2.3v4.52c0 5.13-3.08 9.01-6.5 10.18-3.42-1.17-6.5-5.05-6.5-10.18V5.05L12 2.75z" stroke-width="1.8" stroke-linejoin="round" />
-                    <path d="M8.85 11.9l2.15 2.18 4.16-4.55" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                </div>
-                <h3>Truthful by default</h3>
-                <p>Posture and maturity are shown separately. No fake scores, no invented certainty.</p>
-              </article>
-
-              <article class="feature-card reveal">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M4 9.5h16M4 15.5h16M8 4.5v15M16 4.5v15" stroke-width="1.8" stroke-linecap="round" />
-                  </svg>
-                </div>
-                <h3>One operational surface</h3>
-                <p>Findings, risks, CAPA, evidence, and reports in one connected model.</p>
-              </article>
-
-              <article class="feature-card reveal">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M12 4l7 4v8l-7 4-7-4V8l7-4z" stroke-width="1.8" stroke-linejoin="round" />
-                    <path d="M12 8v8M8.5 10l7 4M15.5 10l-7 4" stroke-width="1.8" stroke-linecap="round" />
-                  </svg>
-                </div>
-                <h3>AI-native remediation</h3>
-                <p>Copilot generates remediation plans, evidence steps, and implementation details inline.</p>
-              </article>
-
-              <article class="feature-card reveal">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M7 4.5h10l3 3V18a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 18V6A1.5 1.5 0 0 1 7 4.5z" stroke-width="1.8" stroke-linejoin="round" />
-                    <path d="M14.5 4.5V8h4.5" stroke-width="1.8" stroke-linejoin="round" />
-                    <path d="M8.5 12h7M8.5 15h7" stroke-width="1.8" stroke-linecap="round" />
-                  </svg>
-                </div>
-                <h3>Report outputs worth sending</h3>
-                <p>Compliance reports and evidence packages that read like audit artifacts.</p>
-              </article>
+          <div class="framework reveal">
+            <div class="framework-icon">SOC</div>
+            <div>
+              <div class="framework-name">SOC 2 Type II</div>
+              <div class="framework-meta">Trust Services Criteria</div>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="platform">
-          <div class="container">
-            <div class="section-header reveal">
-              <div>
-                <div class="section-kicker">Platform</div>
-                <h2>Built on live AWS truth.</h2>
-                <p>Findings, remediation, evidence — in sync without spreadsheets.</p>
-              </div>
-            </div>
-
-            <div class="showcase-grid">
-              <div class="workflow-column">
-                <article class="workflow-card reveal">
-                  <div class="workflow-icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M4 12h16M9 7l-5 5 5 5M15 7l5 5-5 5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                  </div>
-                  <h3>AWS topology that explains blast radius</h3>
-                  <p>Clustered flow map with drill-down to findings and evidence.</p>
-                  <ul class="workflow-list">
-                    <li><span class="workflow-index">1</span><span>Clustered application map, not hundreds of raw nodes.</span></li>
-                    <li><span class="workflow-index">2</span><span>Risk and compliance overlays for exposure and gaps.</span></li>
-                    <li><span class="workflow-index">3</span><span>Drill down from service to resource in one view.</span></li>
-                  </ul>
-                </article>
-
-                <article class="workflow-card reveal">
-                  <div class="workflow-icon">
-                    <svg viewBox="0 0 24 24" fill="none">
-                      <path d="M6 5h12M6 12h12M6 19h12" stroke-width="1.8" stroke-linecap="round" />
-                      <path d="M4 5h.01M4 12h.01M4 19h.01" stroke-width="2.4" stroke-linecap="round" />
-                    </svg>
-                  </div>
-                  <h3>Findings that do not stop at severity badges</h3>
-                  <p>Each finding carries status, risk, evidence, and control mapping.</p>
-                </article>
-              </div>
-
-              <article class="glass-card reveal">
-                <div class="window" style="background: linear-gradient(180deg, #0c1636 0%, #0a1025 100%);">
-                  <div class="window-header">
-                    <strong>Control room</strong>
-                    <span class="tag">DB-backed, live, explainable</span>
-                  </div>
-                  <div class="window-body">
-                    <div class="thread-card assistant">
-                      <strong>Security posture</strong>
-                      <p>Live scan posture and evidence-aware priorities.</p>
-                    </div>
-                    <div class="thread-card">
-                      <strong>Compliance maturity</strong>
-                      <p>Only shown when program data actually exists.</p>
-                    </div>
-                    <div class="thread-card">
-                      <strong>Remediation state</strong>
-                      <p>Open, in progress, or remediated — with full audit trail.</p>
-                    </div>
-                    <div class="thread-card">
-                      <strong>Report readiness</strong>
-                      <p>Based on data that really exists in the platform.</p>
-                    </div>
-                  </div>
-                </div>
-              </article>
+          <div class="framework reveal">
+            <div class="framework-icon">GDPR</div>
+            <div>
+              <div class="framework-name">GDPR</div>
+              <div class="framework-meta">Data processing evidence</div>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="ai">
-          <div class="container">
-            <div class="section-header reveal">
-              <div>
-                <div class="section-kicker">Copilot</div>
-                <h2>AI that operators trust.</h2>
-              </div>
-            </div>
-
-            <div class="copilot-grid">
-              <article class="glass-card reveal">
-                <div class="copilot-toolbar">
-                  <span class="tag">isops.ai Copilot</span>
-                  <span class="tag">Provider-aware</span>
-                  <span class="tag">Evidence-linked</span>
-                </div>
-                <div class="copilot-thread">
-                  <div class="thread-card user">
-                    <strong>Operator prompt</strong>
-                    <p>
-                      Remediate GuardDuty not enabled in eu-west-1. Include CLI, Terraform, and validation.
-                    </p>
-                  </div>
-                  <div class="thread-card assistant">
-                    <strong>Copilot response</strong>
-                    <p>
-                      One detector in eu-west-1. Validation covers status and evidence capture.
-                    </p>
-                  </div>
-                  <div class="thread-card">
-                    <strong>Action surface</strong>
-                    <p>
-                      Apply to playbook, attach evidence, or open CAPA — one context.
-                    </p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="glass-card reveal">
-                <h3>Built for operator-grade output</h3>
-                <p>Implementation-ready and auditor-ready from the same workflow.</p>
-                <ul class="copilot-checklist">
-                  <li>Generates CLI, Terraform, and CloudFormation paths.</li>
-                  <li>Suggests rollback and validation before production.</li>
-                  <li>Turns one context into CAPA, risk, and evidence.</li>
-                  <li>Honest when no provider is configured.</li>
-                </ul>
-              </article>
+          <div class="framework reveal">
+            <div class="framework-icon">PCI</div>
+            <div>
+              <div class="framework-name">PCI-DSS 4.0</div>
+              <div class="framework-meta">12 requirements</div>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="reports">
-          <div class="container">
-            <div class="section-header reveal">
-              <div>
-                <div class="section-kicker">Reports</div>
-                <h2>Exports auditors accept.</h2>
-              </div>
-              <a class="ghost-button" href="#contact">See the audit pack live</a>
-            </div>
-
-            <div class="reports-grid">
-              <article class="report-card reveal">
-                <div class="report-head">
-                  <h3>Compliance report</h3>
-                  <span class="report-tag">ISO 27001 / SOC 2</span>
-                </div>
-                <div class="report-preview">
-                  <div class="title">Assessment basis, control register, gap mapping</div>
-                  <div class="line medium"></div>
-                  <div class="line full"></div>
-                  <div class="line short"></div>
-                  <div class="line full" style="margin-top: 22px;"></div>
-                  <div class="line full"></div>
-                  <div class="line medium"></div>
-                </div>
-                <p>Control status, evidence, and remediation — one document.</p>
-              </article>
-
-              <article class="report-card reveal">
-                <div class="report-head">
-                  <h3>Risk assessment</h3>
-                  <span class="report-tag">Treatment and ownership</span>
-                </div>
-                <div class="report-preview">
-                  <div class="title">Detected vs managed risk, priority treatment path</div>
-                  <div class="line full"></div>
-                  <div class="line medium"></div>
-                  <div class="line short"></div>
-                  <div class="line full" style="margin-top: 22px;"></div>
-                  <div class="line short"></div>
-                  <div class="line medium"></div>
-                </div>
-                <p>Scan-derived risk, treatment plans, pending decisions.</p>
-              </article>
-
-              <article class="report-card reveal">
-                <div class="report-head">
-                  <h3>Executive summary</h3>
-                  <span class="report-tag">Board and leadership</span>
-                </div>
-                <div class="report-preview">
-                  <div class="title">Security posture, evidence readiness, key priorities</div>
-                  <div class="line short"></div>
-                  <div class="line full"></div>
-                  <div class="line medium"></div>
-                  <div class="line full" style="margin-top: 22px;"></div>
-                  <div class="line medium"></div>
-                  <div class="line short"></div>
-                </div>
-                <p>What changed, what is risky, what is ready.</p>
-              </article>
+          <div class="framework reveal">
+            <div class="framework-icon">NIS2</div>
+            <div>
+              <div class="framework-name">NIS2</div>
+              <div class="framework-meta">Essential entities</div>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="engagement">
-          <div class="container">
-            <div class="section-header reveal">
-              <div>
-                <div class="section-kicker">Evaluation paths</div>
-                <h2>Three ways to start.</h2>
-              </div>
-            </div>
-
-            <div class="engagement-grid">
-              <article class="plan-card reveal">
-                <div class="plan-kicker">Pilot engagement</div>
-                <div class="plan-head">
-                  <div class="plan-title-group">
-                    <span class="report-tag">Pilot</span>
-                    <h3>One account, one backlog, one truth model</h3>
-                  </div>
-                  <div class="plan-price">30-day evaluation</div>
-                </div>
-                <p class="plan-meta">
-                  Replace ad hoc scan review with one workflow. Prove value fast.
-                </p>
-                <div class="plan-divider"></div>
-                <ul class="plan-list">
-                  <li>Import posture and findings from one AWS environment.</li>
-                  <li>Run remediation, evidence, and exports on real gaps.</li>
-                  <li>Produce one executive summary and compliance pack.</li>
-                </ul>
-                <div class="signal-strip">
-                  <strong>Best fit</strong>
-                  <span>Teams that need proof, not a long program.</span>
-                </div>
-              </article>
-
-              <article class="plan-card featured reveal">
-                <div class="plan-kicker">Core deployment</div>
-                <div class="plan-head">
-                  <div class="plan-title-group">
-                    <span class="report-tag">Core platform</span>
-                    <h3>Run compliance operations in one system</h3>
-                  </div>
-                  <div class="plan-price">Primary operating layer</div>
-                </div>
-                <p class="plan-meta">
-                  Make isops.ai the system of record for posture, risk, and evidence.
-                </p>
-                <div class="plan-divider"></div>
-                <ul class="plan-list">
-                  <li>Unify findings, remediation, risks, and evidence.</li>
-                  <li>Bring Copilot into real operator workflows.</li>
-                  <li>One narrative for leadership and auditors.</li>
-                </ul>
-                <div class="signal-strip">
-                  <strong>Best fit</strong>
-                  <span>Teams replacing five disconnected products.</span>
-                </div>
-              </article>
-
-              <article class="plan-card reveal">
-                <div class="plan-kicker">Enterprise rollout</div>
-                <div class="plan-head">
-                  <div class="plan-title-group">
-                    <span class="report-tag">Enterprise</span>
-                    <h3>Customer trust, audit response, and multi-team adoption</h3>
-                  </div>
-                  <div class="plan-price">Custom rollout</div>
-                </div>
-                <p class="plan-meta">
-                  Multi-team workflows with consistent evidence and reporting.
-                </p>
-                <div class="plan-divider"></div>
-                <ul class="plan-list">
-                  <li>Multi-team evidence, reporting, and remediation.</li>
-                  <li>Trust-center and customer review support.</li>
-                  <li>Provider-backed AI in existing change processes.</li>
-                </ul>
-                <div class="signal-strip">
-                  <strong>Best fit</strong>
-                  <span>Teams buying a long-term operating layer.</span>
-                </div>
-              </article>
+          <div class="framework reveal">
+            <div class="framework-icon">HIPAA</div>
+            <div>
+              <div class="framework-name">HIPAA</div>
+              <div class="framework-meta">Security Rule</div>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="faq">
-          <div class="container">
-            <div class="section-header reveal">
-              <div>
-                <div class="section-kicker">FAQ</div>
-                <h2>Common questions.</h2>
-              </div>
-            </div>
-
-            <div class="faq-grid">
-              <details class="faq-item reveal" open>
-                <summary>How fast can we start?</summary>
-                <p>Connect one AWS account and you can run findings, remediation, and exports the same day.</p>
-              </details>
-
-              <details class="faq-item reveal">
-                <summary>What AWS access do you need?</summary>
-                <p>Read-only IAM role scoped to the accounts you want posture on. No agents, no workload changes.</p>
-              </details>
-
-              <details class="faq-item reveal">
-                <summary>How does AI remediation work?</summary>
-                <p>Copilot drafts CLI, Terraform, and validation steps grounded in real findings. Bring your own provider.</p>
-              </details>
-
-              <details class="faq-item reveal">
-                <summary>Can we export evidence?</summary>
-                <p>Yes. Compliance, risk, and executive reports package the same truth model you operate in daily.</p>
-              </details>
+          <div class="framework reveal">
+            <div class="framework-icon">AWS</div>
+            <div>
+              <div class="framework-name">AWS Well-Architected</div>
+              <div class="framework-meta">Security pillar</div>
             </div>
           </div>
-        </section>
-
-        <section class="section" id="contact">
-          <div class="container" style="text-align: center; max-width: 680px;">
-            <div class="section-kicker">Get started</div>
-            <h2 style="font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 16px;">See the platform live.</h2>
-            <p style="color: var(--ink-soft); margin-bottom: 28px; font-size: 1.08rem; line-height: 1.6;">30-minute walkthrough with a founder.</p>
-            <a class="primary-button" href="mailto:hello@isops.ai?subject=Demo%20request" style="padding: 14px 26px; font-size: 0.96rem;">Book a demo →</a>
+          <div class="framework reveal">
+            <div class="framework-icon">CIS</div>
+            <div>
+              <div class="framework-name">CIS AWS</div>
+              <div class="framework-meta">Foundations Benchmark</div>
+            </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
+    </section>
 
-      <footer class="footer">
-        <div class="container footer-row">
-          <div>&copy; 2025 isops.ai. All rights reserved.</div>
-          <div class="footer-nav">
-            <a href="#platform">Platform</a>
-            <a href="#ai">AI Copilot</a>
-            <a href="#reports">Reports</a>
-            <a href="#engagement">Plans</a>
-            <a href="security.html">Trust center</a>
+    <!-- =================== FAQ =================== -->
+    <section id="faq" style="padding-top: 0;">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title">Questions, answered.</h2>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item reveal">
+            <summary>How long does setup take?</summary>
+            <p>About 15 minutes. You deploy a read-only IAM role via CloudFormation, paste the ARN, and we start scanning. No agents. No writes.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>What AWS permissions do you need?</summary>
+            <p>Read-only. Specifically: <code>SecurityAudit</code> plus a few scoped <code>Describe*</code> and <code>List*</code> calls. Full policy is in our <a href="security.html">security docs</a>.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Where is my data stored?</summary>
+            <p>EU (Frankfurt) or US (us-east-1) — you pick at onboarding. Encrypted at rest (AES-256) and in transit (TLS 1.3).</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>Can you replace my existing GRC tool?</summary>
+            <p>For AWS workloads — yes. Posture, evidence, and audit packs are first-class. For manual controls (policies, training), we integrate or you keep your existing system.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>How does pricing work?</summary>
+            <p>Flat annual fee. No per-seat charges. Scales with AWS account count. <a href="#contact">Book a demo</a> for a quote.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== CTA =================== -->
+    <section id="contact" style="padding-top: 0;">
+      <div class="container">
+        <div class="cta reveal">
+          <h2>Retire the compliance spreadsheet.</h2>
+          <p>30-minute demo. Real AWS account. Your first audit pack exported before we're done.</p>
+          <div class="cta-actions">
+            <a href="mailto:hello@isops.ai?subject=Demo%20request" class="btn btn-primary btn-lg">
+              Book a demo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <a href="mailto:hello@isops.ai" class="btn btn-ghost btn-lg">hello@isops.ai</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== FOOTER =================== -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" class="nav-brand">
+              <span class="nav-brand-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              isops.ai
+            </a>
+            <p class="footer-brand">AI-native trust &amp; compliance operations for AWS.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#product">Dashboard</a>
+            <a href="#how">How it works</a>
+            <a href="#frameworks">Frameworks</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#contact">Contact</a>
+            <a href="security.html">Security</a>
             <a href="privacy.html">Privacy</a>
             <a href="subprocessors.html">Subprocessors</a>
           </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:hello@isops.ai">hello@isops.ai</a>
+            <a href="mailto:security@isops.ai">security@isops.ai</a>
+          </div>
         </div>
-      </footer>
-    </div>
+        <div class="footer-bottom">
+          <span>© 2026 OTALA. All rights reserved.</span>
+          <span>Built for security teams who ship.</span>
+        </div>
+      </div>
+    </footer>
 
     <script>
-      (() => {
-        const topbar = document.getElementById("topbar");
-        const menuToggle = document.getElementById("menu-toggle");
-        const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
-        const revealNodes = document.querySelectorAll(".reveal");
+      // ============================================================
+      // Scroll reveal + count-up animations — no dependencies
+      // ============================================================
+      (function () {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        if (menuToggle) {
-          menuToggle.addEventListener("click", () => {
-            topbar.classList.toggle("is-open");
+        // 1) Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window && !prefersReduced) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+          reveals.forEach((el) => io.observe(el));
+        } else {
+          reveals.forEach((el) => el.classList.add('is-visible'));
+        }
+
+        // 2) Count-up on first view
+        const counters = document.querySelectorAll('[data-count]');
+        const countEase = (t) => 1 - Math.pow(1 - t, 3);
+        const runCount = (el) => {
+          if (el.dataset._counted) return;
+          el.dataset._counted = '1';
+          const target = parseFloat(el.getAttribute('data-count'));
+          const suffix = el.getAttribute('data-suffix') || '';
+          if (prefersReduced || isNaN(target)) {
+            el.textContent = target + suffix;
+            return;
+          }
+          const dur = 1100;
+          const start = performance.now();
+          const step = (now) => {
+            const p = Math.min(1, (now - start) / dur);
+            const v = Math.round(target * countEase(p));
+            el.textContent = v + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        };
+        if ('IntersectionObserver' in window) {
+          const co = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                runCount(e.target);
+                co.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.3 });
+          counters.forEach((el) => co.observe(el));
+        } else {
+          counters.forEach(runCount);
+        }
+
+        // 3) Ring animation — set initial to empty, then fill when visible
+        const rings = document.querySelectorAll('[data-kpi-ring], [data-posture-ring]');
+        rings.forEach((ring) => {
+          const total = ring.getAttribute('stroke-dasharray');
+          ring.setAttribute('stroke-dashoffset', total);
+        });
+        if ('IntersectionObserver' in window && !prefersReduced) {
+          const ro = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                const r = e.target;
+                const pct = parseFloat(r.getAttribute('data-kpi-ring') || r.getAttribute('data-posture-ring')) || 0;
+                const total = parseFloat(r.getAttribute('stroke-dasharray'));
+                const target = total - (pct / 100) * total;
+                r.style.transition = 'stroke-dashoffset 1.3s cubic-bezier(.22,1,.36,1)';
+                requestAnimationFrame(() => {
+                  r.setAttribute('stroke-dashoffset', target);
+                });
+                ro.unobserve(r);
+              }
+            });
+          }, { threshold: 0.3 });
+          rings.forEach((r) => ro.observe(r));
+        } else {
+          rings.forEach((r) => {
+            const pct = parseFloat(r.getAttribute('data-kpi-ring') || r.getAttribute('data-posture-ring')) || 0;
+            const total = parseFloat(r.getAttribute('stroke-dasharray'));
+            r.setAttribute('stroke-dashoffset', total - (pct / 100) * total);
           });
         }
 
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            topbar.classList.remove("is-open");
-          });
+        // 4) Typing animation for copilot
+        const typedEls = document.querySelectorAll('.typed[data-typed]');
+        typedEls.forEach((el) => {
+          const full = el.getAttribute('data-typed');
+          if (prefersReduced) { el.textContent = full; return; }
+          let i = 0;
+          const type = () => {
+            if (i <= full.length) {
+              el.textContent = full.slice(0, i);
+              i++;
+              setTimeout(type, 22 + Math.random() * 28);
+            }
+          };
+          // start after preview rises in
+          setTimeout(type, 1100);
         });
 
-        const sections = navLinks
-          .map((link) => document.querySelector(link.getAttribute("href")))
-          .filter(Boolean);
-
-        const setActiveLink = () => {
-          let current = null;
-          const offset = window.scrollY + 160;
-          sections.forEach((section) => {
-            if (section.offsetTop <= offset) {
-              current = section.id;
+        // 5) Scan counter — gentle live number
+        const scan = document.querySelector('[data-scan-count]');
+        if (scan && !prefersReduced) {
+          let n = 127;
+          const max = 142;
+          const tick = () => {
+            if (n < max) {
+              n += 1;
+              scan.textContent = n;
+              setTimeout(tick, 480 + Math.random() * 600);
+            } else {
+              // reset to 127 after pause
+              setTimeout(() => { n = 127; scan.textContent = n; tick(); }, 4500);
             }
-          });
-
-          navLinks.forEach((link) => {
-            const match = link.getAttribute("href") === `#${current}`;
-            link.classList.toggle("is-active", match);
-          });
-        };
-
-        setActiveLink();
-        window.addEventListener("scroll", setActiveLink, { passive: true });
-
-        if ("IntersectionObserver" in window) {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("is-visible");
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.14 }
-          );
-
-          revealNodes.forEach((node) => observer.observe(node));
-        } else {
-          revealNodes.forEach((node) => node.classList.add("is-visible"));
+          };
+          setTimeout(tick, 1600);
         }
-
       })();
     </script>
   </body>
