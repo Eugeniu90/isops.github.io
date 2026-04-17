@@ -1207,6 +1207,288 @@
         .kpi::after { display: none; }
       }
 
+      /* =====================================================
+         Dashboard SCENES — each sidebar tab swaps a scene
+         ===================================================== */
+      .scene { display: none; }
+      .scene.is-active {
+        display: block;
+        animation: scene-in 0.34s cubic-bezier(.22,1,.36,1) both;
+      }
+      @keyframes scene-in {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: none; }
+      }
+
+      /* ---- Shared chips / filter row (used in findings, evidence, infra, reports) ---- */
+      .filter-row {
+        display: flex; flex-wrap: wrap; gap: 6px;
+        margin-bottom: 12px;
+      }
+      .acct-bar {
+        display: flex; flex-wrap: wrap; gap: 6px;
+        margin-bottom: 12px;
+      }
+      .chip {
+        display: inline-flex; align-items: center; gap: 5px;
+        padding: 4px 9px; border-radius: 9999px;
+        font-size: 10.5px; font-weight: 500; color: var(--gray-400);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+      }
+      .chip:hover { color: var(--gray-200); border-color: rgba(99,102,241,0.35); }
+      .chip.active {
+        background: rgba(99, 102, 241, 0.14);
+        color: #fff;
+        border-color: rgba(99, 102, 241, 0.45);
+      }
+      .chip b { color: #fff; font-weight: 700; margin-left: 1px; }
+      .dot-crit, .dot-high, .dot-med {
+        width: 6px; height: 6px; border-radius: 50%;
+        display: inline-block;
+      }
+      .dot-crit { background: var(--red-400); }
+      .dot-high { background: var(--orange-400); }
+      .dot-med  { background: var(--amber-400); }
+
+      /* ---- FINDINGS scene rows (f2-row) ---- */
+      .f2-row {
+        display: flex; align-items: center; gap: 10px;
+        padding: 10px 2px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.35);
+        font-size: 11.5px;
+      }
+      .f2-row:last-child { border-bottom: 0; }
+      .f2-row:hover { background: rgba(255,255,255,0.015); }
+      .f2-title {
+        color: var(--gray-200); font-weight: 500;
+        flex: 1; min-width: 0;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .f2-title em {
+        color: var(--gray-500); font-style: normal;
+        font-family: var(--font-mono); font-size: 10.5px;
+        margin-left: 6px;
+      }
+      .f2-age {
+        color: var(--gray-500); font-size: 10.5px;
+        font-variant-numeric: tabular-nums; flex-shrink: 0;
+      }
+
+      /* ---- COMPLIANCE scene (framework cards) ---- */
+      .fw-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+      }
+      @media (max-width: 1100px) { .fw-grid { grid-template-columns: repeat(2, 1fr); } }
+      .fw-card {
+        position: relative;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 12px;
+        padding: 14px 14px 12px;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .fw-card:hover {
+        border-color: rgba(99, 102, 241, 0.32);
+        transform: translateY(-1px);
+      }
+      .fw-card h4 {
+        margin: 0 0 4px;
+        font-size: 13px; font-weight: 700; color: #fff;
+        letter-spacing: -0.01em;
+      }
+      .fw-card .sub {
+        font-size: 10.5px; color: var(--gray-500);
+        font-family: var(--font-mono);
+        margin-bottom: 10px;
+      }
+      .fw-card .bar {
+        height: 4px; border-radius: 9999px;
+        background: rgba(45, 58, 79, 0.5);
+        overflow: hidden;
+      }
+      .fw-card .bar i {
+        display: block; height: 100%;
+        background: linear-gradient(90deg, var(--brand-600), var(--brand-400));
+        border-radius: 9999px;
+      }
+      .fw-meta {
+        margin-top: 8px;
+        font-size: 10px; color: var(--gray-500);
+        font-family: var(--font-mono);
+      }
+      .status {
+        position: absolute; top: 12px; right: 12px;
+        padding: 2px 7px; border-radius: 9999px;
+        font-size: 9px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.04em;
+      }
+      .status.ok  { background: rgba(52, 211, 153, 0.18); color: var(--green-400); }
+      .status.wip { background: rgba(99, 102, 241, 0.18); color: var(--brand-300); }
+
+      /* ---- INFRASTRUCTURE scene ---- */
+      .infra-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      }
+      @media (max-width: 1100px) { .infra-grid { grid-template-columns: repeat(2, 1fr); } }
+      .infra-card {
+        display: flex; align-items: center; gap: 10px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 10px;
+        padding: 10px 12px;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+      .infra-card:hover {
+        border-color: rgba(99, 102, 241, 0.35);
+        background: rgba(99, 102, 241, 0.03);
+      }
+      .infra-card svg {
+        width: 22px; height: 22px;
+        color: var(--brand-400); flex-shrink: 0;
+      }
+      .infra-card .l {
+        font-size: 10px; font-weight: 600; color: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.05em;
+      }
+      .infra-card .n {
+        font-size: 15px; font-weight: 700; color: #fff;
+        letter-spacing: -0.01em;
+      }
+      .infra-card .n span {
+        font-size: 10.5px; font-weight: 500; color: var(--gray-500);
+        margin-left: 3px; letter-spacing: 0; text-transform: none;
+      }
+
+      /* ---- EVIDENCE scene ---- */
+      .evi-row {
+        display: flex; align-items: flex-start; gap: 12px;
+        padding: 9px 2px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.35);
+        font-size: 11.5px;
+      }
+      .evi-row:last-child { border-bottom: 0; }
+      .evi-row:hover { background: rgba(255,255,255,0.015); }
+      .evi-time {
+        font-family: var(--font-mono); font-size: 10.5px;
+        color: var(--gray-500); flex-shrink: 0;
+        min-width: 84px;
+      }
+      .evi-body {
+        color: var(--gray-300); line-height: 1.5;
+        flex: 1; min-width: 0;
+      }
+      .evi-body b { color: #fff; font-weight: 600; }
+      .evi-tag {
+        display: inline-flex; align-items: center;
+        padding: 1px 7px; border-radius: 4px;
+        font-size: 9.5px; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.04em;
+        color: var(--brand-300);
+        background: rgba(99, 102, 241, 0.12);
+        margin-right: 6px;
+        font-family: var(--font-mono);
+      }
+
+      /* ---- REMEDIATION scene ---- */
+      .rem-list { display: flex; flex-direction: column; gap: 8px; }
+      .rem-card {
+        background: var(--surface-50);
+        border: 1px solid rgba(45, 58, 79, 0.5);
+        border-radius: 12px;
+        padding: 12px 14px;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+      .rem-card:hover {
+        border-color: rgba(99, 102, 241, 0.32);
+        transform: translateY(-1px);
+      }
+      .rem-head {
+        display: flex; align-items: flex-start; justify-content: space-between;
+        gap: 12px; margin-bottom: 8px;
+      }
+      .rem-title {
+        font-size: 12.5px; font-weight: 600; color: #fff;
+        letter-spacing: -0.005em;
+      }
+      .rem-title em {
+        font-style: normal; color: var(--brand-300);
+        font-family: var(--font-mono); font-size: 11px;
+        margin-left: 2px;
+      }
+      .rem-sub {
+        margin-top: 3px;
+        font-size: 11px; color: var(--gray-400); line-height: 1.45;
+      }
+      .rem-status {
+        flex-shrink: 0;
+        padding: 2px 8px; border-radius: 9999px;
+        font-size: 9.5px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.04em;
+      }
+      .rem-status.draft  { background: rgba(251, 191, 36, 0.16); color: var(--amber-400); }
+      .rem-status.review { background: rgba(99, 102, 241, 0.18); color: var(--brand-300); }
+      .rem-status.merged { background: rgba(52, 211, 153, 0.18); color: var(--green-400); }
+      .rem-foot {
+        display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+        padding-top: 9px;
+        border-top: 1px solid rgba(45, 58, 79, 0.35);
+      }
+      .rem-map {
+        font-size: 10px; font-weight: 500;
+        padding: 2px 7px; border-radius: 4px;
+        color: var(--brand-300);
+        background: rgba(99, 102, 241, 0.1);
+        font-family: var(--font-mono);
+      }
+      .rem-owner {
+        font-size: 10.5px; color: var(--gray-500);
+        font-family: var(--font-mono);
+      }
+
+      /* ---- REPORTS scene ---- */
+      .rep-row {
+        display: flex; align-items: center; gap: 12px;
+        padding: 10px 2px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.35);
+      }
+      .rep-row:last-child { border-bottom: 0; }
+      .rep-row:hover { background: rgba(255,255,255,0.015); }
+      .rep-icon {
+        width: 30px; height: 30px; border-radius: 8px;
+        display: inline-flex; align-items: center; justify-content: center;
+        background: rgba(99, 102, 241, 0.12);
+        color: var(--brand-300);
+        flex-shrink: 0;
+      }
+      .rep-icon svg { width: 14px; height: 14px; }
+      .rep-meta { flex: 1; min-width: 0; }
+      .rep-title {
+        font-size: 12px; font-weight: 600; color: #fff;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      .rep-sub {
+        font-size: 10.5px; color: var(--gray-500);
+        font-family: var(--font-mono);
+        margin-top: 2px;
+      }
+      .rep-btn {
+        flex-shrink: 0;
+        padding: 5px 12px; border-radius: 8px;
+        font-size: 10.5px; font-weight: 600; color: #fff;
+        background: rgba(99, 102, 241, 0.15);
+        border: 1px solid rgba(99, 102, 241, 0.32);
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      }
+      .rep-btn:hover {
+        background: var(--brand-600);
+        border-color: var(--brand-500);
+        transform: translateY(-1px);
+      }
+
       /* ========== Accessibility ========== */
       :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
       @media (prefers-reduced-motion: reduce) {
@@ -1279,7 +1561,7 @@
           <div class="preview" role="img" aria-label="isops.ai dashboard preview">
             <div class="preview-chrome">
               <div class="preview-dots"><span></span><span></span><span></span></div>
-              <div class="preview-url"><span class="lock">●</span>app.isops.ai/overview</div>
+              <div class="preview-url"><span class="lock">●</span>app.isops.ai/<span data-url-tab>overview</span></div>
               <div class="preview-scan">
                 <span class="preview-scan-dot" aria-hidden="true"></span>
                 <span>Scanning · <span class="mono" data-scan-count>127</span>/142</span>
@@ -1298,32 +1580,32 @@
                   <span>isops.ai</span>
                 </div>
                 <div class="sb-nav">
-                  <div class="sb-item active">
+                  <div class="sb-item active" data-tab="overview" data-label="Overview">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg>
                     Overview
                   </div>
-                  <div class="sb-item">
+                  <div class="sb-item" data-tab="findings" data-label="Findings">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z"/></svg>
                     Findings
                     <span class="pill">12</span>
                   </div>
-                  <div class="sb-item">
+                  <div class="sb-item" data-tab="compliance" data-label="Compliance">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     Compliance
                   </div>
-                  <div class="sb-item">
+                  <div class="sb-item" data-tab="infrastructure" data-label="Infrastructure">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3"/></svg>
                     Infrastructure
                   </div>
-                  <div class="sb-item">
+                  <div class="sb-item" data-tab="evidence" data-label="Evidence">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
                     Evidence
                   </div>
-                  <div class="sb-item">
+                  <div class="sb-item" data-tab="remediation" data-label="Remediation">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"/></svg>
                     Remediation
                   </div>
-                  <div class="sb-item">
+                  <div class="sb-item" data-tab="reports" data-label="Reports">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
                     Reports
                   </div>
@@ -1333,7 +1615,7 @@
               <!-- Main -->
               <div class="preview-main">
                 <div class="preview-top">
-                  <div class="preview-top-title">Overview</div>
+                  <div class="preview-top-title" data-title>Overview</div>
                   <div class="preview-top-right">
                     <div class="top-badge">
                       <span class="top-badge-grade">A</span>
@@ -1343,6 +1625,7 @@
                   </div>
                 </div>
                 <div class="preview-content">
+                  <div class="scene is-active" data-tab="overview">
                   <div class="kpi-grid">
                     <div class="kpi">
                       <div class="kpi-label">Compliance</div>
@@ -1500,6 +1783,173 @@
                         <span><span class="dot" style="background:var(--green-400)"></span>Data <b style="color:#fff;margin-left:2px">88</b></span>
                         <span><span class="dot" style="background:var(--amber-400)"></span>Net <b style="color:#fff;margin-left:2px">72</b></span>
                       </div>
+                    </div>
+                  </div>
+                  </div><!-- /scene overview -->
+
+                  <!-- ============ FINDINGS scene ============ -->
+                  <div class="scene" data-tab="findings">
+                    <div class="filter-row">
+                      <span class="chip active">All · <b>12</b></span>
+                      <span class="chip"><span class="dot-crit"></span>Critical · <b>1</b></span>
+                      <span class="chip"><span class="dot-high"></span>High · <b>4</b></span>
+                      <span class="chip"><span class="dot-med"></span>Medium · <b>7</b></span>
+                      <span class="chip">Open</span>
+                      <span class="chip">SLA ≤ 7d</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row"><span class="severity crit">Critical</span><span class="f2-title">S3 bucket publicly readable <em>prod-artifacts</em></span><span class="f2-age">2h ago</span><span class="finding-source">aws/s3</span></div>
+                      <div class="f2-row"><span class="severity high">High</span><span class="f2-title">IAM access keys older than 90 days <em>3 users</em></span><span class="f2-age">1d ago</span><span class="finding-source">aws/iam</span></div>
+                      <div class="f2-row"><span class="severity high">High</span><span class="f2-title">Security group allows 0.0.0.0/0 on port 22</span><span class="f2-age">1d ago</span><span class="finding-source">aws/ec2</span></div>
+                      <div class="f2-row"><span class="severity high">High</span><span class="f2-title">CloudFront distribution without WAF</span><span class="f2-age">2d ago</span><span class="finding-source">aws/cf</span></div>
+                      <div class="f2-row"><span class="severity high">High</span><span class="f2-title">KMS key without automatic rotation</span><span class="f2-age">3d ago</span><span class="finding-source">aws/kms</span></div>
+                      <div class="f2-row"><span class="severity med">Medium</span><span class="f2-title">RDS without automated backups</span><span class="f2-age">3d ago</span><span class="finding-source">aws/rds</span></div>
+                      <div class="f2-row"><span class="severity med">Medium</span><span class="f2-title">CloudTrail log file validation disabled</span><span class="f2-age">4d ago</span><span class="finding-source">aws/cloudtrail</span></div>
+                      <div class="f2-row"><span class="severity med">Medium</span><span class="f2-title">EBS volume unencrypted <em>2 volumes</em></span><span class="f2-age">5d ago</span><span class="finding-source">aws/ebs</span></div>
+                    </div>
+                  </div>
+
+                  <!-- ============ COMPLIANCE scene ============ -->
+                  <div class="scene" data-tab="compliance">
+                    <div class="fw-grid">
+                      <div class="fw-card">
+                        <span class="status ok">On track</span>
+                        <h4>ISO 27001 : 2022</h4>
+                        <div class="sub">Annex A · 93 / 114 controls</div>
+                        <div class="bar"><i style="width:82%"></i></div>
+                        <div class="fw-meta">Stage 2 audit · Jun 2026</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status ok">On track</span>
+                        <h4>SOC 2 · Type II</h4>
+                        <div class="sub">Trust Services · 58 / 64 criteria</div>
+                        <div class="bar"><i style="width:91%"></i></div>
+                        <div class="fw-meta">Observation window · Apr→Oct</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status wip">In progress</span>
+                        <h4>PCI-DSS v4.0</h4>
+                        <div class="sub">73 / 108 requirements</div>
+                        <div class="bar"><i style="width:68%"></i></div>
+                        <div class="fw-meta">Self-attestation · Q3 2026</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status ok">On track</span>
+                        <h4>GDPR</h4>
+                        <div class="sub">Controller duties · 42 / 45</div>
+                        <div class="bar"><i style="width:94%"></i></div>
+                        <div class="fw-meta">DPIA reviewed · Mar 2026</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status wip">Planning</span>
+                        <h4>NIS2</h4>
+                        <div class="sub">Essential entity · mapping</div>
+                        <div class="bar"><i style="width:32%"></i></div>
+                        <div class="fw-meta">Transposition · Oct 2026</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status ok">Maintained</span>
+                        <h4>CIS AWS Foundations 2.0</h4>
+                        <div class="sub">Benchmarks · 52 / 58</div>
+                        <div class="bar"><i style="width:90%"></i></div>
+                        <div class="fw-meta">Auto-scanned daily</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ============ INFRASTRUCTURE scene ============ -->
+                  <div class="scene" data-tab="infrastructure">
+                    <div class="acct-bar">
+                      <span class="chip active">prod · 641 resources</span>
+                      <span class="chip">staging · 284</span>
+                      <span class="chip">sandbox · 112</span>
+                      <span class="chip">eu-west-1</span>
+                      <span class="chip">us-east-1</span>
+                    </div>
+                    <div class="infra-grid">
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.118a7.5 7.5 0 0115 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.5-1.632z"/></svg><div><div class="l">IAM</div><div class="n">324 <span>users</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg><div><div class="l">S3</div><div class="n">42 <span>buckets</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3"/></svg><div><div class="l">EC2</div><div class="n">87 <span>instances</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75"/></svg><div><div class="l">RDS</div><div class="n">12 <span>databases</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg><div><div class="l">Lambda</div><div class="n">156 <span>functions</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg><div><div class="l">VPCs</div><div class="n">8 <span>networks</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"/></svg><div><div class="l">CloudTrail</div><div class="n">3 <span>trails</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.94"/></svg><div><div class="l">CloudWatch</div><div class="n">94 <span>alarms</span></div></div></div>
+                      <div class="infra-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg><div><div class="l">KMS</div><div class="n">21 <span>keys</span></div></div></div>
+                    </div>
+                  </div>
+
+                  <!-- ============ EVIDENCE scene ============ -->
+                  <div class="scene" data-tab="evidence">
+                    <div class="filter-row">
+                      <span class="chip active">All · <b>214</b></span>
+                      <span class="chip">Auto-captured · <b>186</b></span>
+                      <span class="chip">Manual · <b>28</b></span>
+                      <span class="chip">Last 30d</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="evi-row"><span class="evi-time">Apr 17 · 09:22</span><span class="evi-body"><span class="evi-tag">screenshot</span><b>S3 bucket policy</b> reviewed — bucket-owner-enforced enabled. <span class="evi-tag">auto</span> · ISO 27001 A.8.3</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 17 · 08:41</span><span class="evi-body"><span class="evi-tag">json</span><b>IAM rotation log</b> — 3 keys rotated, 0 failures. <span class="evi-tag">auto</span> · ISO 27001 A.9.2.5</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 16 · 17:03</span><span class="evi-body"><span class="evi-tag">pdf</span><b>SOC 2 access-review</b> Q2 signed by security-lead. · SOC 2 CC6.3</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 16 · 14:12</span><span class="evi-body"><span class="evi-tag">api</span><b>CloudTrail integrity</b> validation on 3 trails. <span class="evi-tag">auto</span> · ISO 27001 A.12.4</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 15 · 22:00</span><span class="evi-body"><span class="evi-tag">json</span><b>Backup verification</b> — RDS prod-db restored to staging. · ISO 27001 A.12.3</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 15 · 11:48</span><span class="evi-body"><span class="evi-tag">screenshot</span><b>MFA enforcement</b> on root account verified. <span class="evi-tag">auto</span> · CIS 1.5</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 14 · 16:20</span><span class="evi-body"><span class="evi-tag">pdf</span><b>Pen-test attestation</b> Q1 2026 — no criticals. · SOC 2 CC4.1</span></div>
+                    </div>
+                  </div>
+
+                  <!-- ============ REMEDIATION scene ============ -->
+                  <div class="scene" data-tab="remediation">
+                    <div class="rem-list">
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div><div class="rem-title">Block public access on S3 bucket <em>prod-artifacts</em></div>
+                          <div class="rem-sub">Auto-drafted Terraform. Disables ACL, enables BlockPublicPolicy. Low-risk.</div></div>
+                          <span class="rem-status draft">Draft</span>
+                        </div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.8.3</span><span class="rem-map">SOC 2 CC6.1</span><span class="rem-owner">· copilot → platform-eng</span></div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div><div class="rem-title">Rotate 3 IAM access keys > 90d</div>
+                          <div class="rem-sub">Runbook: create new key, update secrets manager, revoke old, notify owner.</div></div>
+                          <span class="rem-status review">Review</span>
+                        </div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.9.2.5</span><span class="rem-map">SOC 2 CC6.2</span><span class="rem-owner">· assignee: sec-ops</span></div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div><div class="rem-title">Restrict SG <em>web-prod</em> port 22 to bastion CIDR</div>
+                          <div class="rem-sub">Proposed CIDR: 10.0.64.0/20. Blast-radius: 0 running sessions.</div></div>
+                          <span class="rem-status draft">Draft</span>
+                        </div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.13.1</span><span class="rem-map">CIS 5.2</span><span class="rem-owner">· copilot → networking</span></div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div><div class="rem-title">Enable CloudTrail log-file validation</div>
+                          <div class="rem-sub">Single API call. Idempotent. Evidence auto-captured on apply.</div></div>
+                          <span class="rem-status merged">Merged</span>
+                        </div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.12.4</span><span class="rem-map">SOC 2 CC7.2</span><span class="rem-owner">· by @eugeniu · 09:14 today</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ============ REPORTS scene ============ -->
+                  <div class="scene" data-tab="reports">
+                    <div class="filter-row">
+                      <span class="chip active">All packs</span>
+                      <span class="chip">Audit-ready</span>
+                      <span class="chip">Draft</span>
+                      <span class="chip">Stakeholder</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-row"><span class="rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></span><span class="rep-meta"><div class="rep-title">ISO 27001 : 2022 — Stage 2 pack</div><div class="rep-sub">142 controls · 214 evidence items · generated Apr 12</div></span><span class="rep-btn">Download</span></div>
+                      <div class="rep-row"><span class="rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg></span><span class="rep-meta"><div class="rep-title">SOC 2 Type II — observation Apr→Oct</div><div class="rep-sub">64 TSCs · 186 auto-captures · continuous</div></span><span class="rep-btn">Download</span></div>
+                      <div class="rep-row"><span class="rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg></span><span class="rep-meta"><div class="rep-title">Buyer security questionnaire kit</div><div class="rep-sub">SIG-Lite · CAIQ v4 · VSA — pre-filled</div></span><span class="rep-btn">Download</span></div>
+                      <div class="rep-row"><span class="rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25"/></svg></span><span class="rep-meta"><div class="rep-title">Board security review — Q1 2026</div><div class="rep-sub">14 slides · risk register · posture trend</div></span><span class="rep-btn">Download</span></div>
+                      <div class="rep-row"><span class="rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m5-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span><span class="rep-meta"><div class="rep-title">90-day remediation log</div><div class="rep-sub">47 findings resolved · 12 open · avg 3.2d TTR</div></span><span class="rep-btn">Download</span></div>
                     </div>
                   </div>
                 </div>
@@ -1962,7 +2412,7 @@
         }
 
         // ============================================================
-        // PREMIUM CURSOR LAYER
+        // PREMIUM CURSOR LAYER + INTERACTIVE DASHBOARD
         // ============================================================
 
         // 11) Finding row — click to expand (works on touch + desktop)
@@ -1972,6 +2422,34 @@
               if (r !== row) r.classList.remove('is-open');
             });
             row.classList.toggle('is-open');
+          });
+        });
+
+        // 11b) Sidebar tabs → swap scenes like a real app
+        const sbItems = document.querySelectorAll('.sb-item[data-tab]');
+        const scenes  = document.querySelectorAll('.scene[data-tab]');
+        const urlTab  = document.querySelector('[data-url-tab]');
+        const titleEl = document.querySelector('[data-title]');
+        const switchTab = (tab, label) => {
+          sbItems.forEach((i) => i.classList.toggle('active', i.dataset.tab === tab));
+          scenes.forEach((s)  => s.classList.toggle('is-active', s.dataset.tab === tab));
+          if (urlTab)  urlTab.textContent  = tab;
+          if (titleEl && label) titleEl.textContent = label;
+        };
+        sbItems.forEach((item) => {
+          item.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchTab(item.dataset.tab, item.dataset.label);
+          });
+        });
+
+        // 11c) Chips within each scene — click-to-select (visual only)
+        document.querySelectorAll('.filter-row, .acct-bar').forEach((row) => {
+          row.querySelectorAll('.chip').forEach((chip) => {
+            chip.addEventListener('click', () => {
+              row.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+              chip.classList.add('active');
+            });
           });
         });
 
