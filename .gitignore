@@ -1,0 +1,140 @@
+# ─────────────────────────────────────────────────────────────────────────
+# isops-site / isops.github.io — public marketing site
+#
+# This repo is published via GitHub Pages. Everything tracked here gets
+# served at https://isops.ai — so any file checked in is effectively
+# public. Treat the rules below as a "do not ship to production" list.
+# ─────────────────────────────────────────────────────────────────────────
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# OS clutter
+# ─────────────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Editor / IDE state
+# ─────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.#*
+\#*\#
+*.sublime-project
+*.sublime-workspace
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Claude Code / AI assistant local state
+# May contain prompts, session history, local launch config.
+# ─────────────────────────────────────────────────────────────────────────
+.claude/
+.cursor/
+.aider*
+.continue/
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# isops app runtime data — NEVER ship
+# These directories hold the local SQLite DB, audit logs, scan output,
+# session tokens, and any data tied to a real AWS environment.
+# ─────────────────────────────────────────────────────────────────────────
+.isops/
+reports/
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+scan-*.json
+topology-*.json
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Secrets — anything that looks like a credential
+# Even a single accidental commit on a Pages site is permanently public.
+# ─────────────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+credentials.json
+secrets.json
+.aws/
+.kube/config
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Node / front-end tooling (if you add a bundler later)
+# ─────────────────────────────────────────────────────────────────────────
+node_modules/
+package-lock.json.bak
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.pnp.*
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Build / cache directories (kept for future-proofing — currently the
+# site is pure static HTML and ships nothing from these paths)
+# ─────────────────────────────────────────────────────────────────────────
+dist/
+build/
+_site/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+.turbo/
+out/
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Drafts & private working notes — don't accidentally ship to prod
+# ─────────────────────────────────────────────────────────────────────────
+drafts/
+_drafts/
+private/
+TODO.md
+NOTES.md
+*.draft.html
+*.draft.md
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Logs & temp files
+# ─────────────────────────────────────────────────────────────────────────
+*.log
+logs/
+tmp/
+*.tmp
+*.bak
+*.orig
+
+
+# ─────────────────────────────────────────────────────────────────────────
+# Python (we don't run Python here, but keep the safety net)
+# ─────────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/

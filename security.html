@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isops.ai — Trust &amp; Security</title>
+    <meta name="theme-color" content="#0a0e1a" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="description"
+      content="How isops.ai handles truth, evidence, and AI. Trust principles, AI boundaries, and buyer review guidance."
+    />
+    <meta property="og:title" content="isops.ai — Trust &amp; Security" />
+    <meta
+      property="og:description"
+      content="How isops.ai approaches product truthfulness, AI configuration, evidence workflows, and security posture."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://isops.ai/security.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="isops.ai — Trust &amp; Security" />
+    <meta property="og:image" content="https://isops.ai/og-image.png" />
+    <meta name="twitter:image" content="https://isops.ai/og-image.png" />
+    <link rel="canonical" href="https://isops.ai/security.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20style%3D%22stop-color%3A%236366f1%22%2F%3E%3Cstop%20offset%3D%2250%25%22%20style%3D%22stop-color%3A%234338ca%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20style%3D%22stop-color%3A%23312e81%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M16%202L4%207V15C4%2022.5%209%2028.5%2016%2030.5C23%2028.5%2028%2022.5%2028%2015V7L16%202Z%22%20fill%3D%22url(%23g)%22%2F%3E%3Cpath%20d%3D%22M10%2016L14%2020L22%2011%22%20stroke%3D%22white%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E"
+    />
+    <style>
+      :root {
+        --brand-300: #a5b4fc; --brand-400: #818cf8; --brand-500: #6366f1;
+        --brand-600: #4f46e5; --brand-700: #4338ca; --brand-900: #312e81;
+        --surface: #0a0e1a; --surface-50: #0f1629; --surface-100: #151d33;
+        --surface-200: #1e293b; --surface-300: #2d3a4f;
+        --gray-200: #e5e7eb; --gray-300: #d1d5db; --gray-400: #9ca3af;
+        --gray-500: #6b7280; --gray-700: #374151;
+        --green-400: #34d399;
+        --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font-sans);
+        background: var(--surface);
+        color: var(--gray-200);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        content: ''; position: fixed; inset: 0;
+        background:
+          radial-gradient(900px 500px at 15% -10%, rgba(99,102,241,0.16), transparent 60%),
+          radial-gradient(600px 400px at 85% 10%, rgba(67,56,202,0.12), transparent 60%);
+        z-index: -1; pointer-events: none;
+      }
+      h1, h2, h3, h4 { margin: 0; color: #fff; letter-spacing: -0.025em; font-weight: 600; }
+      h1 { font-weight: 700; letter-spacing: -0.035em; }
+      p { margin: 0; }
+      a { color: inherit; text-decoration: none; }
+      .mono { font-family: var(--font-mono); }
+
+      .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+      @media (min-width: 1024px) { .container { padding: 0 32px; } }
+
+      /* Nav */
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(10,14,26,0.75);
+        backdrop-filter: blur(16px) saturate(180%);
+        border-bottom: 1px solid rgba(45,58,79,0.3);
+      }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+      .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: #fff; }
+      .nav-brand-icon {
+        width: 28px; height: 28px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand-500), var(--brand-700) 50%, var(--brand-900));
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+      }
+      .nav-links { display: none; align-items: center; gap: 28px; font-size: 13.5px; color: var(--gray-400); font-weight: 500; }
+      @media (min-width: 900px) { .nav-links { display: flex; } }
+      .nav-links a { transition: color 0.15s; }
+      .nav-links a:hover, .nav-links a.current { color: #fff; }
+
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        padding: 9px 16px; font-size: 13.5px; font-weight: 600;
+        border: none; border-radius: 10px; cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.2s, background 0.15s;
+      }
+      .btn-primary { background: var(--brand-600); color: #fff; box-shadow: 0 2px 8px rgba(79,70,229,0.3); }
+      .btn-primary:hover { background: var(--brand-500); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,0.4); }
+      .btn-ghost { background: rgba(255,255,255,0.04); color: #fff; border: 1px solid rgba(255,255,255,0.08); }
+      .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+
+      /* Hero */
+      .page-hero { padding: 72px 0 56px; }
+      @media (min-width: 900px) { .page-hero { padding: 96px 0 72px; } }
+      .eyebrow {
+        display: inline-block; font-size: 11.5px; font-weight: 600;
+        color: var(--brand-400); text-transform: uppercase; letter-spacing: 0.12em;
+        margin-bottom: 14px;
+      }
+      .page-hero h1 {
+        font-size: clamp(34px, 5vw, 56px);
+        line-height: 1.08; max-width: 820px;
+      }
+      .page-hero h1 .grad {
+        background: linear-gradient(120deg, var(--brand-300), var(--brand-400) 50%, var(--brand-500));
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+      }
+      .lead { margin-top: 18px; max-width: 680px; color: var(--gray-400); font-size: 17px; }
+      .meta { margin-top: 10px; font-size: 13px; color: var(--gray-500); font-family: var(--font-mono); }
+
+      /* Sections */
+      section.sec { padding: 48px 0; }
+      .sec-head { margin-bottom: 28px; max-width: 720px; }
+      .sec-head h2 {
+        font-size: clamp(24px, 3vw, 32px);
+        line-height: 1.15; letter-spacing: -0.025em;
+      }
+      .sec-head p { margin-top: 10px; color: var(--gray-400); font-size: 15.5px; }
+
+      /* Grids */
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      @media (max-width: 800px) {
+        .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      }
+
+      /* Card */
+      .card {
+        padding: 28px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45,58,79,0.5);
+        border-radius: 18px;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      .card:hover { border-color: rgba(99,102,241,0.35); }
+      .card h3 { font-size: 16.5px; margin-bottom: 8px; letter-spacing: -0.015em; }
+      .card h2 { font-size: 19px; margin-bottom: 12px; letter-spacing: -0.02em; }
+      .card p { color: var(--gray-400); font-size: 14.5px; }
+      .card p + p, .card .checklist + p, .card p + .chips { margin-top: 10px; }
+      .card.accent {
+        background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(67,56,202,0.05)),
+                    var(--surface-50);
+        border-color: rgba(99,102,241,0.25);
+      }
+      .card a { color: var(--brand-300); text-decoration: underline; text-decoration-color: rgba(99,102,241,0.4); text-underline-offset: 2px; }
+      .card a:hover { color: #fff; }
+
+      /* Checklist */
+      .checklist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+      .checklist li {
+        padding-left: 28px; position: relative;
+        font-size: 14.5px; color: var(--gray-300); line-height: 1.55;
+      }
+      .checklist li::before {
+        content: '';
+        position: absolute; left: 2px; top: 6px;
+        width: 16px; height: 16px; border-radius: 50%;
+        background: rgba(52,211,153,0.15); border: 1px solid rgba(52,211,153,0.3);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2334d399' stroke-width='3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M4.5 12.75l6 6 9-13.5'/%3E%3C/svg%3E");
+        background-size: 10px 10px; background-repeat: no-repeat; background-position: center;
+      }
+
+      /* Chips */
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+      .chip {
+        display: inline-flex; align-items: center;
+        padding: 4px 10px; border-radius: 9999px;
+        font-size: 11.5px; font-weight: 500;
+        background: rgba(99,102,241,0.1);
+        border: 1px solid rgba(99,102,241,0.22);
+        color: var(--brand-300);
+      }
+
+      /* Metric row */
+      .metric {
+        padding: 18px 20px;
+        background: var(--surface-50);
+        border: 1px solid rgba(45,58,79,0.5);
+        border-radius: 14px;
+      }
+      .metric strong { display: block; color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
+      .metric span { color: var(--gray-400); font-size: 13px; }
+
+      /* CTA */
+      .cta-band {
+        padding: 56px 32px;
+        background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(67,56,202,0.06));
+        border: 1px solid rgba(99,102,241,0.25);
+        border-radius: 24px;
+        text-align: center;
+        position: relative; overflow: hidden;
+      }
+      .cta-band::before {
+        content: ''; position: absolute; inset: 0;
+        background: radial-gradient(50% 60% at 50% 0%, rgba(99,102,241,0.25), transparent 70%);
+        pointer-events: none;
+      }
+      .cta-band > * { position: relative; z-index: 1; }
+      .cta-band h2 { font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; }
+      .cta-band p { margin: 10px auto 20px; max-width: 520px; color: var(--gray-400); font-size: 15px; }
+      .cta-actions { display: inline-flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+      /* Footer */
+      footer {
+        padding: 56px 0 36px;
+        border-top: 1px solid rgba(45,58,79,0.3);
+        margin-top: 80px;
+      }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+      @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+      .footer-brand { font-size: 13.5px; color: var(--gray-500); line-height: 1.6; max-width: 320px; margin-top: 14px; }
+      .footer-col h4 {
+        font-size: 11px; font-weight: 600; color: var(--gray-500);
+        text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+      }
+      .footer-col a { display: block; font-size: 13px; color: var(--gray-400); padding: 4px 0; transition: color 0.15s; }
+      .footer-col a:hover { color: #fff; }
+      .footer-bottom {
+        margin-top: 40px; padding-top: 24px;
+        border-top: 1px solid rgba(45,58,79,0.3);
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 12px; color: var(--gray-500); flex-wrap: wrap; gap: 10px;
+      }
+      :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-brand" aria-label="isops.ai home">
+          <span class="nav-brand-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          isops.ai
+        </a>
+        <div class="nav-links">
+          <a href="index.html#product">Product</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#frameworks">Frameworks</a>
+          <a href="about.html">About</a>
+          <a href="security.html" class="current">Security</a>
+        </div>
+        <div>
+          <a href="contact.html" class="btn btn-primary">Book demo</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">Trust &amp; security</span>
+          <h1>How isops.ai handles <span class="grad">truth, evidence, and AI</span>.</h1>
+          <p class="meta">Last updated · April 2026</p>
+          <p class="lead">What the product stores, how evidence works, and how AI behavior is controlled.</p>
+
+          <div class="grid-3" style="margin-top: 40px;">
+            <div class="metric">
+              <strong>Truthful state</strong>
+              <span>Posture, evidence, and maturity shown separately. No invented scores.</span>
+            </div>
+            <div class="metric">
+              <strong>AWS-native</strong>
+              <span>Workflows around posture, remediation, controls, evidence, and exports.</span>
+            </div>
+            <div class="metric">
+              <strong>Provider-aware AI</strong>
+              <span>Copilot is live when configured, explicitly marked otherwise.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="container">
+          <div class="sec-head">
+            <h2>Trust principles built into the product.</h2>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>No fake completeness</h3>
+              <p>Missing data is shown honestly. No invented 100% metrics.</p>
+            </article>
+            <article class="card">
+              <h3>Evidence follows remediation</h3>
+              <p>Reports reflect real action history — not manually stitched narratives.</p>
+            </article>
+            <article class="card">
+              <h3>AI is explicit, not magical</h3>
+              <p>Configured providers enable generation. Unconfigured states are shown directly.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="container">
+          <div class="grid-2">
+            <article class="card">
+              <h2>What a buyer or auditor can validate</h2>
+              <ul class="checklist">
+                <li>How scan-backed posture is distinguished from compliance-program maturity.</li>
+                <li>How remediation, risk linkage, and evidence are stored with audit trail.</li>
+                <li>How exported reports preserve partial states instead of hiding them.</li>
+                <li>How the copilot fits controlled workflows across findings, risks, CAPA, and evidence.</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h2>AI &amp; data handling</h2>
+              <ul class="checklist">
+                <li>AI generation depends on explicitly configured provider credentials.</li>
+                <li>Unconfigured AI surfaces show a truthful configuration-required state.</li>
+                <li>Evidence and guidance surface where operators act — not in a separate silo.</li>
+                <li>Trust reviews can start from exported artifacts and move into the live system.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="container">
+          <div class="grid-2">
+            <article class="card accent">
+              <h2>Request a buyer walkthrough</h2>
+              <p>Bring one backlog, one environment, or one audit pain point. We show the workflow live.</p>
+              <div class="chips">
+                <span class="chip">Executive</span>
+                <span class="chip">Operator</span>
+                <span class="chip">Security</span>
+              </div>
+            </article>
+            <article class="card">
+              <h2>Need a security questionnaire first?</h2>
+              <p>Email the scope of your review. We coordinate trust review and route follow-ups.</p>
+              <p style="margin-top: 8px; color: var(--gray-500); font-size: 13px;">contact@isops.ai</p>
+              <p style="margin-top: 4px; color: var(--gray-500); font-size: 13px;">Vulnerability reports: <a href="mailto:security@isops.ai">security@isops.ai</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="contact">
+        <div class="container">
+          <div class="cta-band">
+            <h2>Continue with the product.</h2>
+            <p>See the full product, workflow model, and report outputs — or book a security-focused walkthrough.</p>
+            <div class="cta-actions">
+              <a href="index.html" class="btn btn-primary">Open main site</a>
+              <a href="mailto:contact@isops.ai?subject=isops.ai%20security%20walkthrough" class="btn btn-ghost">Email isops.ai</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="nav-brand">
+              <span class="nav-brand-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              isops.ai
+            </a>
+            <p class="footer-brand">AI-native trust &amp; compliance operations for AWS.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="index.html#product">Dashboard</a>
+            <a href="index.html#how">How it works</a>
+            <a href="index.html#frameworks">Frameworks</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="security.html">Security</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="subprocessors.html">Subprocessors</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:contact@isops.ai">contact@isops.ai</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 isops.ai — All rights reserved.</span>
+          <span>Built for security teams who ship.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
