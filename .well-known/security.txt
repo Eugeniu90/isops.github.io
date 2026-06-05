@@ -1,0 +1,8 @@
+# isops.ai vulnerability disclosure — https://isops.ai/security.html
+# RFC 9116. If you've found a security issue, thank you — please reach out.
+
+Contact: mailto:security@isops.ai
+Policy: https://isops.ai/security.html
+Preferred-Languages: en
+Canonical: https://isops.ai/.well-known/security.txt
+Expires: 2027-06-05T00:00:00.000Z

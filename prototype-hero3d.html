@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>isops.ai — Hero 3D prototype</title>
+    <meta name="theme-color" content="#0a0e1a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      Three.js + GSAP loaded via CDN. Versions pinned so a future CDN
+      breaking-change doesn't silently destroy the page. Both libs are
+      ~150 KB combined gzipped — acceptable for the hero "wow" moment.
+    -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <style>
+      :root {
+        --brand-300: #a5b4fc; --brand-400: #818cf8; --brand-500: #6366f1;
+        --brand-600: #4f46e5; --brand-700: #4338ca; --brand-900: #312e81;
+        --surface: #0a0e1a; --surface-50: #0f1629;
+        --gray-200: #e5e7eb; --gray-300: #d1d5db; --gray-400: #9ca3af;
+        --gray-500: #6b7280;
+        --red-400: #f87171; --emerald-400: #34d399;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: var(--surface); }
+      body {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: var(--gray-200);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* ── 3D hero shell ────────────────────────────────────────────── */
+
+      .hero-3d {
+        position: relative;
+        /* 4 scroll beats × 100vh each = 400vh of scroll length */
+        height: 400vh;
+        background: var(--surface);
+      }
+
+      .hero-3d-sticky {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #scene-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background:
+          radial-gradient(800px 500px at 30% 30%, rgba(99,102,241,0.18), transparent 60%),
+          radial-gradient(600px 400px at 75% 70%, rgba(67,56,202,0.14), transparent 65%),
+          var(--surface);
+      }
+
+      /* Vignette + scanline overlay for "premium" feel */
+      .hero-3d-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at center, transparent 50%, rgba(10,14,26,0.65) 100%);
+      }
+
+      /* Text overlay — one heading per beat, cross-fade driven by GSAP */
+      .hero-3d-text {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 24px;
+        pointer-events: none;
+        z-index: 5;
+      }
+      .beat-label {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--brand-300);
+        margin-bottom: 16px;
+        padding: 6px 12px;
+        border: 1px solid rgba(165,180,252,0.2);
+        border-radius: 999px;
+        background: rgba(99,102,241,0.06);
+        backdrop-filter: blur(4px);
+      }
+      .beat {
+        position: absolute;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        max-width: 720px;
+      }
+      .beat.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .beat h1 {
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 18px;
+      }
+      .beat h1 .grad {
+        background: linear-gradient(120deg, var(--brand-300), var(--brand-400) 50%, var(--brand-500));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .beat h1 .grad-red {
+        background: linear-gradient(120deg, #fca5a5, #f87171 60%, #ef4444);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .beat h1 .grad-green {
+        background: linear-gradient(120deg, #6ee7b7, #34d399 60%, #10b981);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .beat p {
+        font-size: 17px;
+        color: var(--gray-400);
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      /* Scroll-progress indicator on the side */
+      .hero-3d-progress {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 10;
+      }
+      .progress-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        transition: background 0.4s ease, transform 0.4s ease;
+      }
+      .progress-dot.active {
+        background: var(--brand-400);
+        transform: scale(1.5);
+      }
+
+      /* Static fallback for users who request reduced motion */
+      .reduced-motion .hero-3d {
+        height: 100vh;
+      }
+      .reduced-motion #scene-canvas {
+        display: none;
+      }
+      .reduced-motion .hero-3d-sticky::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(800px 500px at 30% 30%, rgba(99,102,241,0.22), transparent 60%),
+          radial-gradient(600px 400px at 75% 70%, rgba(67,56,202,0.18), transparent 65%),
+          var(--surface);
+      }
+      .reduced-motion .beat:first-child {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .reduced-motion .beat:not(:first-child) {
+        display: none;
+      }
+
+      /* Continue marker at bottom */
+      .scroll-hint {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        color: var(--gray-500);
+        text-transform: uppercase;
+        animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+        50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+      }
+
+      /* Below-the-fold dummy section so we can see the transition */
+      .below {
+        padding: 120px 24px;
+        text-align: center;
+        background: var(--surface);
+        border-top: 1px solid rgba(45,58,79,0.3);
+      }
+      .below h2 {
+        font-size: 32px;
+        color: #fff;
+        margin: 0 0 12px;
+      }
+      .below p {
+        color: var(--gray-400);
+        max-width: 540px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero-3d" id="hero3d">
+      <div class="hero-3d-sticky">
+        <canvas id="scene-canvas"></canvas>
+        <div class="hero-3d-overlay" aria-hidden="true"></div>
+
+        <div class="hero-3d-text">
+          <!-- Beat 1 — Living infrastructure -->
+          <div class="beat" data-beat="1">
+            <span class="beat-label">Your AWS account</span>
+            <h1>Trust &amp; compliance,<br/><span class="grad">live from your cloud.</span></h1>
+            <p>Every service, every region, every control — observed continuously, mapped to your frameworks in real time.</p>
+          </div>
+
+          <!-- Beat 2 — Drift discovered -->
+          <div class="beat" data-beat="2">
+            <span class="beat-label">01 · Scan</span>
+            <h1>Drift, <span class="grad-red">caught the moment it happens.</span></h1>
+            <p>Continuous scanners compare today's posture against last night's. New finding? You see it before the auditor does.</p>
+          </div>
+
+          <!-- Beat 3 — Copilot drafts evidence -->
+          <div class="beat" data-beat="3">
+            <span class="beat-label">02 · Copilot</span>
+            <h1>The copilot does the typing.<br/><span class="grad">You stay accountable.</span></h1>
+            <p>Evidence drafted. Controls mapped. Remediation queued. Every AI action logged, every approval yours.</p>
+          </div>
+
+          <!-- Beat 4 — Audit ready -->
+          <div class="beat" data-beat="4">
+            <span class="beat-label">03 · Ship</span>
+            <h1>Audit pack, <span class="grad-green">in one click.</span></h1>
+            <p>ISO 27001, SOC 2, HIPAA, PCI, GDPR, NIST 800-53. Auto-mapped. Auto-versioned. Auditor-ready.</p>
+          </div>
+        </div>
+
+        <div class="hero-3d-progress" aria-hidden="true">
+          <div class="progress-dot" data-dot="1"></div>
+          <div class="progress-dot" data-dot="2"></div>
+          <div class="progress-dot" data-dot="3"></div>
+          <div class="progress-dot" data-dot="4"></div>
+        </div>
+
+        <div class="scroll-hint">Scroll ↓</div>
+      </div>
+    </section>
+
+    <section class="below">
+      <h2>Rest of the page lives here</h2>
+      <p>This is just the prototype frame. The real site continues with product, pricing, FAQ, footer, etc. The 3D hero ends here and normal scrolling resumes.</p>
+    </section>
+
+    <script type="module">
+      // ============================================================
+      // Reduced motion fallback — bail out before anything heavy loads
+      // ============================================================
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reducedMotion) {
+        document.body.classList.add('reduced-motion');
+      }
+
+      // ============================================================
+      // Three.js scene — Living Infrastructure
+      // ============================================================
+      import * as THREE from 'three';
+      import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+      import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+      import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+      // ---- Constants tuned for the four-beat narrative ----
+      const SERVICES = [
+        // [label, x, y, z, kind]  kind: cube | hex | sphere | flat
+        ['EC2',          -3.2,  1.2,  0.5, 'cube'],
+        ['S3',            2.8,  1.8, -0.8, 'cube'],
+        ['RDS',           0.6, -1.6,  1.1, 'cube'],
+        ['IAM',          -1.8, -0.4, -1.5, 'hex'],
+        ['Lambda',        3.4, -1.1,  1.3, 'sphere'],
+        ['VPC',          -2.6, -2.1,  0.7, 'hex'],
+        ['KMS',           1.6,  2.4,  1.4, 'hex'],
+        ['CloudTrail',   -0.4,  2.6, -1.0, 'flat'],
+        ['SQS',           3.0,  0.6, -1.6, 'sphere'],
+        ['CloudFront',   -3.6, -0.8,  1.6, 'sphere'],
+        ['Route 53',      1.2, -2.4, -0.4, 'flat'],
+        ['Secrets',      -1.0,  0.8,  1.8, 'cube'],
+        ['EKS',           2.2,  0.0,  1.0, 'hex'],
+        ['DynamoDB',     -2.0,  2.0,  0.9, 'sphere'],
+      ];
+
+      // Service indices that become "findings" in beat 2 (red) and get resolved in beat 4 (green).
+      const FINDING_INDICES = [1, 4, 9]; // S3, Lambda, CloudFront — typical attack surface
+
+      // ---- Renderer / scene / camera ----
+      const canvas = document.getElementById('scene-canvas');
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance',
+      });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight, false);
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.0;
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(0x0a0e1a, 8, 22);
+
+      const camera = new THREE.PerspectiveCamera(
+        45, window.innerWidth / window.innerHeight, 0.1, 100,
+      );
+      camera.position.set(0, 0.5, 9.5);
+      camera.lookAt(0, 0, 0);
+
+      // ---- Lights ----
+      const ambient = new THREE.AmbientLight(0xffffff, 0.25);
+      scene.add(ambient);
+
+      const keyLight = new THREE.DirectionalLight(0xb4b8ff, 0.9);
+      keyLight.position.set(5, 6, 4);
+      scene.add(keyLight);
+
+      const rimLight = new THREE.PointLight(0x6366f1, 2.0, 20);
+      rimLight.position.set(-4, -2, -3);
+      scene.add(rimLight);
+
+      const fillLight = new THREE.PointLight(0x312e81, 1.2, 15);
+      fillLight.position.set(3, 3, -2);
+      scene.add(fillLight);
+
+      // ---- Service node factory ----
+      const NEUTRAL_COLOR = new THREE.Color(0xe5e7eb);
+      const ACCENT_COLOR  = new THREE.Color(0x6366f1);
+      const ERROR_COLOR   = new THREE.Color(0xf87171);
+      const SUCCESS_COLOR = new THREE.Color(0x34d399);
+
+      function buildGeometry(kind) {
+        if (kind === 'cube') return new THREE.BoxGeometry(0.45, 0.45, 0.45);
+        if (kind === 'hex')  return new THREE.IcosahedronGeometry(0.32, 0);
+        if (kind === 'sphere') return new THREE.SphereGeometry(0.3, 16, 12);
+        if (kind === 'flat') return new THREE.BoxGeometry(0.6, 0.05, 0.5);
+        return new THREE.BoxGeometry(0.4, 0.4, 0.4);
+      }
+
+      const nodes = [];
+      const labelGroups = [];
+
+      function makeLabel(text) {
+        // Render the label to a 2D canvas, use as sprite texture.
+        const c = document.createElement('canvas');
+        c.width = 256; c.height = 64;
+        const ctx = c.getContext('2d');
+        ctx.font = '600 22px "JetBrains Mono", monospace';
+        ctx.fillStyle = 'rgba(229,231,235,0.85)';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, 128, 32);
+        const tex = new THREE.CanvasTexture(c);
+        tex.minFilter = THREE.LinearFilter;
+        tex.needsUpdate = true;
+        const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false });
+        const sprite = new THREE.Sprite(mat);
+        sprite.scale.set(1.2, 0.3, 1);
+        return sprite;
+      }
+
+      SERVICES.forEach(([label, x, y, z, kind], i) => {
+        const geom = buildGeometry(kind);
+        const mat = new THREE.MeshStandardMaterial({
+          color: NEUTRAL_COLOR,
+          emissive: ACCENT_COLOR,
+          emissiveIntensity: 0.25,
+          metalness: 0.6,
+          roughness: 0.35,
+        });
+        const mesh = new THREE.Mesh(geom, mat);
+        mesh.position.set(x, y, z);
+        mesh.userData = {
+          basePos: new THREE.Vector3(x, y, z),
+          spin: new THREE.Vector3(
+            (Math.random() - 0.5) * 0.4,
+            (Math.random() - 0.5) * 0.4,
+            (Math.random() - 0.5) * 0.4,
+          ),
+          isFinding: FINDING_INDICES.includes(i),
+          stateColor: ACCENT_COLOR.clone(),
+        };
+        scene.add(mesh);
+        nodes.push(mesh);
+
+        const sprite = makeLabel(label);
+        sprite.position.set(x, y + 0.55, z);
+        scene.add(sprite);
+        labelGroups.push(sprite);
+      });
+
+      // ---- Connecting lines (sparse mesh between nearby nodes) ----
+      const lineGroup = new THREE.Group();
+      scene.add(lineGroup);
+      const connectionPairs = [];
+
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dist = nodes[i].position.distanceTo(nodes[j].position);
+          if (dist < 3.0 && Math.random() < 0.55) {
+            connectionPairs.push([i, j]);
+            const geom = new THREE.BufferGeometry().setFromPoints([
+              nodes[i].position, nodes[j].position,
+            ]);
+            const mat = new THREE.LineBasicMaterial({
+              color: 0x6366f1,
+              transparent: true,
+              opacity: 0.18,
+            });
+            const line = new THREE.Line(geom, mat);
+            lineGroup.add(line);
+          }
+        }
+      }
+
+      // ---- Particles flowing along the connections ----
+      const PARTICLE_COUNT = 90;
+      const particleGeom = new THREE.BufferGeometry();
+      const particlePositions = new Float32Array(PARTICLE_COUNT * 3);
+      const particleProgress = new Float32Array(PARTICLE_COUNT);
+      const particlePairs = new Int32Array(PARTICLE_COUNT);
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particleProgress[i] = Math.random();
+        particlePairs[i] = Math.floor(Math.random() * connectionPairs.length);
+      }
+      particleGeom.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+      const particleMat = new THREE.PointsMaterial({
+        color: 0xa5b4fc,
+        size: 0.06,
+        transparent: true,
+        opacity: 0.85,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+      const particles = new THREE.Points(particleGeom, particleMat);
+      scene.add(particles);
+
+      function updateParticles(dt) {
+        const posAttr = particleGeom.getAttribute('position');
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          particleProgress[i] += dt * 0.35;
+          if (particleProgress[i] > 1) {
+            particleProgress[i] = 0;
+            particlePairs[i] = Math.floor(Math.random() * connectionPairs.length);
+          }
+          const [a, b] = connectionPairs[particlePairs[i]];
+          const t = particleProgress[i];
+          const pa = nodes[a].position;
+          const pb = nodes[b].position;
+          posAttr.array[i * 3 + 0] = pa.x + (pb.x - pa.x) * t;
+          posAttr.array[i * 3 + 1] = pa.y + (pb.y - pa.y) * t;
+          posAttr.array[i * 3 + 2] = pa.z + (pb.z - pa.z) * t;
+        }
+        posAttr.needsUpdate = true;
+      }
+
+      // ---- Scanner ring (beat 2) ----
+      const scannerGeom = new THREE.RingGeometry(0.1, 0.15, 64);
+      const scannerMat = new THREE.MeshBasicMaterial({
+        color: 0x818cf8,
+        transparent: true,
+        opacity: 0.0,
+        side: THREE.DoubleSide,
+        blending: THREE.AdditiveBlending,
+      });
+      const scannerRing = new THREE.Mesh(scannerGeom, scannerMat);
+      scannerRing.rotation.x = Math.PI / 2;
+      scene.add(scannerRing);
+
+      // ---- Audit pack hologram (beat 4) ----
+      const auditCanvas = document.createElement('canvas');
+      auditCanvas.width = 512; auditCanvas.height = 256;
+      const auditCtx = auditCanvas.getContext('2d');
+      function drawAuditPack(filled = 1.0) {
+        auditCtx.clearRect(0, 0, 512, 256);
+        // background card
+        auditCtx.fillStyle = 'rgba(52, 211, 153, 0.08)';
+        auditCtx.fillRect(0, 0, 512, 256);
+        auditCtx.strokeStyle = `rgba(110, 231, 183, ${0.4 + 0.6 * filled})`;
+        auditCtx.lineWidth = 3;
+        auditCtx.strokeRect(2, 2, 508, 252);
+        // title
+        auditCtx.font = '700 36px "Inter", sans-serif';
+        auditCtx.fillStyle = `rgba(110, 231, 183, ${0.7 + 0.3 * filled})`;
+        auditCtx.fillText('audit_pack.pdf', 30, 70);
+        // subtitle
+        auditCtx.font = '500 18px "Inter", sans-serif';
+        auditCtx.fillStyle = `rgba(167, 243, 208, ${0.6 + 0.4 * filled})`;
+        auditCtx.fillText('ISO 27001 · SOC 2 · HIPAA · PCI · GDPR · NIST', 30, 105);
+        // bars
+        auditCtx.fillStyle = `rgba(110, 231, 183, ${0.18 + 0.4 * filled})`;
+        for (let i = 0; i < 6; i++) {
+          const w = (180 + Math.random() * 240) * filled;
+          auditCtx.fillRect(30, 135 + i * 18, w, 8);
+        }
+        // checkmark
+        auditCtx.strokeStyle = `rgba(110, 231, 183, ${0.5 + 0.5 * filled})`;
+        auditCtx.lineWidth = 6;
+        auditCtx.beginPath();
+        auditCtx.moveTo(430, 60);
+        auditCtx.lineTo(450, 80);
+        auditCtx.lineTo(490, 35);
+        auditCtx.stroke();
+      }
+      drawAuditPack(0);
+      const auditTex = new THREE.CanvasTexture(auditCanvas);
+      const auditMat = new THREE.MeshBasicMaterial({
+        map: auditTex,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+      });
+      const auditPlane = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 1.4), auditMat);
+      auditPlane.position.set(0, -0.5, 0.5);
+      auditPlane.userData.tex = auditTex;
+      scene.add(auditPlane);
+
+      // ---- Post-processing — bloom for that "glow" ----
+      const composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      const bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        0.65, // strength
+        0.85, // radius
+        0.4,  // threshold
+      );
+      composer.addPass(bloomPass);
+
+      // ============================================================
+      // Animation state — driven by scroll progress (0..1)
+      // ============================================================
+      const state = {
+        scroll: 0,        // overall progress 0..1 across all 4 beats
+        scannerActive: 0, // 0..1 — beat 2 ring expansion
+        copilotGlow: 0,   // 0..1 — beat 3 emissive boost
+        auditPack: 0,     // 0..1 — beat 4 audit-pack fade-in
+      };
+
+      // ============================================================
+      // Render loop
+      // ============================================================
+      const clock = new THREE.Clock();
+      let visible = true;
+
+      function render() {
+        const dt = clock.getDelta();
+        const t = clock.getElapsedTime();
+
+        // Camera orbit driven by scroll (beat 1 = full orbit, later beats settle)
+        const angle = state.scroll * Math.PI * 0.9 + Math.sin(t * 0.15) * 0.05;
+        const radius = 9.5 - state.scroll * 1.2;
+        camera.position.x = Math.sin(angle) * radius;
+        camera.position.z = Math.cos(angle) * radius;
+        camera.position.y = 0.5 + Math.sin(state.scroll * Math.PI) * 0.5;
+        camera.lookAt(0, 0, 0);
+
+        // Node spin + state colour
+        nodes.forEach((node, i) => {
+          node.rotation.x += node.userData.spin.x * dt;
+          node.rotation.y += node.userData.spin.y * dt;
+          node.rotation.z += node.userData.spin.z * dt;
+
+          // Settle on whatever the current beat says the colour is
+          const mat = node.material;
+          let targetEmissive = ACCENT_COLOR;
+          let targetIntensity = 0.25 + state.copilotGlow * 0.35;
+
+          if (node.userData.isFinding) {
+            if (state.scannerActive > 0.2 && state.auditPack < 0.3) {
+              // Red pulse while finding is unresolved
+              const pulse = 0.5 + Math.sin(t * 4) * 0.3;
+              targetEmissive = ERROR_COLOR;
+              targetIntensity = 0.4 + pulse * 0.4 * state.scannerActive;
+            } else if (state.auditPack > 0.3) {
+              targetEmissive = SUCCESS_COLOR;
+              targetIntensity = 0.5 + Math.sin(t * 2 + i) * 0.15;
+            }
+          }
+
+          mat.emissive.lerp(targetEmissive, 0.08);
+          mat.emissiveIntensity += (targetIntensity - mat.emissiveIntensity) * 0.08;
+        });
+
+        // Scanner ring expansion (beat 2)
+        if (state.scannerActive > 0.01) {
+          const scale = 1 + state.scannerActive * 5;
+          scannerRing.scale.set(scale, scale, 1);
+          scannerMat.opacity = 0.5 * (1 - state.scannerActive) + 0.1;
+        } else {
+          scannerMat.opacity = 0;
+        }
+
+        // Audit pack fade + redraw
+        auditMat.opacity = state.auditPack * 0.95;
+        if (state.auditPack > 0.05 && state.auditPack < 1.0) {
+          drawAuditPack(state.auditPack);
+          auditPlane.userData.tex.needsUpdate = true;
+        }
+        auditPlane.position.y = -0.5 + state.auditPack * 0.8;
+
+        // Particles
+        updateParticles(dt);
+
+        composer.render();
+
+        if (visible) requestAnimationFrame(render);
+      }
+
+      // Start the render loop only when the section is visible — saves
+      // battery on long pages.
+      const heroSection = document.getElementById('hero3d');
+      const io = new IntersectionObserver((entries) => {
+        const wasVisible = visible;
+        visible = entries[0].isIntersecting;
+        if (visible && !wasVisible) requestAnimationFrame(render);
+      }, { threshold: 0 });
+      io.observe(heroSection);
+      requestAnimationFrame(render);
+
+      // ============================================================
+      // Resize handling — keep canvas crisp on rotate / resize
+      // ============================================================
+      window.addEventListener('resize', () => {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        renderer.setSize(w, h, false);
+        composer.setSize(w, h);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      });
+
+      // ============================================================
+      // Scroll → beat translation (GSAP ScrollTrigger)
+      // ============================================================
+      if (!reducedMotion && typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.create({
+          trigger: '#hero3d',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.6,
+          onUpdate: (st) => {
+            const progress = st.progress; // 0..1 across 400vh
+            state.scroll = progress;
+
+            // Determine which beat (1..4) and crossfade text
+            const beatIndex = Math.min(4, Math.floor(progress * 4) + 1);
+            document.querySelectorAll('.beat').forEach((el) => {
+              const idx = parseInt(el.dataset.beat, 10);
+              el.classList.toggle('active', idx === beatIndex);
+            });
+            document.querySelectorAll('.progress-dot').forEach((el) => {
+              const idx = parseInt(el.dataset.dot, 10);
+              el.classList.toggle('active', idx === beatIndex);
+            });
+
+            // Beat-specific scene-state knobs
+            // Beat 1: 0.00 - 0.25  (calm orbit)
+            // Beat 2: 0.25 - 0.50  (scanner + red findings)
+            // Beat 3: 0.50 - 0.75  (copilot glow)
+            // Beat 4: 0.75 - 1.00  (audit pack rises)
+            const beat2 = THREE.MathUtils.clamp((progress - 0.25) / 0.25, 0, 1);
+            const beat3 = THREE.MathUtils.clamp((progress - 0.50) / 0.25, 0, 1);
+            const beat4 = THREE.MathUtils.clamp((progress - 0.75) / 0.25, 0, 1);
+
+            state.scannerActive = beat2 * (1 - beat4 * 0.6);
+            state.copilotGlow = beat3;
+            state.auditPack = beat4;
+          },
+        });
+      } else {
+        // Reduced motion — show beat 1 only
+        document.querySelector('.beat[data-beat="1"]')?.classList.add('active');
+        document.querySelector('.progress-dot[data-dot="1"]')?.classList.add('active');
+      }
+
+      // First paint — show beat 1 immediately so the page isn't blank during init
+      document.querySelector('.beat[data-beat="1"]')?.classList.add('active');
+      document.querySelector('.progress-dot[data-dot="1"]')?.classList.add('active');
+    </script>
+  </body>
+</html>
