@@ -453,6 +453,7 @@
             <li><a href="#frameworks">Frameworks and control mapping</a></li>
             <li><a href="#copilot">The AI copilot</a></li>
             <li><a href="#grc">The GRC workspace</a></li>
+            <li><a href="#modules">Module reference</a></li>
             <li><a href="#journey">The ISO Journey</a></li>
             <li><a href="#audit">Reporting and external sharing</a></li>
             <li><a href="#integrations">Integrations and automation</a></li>
@@ -613,80 +614,202 @@
           <section id="grc">
             <h2>The GRC workspace</h2>
             <p>The modules that cover the roughly 72 controls no cloud scanner can answer.</p>
+            <p>See <a href="#modules">Module reference</a> for the full list of screens and the artefact each one produces.</p>
+          </section>
 
-            <h3>Risk and controls</h3>
+          <section id="modules">
+            <h2>Module reference</h2>
+            <p>Every screen in the platform, grouped by the question it answers. Each entry names the artefact it produces, because that is what an auditor is eventually handed.</p>
+
+            <h3>Group 1 — What do I have, and who can reach it?</h3>
             <div class="features">
               <div class="feature">
-                <h4>Risk register</h4>
-                <p>5×5 likelihood/impact matrix, heatmap view, treatment plans and owners.</p>
+                <h4>Infrastructure</h4>
+                <p>A relationship graph of the AWS estate: resources, and what reaches what.</p>
+                <p><strong>You do:</strong> browse the topology as a flow map, resource list or inventory; switch layout (hierarchy, organic, tree, circle); scope the view to all resources, ISO-relevant, production, internet-exposed or those carrying findings; overlay architecture, compliance, risk or evidence.</p>
+                <p><strong>It produces:</strong> an asset inventory and access-path evidence for A.5.9 (inventory of information and other associated assets) and A.5.18 (access rights).</p>
               </div>
               <div class="feature">
-                <h4>Control mapping</h4>
-                <p>Which evidence and findings satisfy which control, per framework.</p>
+                <h4>Discovery Intelligence</h4>
+                <p>A written analysis of the graph, generated from the scan rather than typed by a person.</p>
+                <p><strong>You do:</strong> read the narrative, open the categorised signals — critical, orphans, untagged, public — and jump from any signal to that resource on the map.</p>
+                <p><strong>It produces:</strong> a prioritised cleanup list, including blast-radius hot spots that name how many downstream resources depend on a single one.</p>
               </div>
               <div class="feature">
-                <h4>Readiness</h4>
-                <p>Per-framework audit-preparation checklists showing what is still missing.</p>
-              </div>
-            </div>
-
-            <h3>Documentation and evidence</h3>
-            <div class="features">
-              <div class="feature">
-                <h4>Policies</h4>
-                <p>31 built-in templates, version history, review cycles and approval. Compliance-as-Code: policies can be backed by a git repository, so the policy set is reviewed and versioned like source.</p>
+                <h4>Findings</h4>
+                <p>Live issues from the scanners, grouped so they can be worked.</p>
+                <p><strong>You do:</strong> group by issue, scanner, category or region, or turn grouping off; filter by severity; expand any group to its individual resources.</p>
+                <p><strong>It produces:</strong> control-mapped findings — each carries its Annex A control identifiers and an estimated time to remediate.</p>
+                <p><strong>Limits:</strong> around 48 checks across 12 scanners. This is not a breadth play; open-source scanners cover far more individual checks.</p>
               </div>
               <div class="feature">
-                <h4>Evidence</h4>
-                <p>Timestamped records linked to controls; scan findings become evidence automatically, and anything else can be attached by hand.</p>
-              </div>
-            </div>
-
-            <h3>People and third parties</h3>
-            <div class="features">
-              <div class="feature">
-                <h4>Employees</h4>
-                <p>The people register that ISO 27001 A.6 controls depend on.</p>
+                <h4>Scans and Schedules</h4>
+                <p>Scan runs and their recurrence.</p>
+                <p><strong>You do:</strong> run a scan, review previous runs, and schedule recurring scans.</p>
+                <p><strong>It produces:</strong> a timestamped scan history — every other screen states which scan it is grounded in.</p>
+                <p><strong>Limits:</strong> discovery is scan-based. Each scan replaces the previous graph.</p>
               </div>
               <div class="feature">
-                <h4>Training</h4>
-                <p>Security-awareness assignment and completion tracking, including bulk assign.</p>
-              </div>
-              <div class="feature">
-                <h4>Vendors</h4>
-                <p>Third-party risk: questionnaires, scoring, risk tiering, review dates.</p>
+                <h4>Monitoring</h4>
+                <p>Change detection between scans.</p>
+                <p><strong>You do:</strong> review the event feed, resolve events individually or in bulk, and ingest events from outside the platform.</p>
+                <p><strong>It produces:</strong> a record of configuration change over time.</p>
               </div>
               <div class="feature">
                 <h4>Assets</h4>
-                <p>IT asset inventory, with AWS resources imported automatically.</p>
+                <p>The IT asset register the standard expects, alongside the cloud graph.</p>
+                <p><strong>You do:</strong> maintain assets; AWS resources import automatically.</p>
+                <p><strong>It produces:</strong> the asset inventory for A.5.9.</p>
               </div>
             </div>
 
-            <h3>Operations and assurance</h3>
+            <h3>Group 2 — What does the standard require of me?</h3>
             <div class="features">
               <div class="feature">
+                <h4>Compliance</h4>
+                <p>Control-by-control status per framework.</p>
+                <p><strong>You do:</strong> switch framework, browse the full control catalogue, and filter to passing, failing or not assessed.</p>
+                <p><strong>It produces:</strong> the control status an auditor reviews — stated as passing, failing and <strong>not assessed</strong>, with all controls in the denominator. A control with no automated check is never counted as a pass.</p>
+              </div>
+              <div class="feature">
+                <h4>Control Map</h4>
+                <p>Which findings, evidence and policies satisfy which control.</p>
+                <p><strong>You do:</strong> adjust the mapping per framework.</p>
+                <p><strong>It produces:</strong> a versioned mapping from your evidence to each framework's controls.</p>
+              </div>
+              <div class="feature">
+                <h4>Risk Register</h4>
+                <p>The risk register, seeded from what the scanners find.</p>
+                <p><strong>You do:</strong> review risks scored on likelihood and impact, set treatment and owner, work the list or the heatmap, and add risks by hand.</p>
+                <p><strong>It produces:</strong> a scored, owned risk register with treatment decisions — the artefact behind Clause 6.1 and A.5.x.</p>
+              </div>
+              <div class="feature">
+                <h4>Readiness</h4>
+                <p>Audit-preparation checklists per framework.</p>
+                <p><strong>You do:</strong> seed the baseline checklist for ISO 27001:2022 or SOC 2, then work tasks to done.</p>
+                <p><strong>It produces:</strong> a gap list showing what is still missing before an audit.</p>
+              </div>
+              <div class="feature">
+                <h4>Policies</h4>
+                <p>The policy set, with approvals.</p>
+                <p><strong>You do:</strong> start from 31 built-in templates or write your own; send for review, approve, and track versions. Policies can be backed by a git repository, so the set is reviewed and versioned like source.</p>
+                <p><strong>It produces:</strong> an approved, versioned policy pack with review history.</p>
+              </div>
+            </div>
+
+            <h3>Group 3 — What will the auditor ask to see?</h3>
+            <div class="features">
+              <div class="feature">
+                <h4>Evidence</h4>
+                <p>The evidence library, most of it collected without anyone typing.</p>
+                <p><strong>You do:</strong> filter by framework, type (scan, manual, document, screenshot) and status (active, expiring soon, expired); auto-collect from the latest scan; attach anything else by hand.</p>
+                <p><strong>It produces:</strong> timestamped evidence records linked to a control, each carrying the scan it came from and whether it was auto-linked or added manually.</p>
+              </div>
+              <div class="feature">
                 <h4>Incidents</h4>
-                <p>Security-incident records, timelines and outcomes.</p>
+                <p>Security incident records.</p>
+                <p><strong>You do:</strong> record incidents, classify them, and track them to an outcome.</p>
+                <p><strong>It produces:</strong> the incident history required by A.5.24 through A.5.28.</p>
               </div>
               <div class="feature">
                 <h4>CAPA</h4>
                 <p>Corrective and preventive actions, tracked to closure.</p>
+                <p><strong>You do:</strong> raise actions from an audit, an incident, a risk, monitoring or an external source; work them through open, in progress, implemented, verified and closed, as a list or a kanban.</p>
+                <p><strong>It produces:</strong> the corrective-action record an auditor asks for, traceable back to what raised it.</p>
               </div>
               <div class="feature">
-                <h4>Access reviews</h4>
+                <h4>Internal Audit and Audit Programme</h4>
+                <p>The internal audit cycle.</p>
+                <p><strong>You do:</strong> plan the programme, record audits, and track findings to closure.</p>
+                <p><strong>It produces:</strong> the internal audit records for Clause 9.2.</p>
+              </div>
+              <div class="feature">
+                <h4>Management Review</h4>
+                <p>The recurring leadership review.</p>
+                <p><strong>You do:</strong> record each review, its inputs and its decisions.</p>
+                <p><strong>It produces:</strong> the management review minutes required by Clause 9.3.</p>
+              </div>
+              <div class="feature">
+                <h4>Access Reviews</h4>
                 <p>Periodic entitlement review campaigns.</p>
+                <p><strong>You do:</strong> open a review with a scope, reviewer and due date, then work its entries.</p>
+                <p><strong>It produces:</strong> a reviewer-attested access review — the artefact for A.5.18.</p>
               </div>
               <div class="feature">
-                <h4>Penetration tests</h4>
-                <p>Engagement records and remediation tracking.</p>
+                <h4>People and Training</h4>
+                <p>The people register and security-awareness records.</p>
+                <p><strong>You do:</strong> maintain employees; assign training individually or in bulk and track completion.</p>
+                <p><strong>It produces:</strong> the competence and awareness records for A.6.3.</p>
               </div>
               <div class="feature">
-                <h4>Internal audit</h4>
-                <p>An audit programme with findings and follow-up.</p>
+                <h4>Vendors</h4>
+                <p>Third-party risk.</p>
+                <p><strong>You do:</strong> register vendors, assess them, and set a risk tier and review date.</p>
+                <p><strong>It produces:</strong> the supplier assessment records for A.5.19 through A.5.22. Vendors that have not been assessed are shown as <strong>not assessed</strong>, never as low risk.</p>
               </div>
               <div class="feature">
-                <h4>Management review</h4>
-                <p>The recurring leadership review ISO 27001 Clause 9.3 requires.</p>
+                <h4>Penetration Tests</h4>
+                <p>Engagement records.</p>
+                <p><strong>You do:</strong> record tests and track their findings to remediation.</p>
+                <p><strong>It produces:</strong> the penetration-test evidence buyers and auditors ask for.</p>
+              </div>
+              <div class="feature">
+                <h4>Reports</h4>
+                <p>Generated PDFs.</p>
+                <p><strong>You do:</strong> generate a compliance report, a risk assessment, an executive summary or an evidence package.</p>
+                <p><strong>It produces:</strong> audit-ready PDFs. Each states the scan it is grounded in, and recomputes its figures at generation time so a report cannot disagree with the screen.</p>
+              </div>
+              <div class="feature">
+                <h4>Audit Log</h4>
+                <p>The trail of platform activity.</p>
+                <p><strong>You do:</strong> review who did what, and when.</p>
+                <p><strong>It produces:</strong> the activity record for A.8.15, including who authorised each remediation.</p>
+              </div>
+            </div>
+
+            <h3>Group 4 — How do I show it to people outside?</h3>
+            <div class="features">
+              <div class="feature">
+                <h4>Trust Center</h4>
+                <p>A public page presenting your control posture.</p>
+                <p><strong>You do:</strong> configure what is shown, then publish.</p>
+                <p><strong>It produces:</strong> a shareable page describing automated control posture — labelled as posture, never as a certification.</p>
+              </div>
+              <div class="feature">
+                <h4>Auditor Portal</h4>
+                <p>Scoped, token-based access for an external auditor.</p>
+                <p><strong>You do:</strong> issue access; the auditor signs in to their own view.</p>
+                <p><strong>It produces:</strong> direct auditor access to controls, evidence, policies, incident summaries and audit reports per framework — without provisioning them a full account or emailing screenshots.</p>
+              </div>
+              <div class="feature">
+                <h4>Questionnaires</h4>
+                <p>Security questionnaire answering.</p>
+                <p><strong>You do:</strong> upload a questionnaire; the copilot parses it and drafts answers from your own evidence.</p>
+                <p><strong>It produces:</strong> draft answers with citations back to the evidence they came from.</p>
+                <p><strong>Limits:</strong> drafts. A person reviews and sends.</p>
+              </div>
+            </div>
+
+            <h3>Group 5 — How does it fit, and can I trust it?</h3>
+            <div class="features">
+              <div class="feature">
+                <h4>Integrations</h4>
+                <p>Connections to the tools already in use.</p>
+                <p><strong>You do:</strong> connect GitHub, GitLab, Jira, Okta, Slack or Google Workspace, and send outbound events by webhook.</p>
+                <p><strong>It produces:</strong> evidence from outside AWS, and findings turned into tickets in the tracker the team already uses.</p>
+              </div>
+              <div class="feature">
+                <h4>Remediation</h4>
+                <p>Fixes for findings, gated on a person.</p>
+                <p><strong>You do:</strong> review a drafted fix, then approve it explicitly.</p>
+                <p><strong>It produces:</strong> an execution record naming who authorised it.</p>
+                <p><strong>Limits:</strong> commands are parsed and run as an argument vector, never through a shell; only <span class="mono">aws</span> invocations are permitted; execution requires an admin role <strong>and</strong> an explicit per-action confirmation. Nothing runs automatically.</p>
+              </div>
+              <div class="feature">
+                <h4>Notifications, Developers, Admin, Settings</h4>
+                <p>Platform plumbing.</p>
+                <p><strong>You do:</strong> manage notification rules and delivery, API keys and the REST API, users, roles and organisations, and platform configuration.</p>
+                <p><strong>It produces:</strong> role-based access — admin (read and write), viewer (read-only, the default) and auditor (read-only, for external review) — plus scoped API keys for your own automation.</p>
               </div>
             </div>
           </section>
