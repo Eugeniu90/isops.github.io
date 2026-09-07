@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>isops.ai — Trust &amp; compliance, on autopilot.</title>
+    <title>isops.ai — The AWS-native ISMS that reads your account first.</title>
     <meta name="theme-color" content="#0a0e1a" />
     <meta name="robots" content="index,follow" />
     <meta
       name="description"
-      content="From AWS finding to audit-ready evidence in minutes. ISO 27001 &amp; SOC 2, powered by AI. Built for security teams that ship."
+      content="A relationship graph of your AWS account, the ISMS artefacts an auditor asks for, and evidence that never shows &quot;not assessed&quot; as &quot;passed&quot;. ISO 27001, ISO 42001, SOC 2. Self-hosted, read-only."
     />
     <meta name="application-name" content="isops.ai" />
     <meta property="og:site_name" content="isops.ai" />
-    <meta property="og:title" content="isops.ai — Trust &amp; compliance, on autopilot." />
+    <meta property="og:title" content="isops.ai — We read your AWS account. Then we tell you what it is." />
     <meta
       property="og:description"
-      content="From AWS finding to audit-ready evidence in minutes. ISO 27001 &amp; SOC 2, powered by AI."
+      content="A relationship graph of your AWS account, the ISMS artefacts an auditor asks for, and evidence that never shows &quot;not assessed&quot; as &quot;passed&quot;. ISO 27001, ISO 42001, SOC 2. Self-hosted, read-only."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://isops.ai/" />
@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="isops.ai" />
     <meta
       name="twitter:description"
-      content="Trust &amp; compliance, on autopilot. ISO 27001 &amp; SOC 2 for AWS — in minutes."
+      content="A relationship graph of your AWS account, the ISMS artefacts an auditor asks for, and evidence that never shows &quot;not assessed&quot; as &quot;passed&quot;. ISO 27001, ISO 42001, SOC 2."
     />
     <meta property="og:image" content="https://isops.ai/og-image.png" />
     <meta name="twitter:image" content="https://isops.ai/og-image.png" />
@@ -47,7 +47,7 @@
         "name": "isops.ai",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
-        "description": "AI-native trust and compliance operations platform for AWS posture, remediation, evidence, and audit reporting.",
+        "description": "Self-hosted ISMS for AWS: infrastructure relationship graph, ISO 27001 / ISO 42001 / SOC 2 control tracking, evidence, audit reporting and an auditor portal.",
         "url": "https://isops.ai/",
         "offers": {
           "@type": "Offer",
@@ -1590,16 +1590,16 @@
       <div class="container">
         <span class="hero-chip">
           <span class="hero-chip-dot" aria-hidden="true"></span>
-          AWS-native ISMS · ISO 27001, ISO 42001 &amp; SOC 2
+          AWS-native ISMS · ISO 27001 · ISO 42001 · SOC 2
         </span>
 
         <h1>
-          Trust &amp; compliance,<br/>
-          <span class="grad">on autopilot.</span>
+          We read your AWS account.<br/>
+          <span class="grad">Then we tell you what it is.</span>
         </h1>
 
         <p class="hero-sub">
-          From AWS finding to audit-ready evidence in <strong>minutes</strong>. One surface. Zero spreadsheets.
+          A relationship graph of your estate, the ISMS artefacts an auditor asks for, and evidence that never shows "not assessed" as "passed". Self-hosted. Read-only.
         </p>
 
         <div class="hero-cta">
@@ -1607,13 +1607,31 @@
             Book a demo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
           </a>
-          <a href="#product" class="btn btn-ghost btn-lg">See it live</a>
+          <a href="platform.html" class="btn btn-ghost btn-lg">See the platform</a>
         </div>
 
         <div class="hero-signals">
           <span class="hero-signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg> Read-only AWS</span>
           <span class="hero-signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg> Runs in your AWS account</span>
           <span class="hero-signal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg> AWS-native by design</span>
+        </div>
+
+        <!-- ========== Discovery Intelligence narrative ========== -->
+        <div class="step-code" style="max-width:880px; margin: 48px auto 0; overflow-wrap: anywhere;">
+          <div style="font-family: var(--font-mono, monospace); font-size: 12.5px; color: var(--gray-400, #94a3b8); margin-bottom: 14px; letter-spacing: 0.01em;">
+            Discovery Intelligence &middot; output from our reference account
+          </div>
+          <p style="margin: 0; line-height: 1.7;">
+            We discovered <strong>826</strong> resources in your AWS estate across 6 regions. They organize into
+            <strong>16</strong> logical workloads and <strong>1</strong> inferred owner. The biggest workloads are ECS Cluster
+            (web app), S3 Cluster (data tier), and IAM Cluster (serverless pipeline).
+            <strong>825</strong> resources (<strong>100%</strong>) have no inferred owner — adding owner/team tags would
+            dramatically improve traceability. We flagged <strong>104</strong> orphaned resources with no
+            connections, <strong>32</strong> critical hot spots — start there for your first cleanup pass.
+          </p>
+          <div style="font-family: var(--font-mono, monospace); font-size: 12.5px; color: var(--gray-400, #94a3b8); margin-top: 14px; letter-spacing: 0.01em;">
+            826 resources &middot; 2,223 relationships &middot; 0 dangling edges
+          </div>
         </div>
 
         <!-- ========== Live product preview ========== -->
