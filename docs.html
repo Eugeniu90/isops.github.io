@@ -397,12 +397,13 @@
           isops.ai
         </a>
         <div class="nav-links">
-          <a href="/#product">Product</a>
+          <a href="platform.html">Platform</a>
           <a href="/#how">How it works</a>
           <a href="/#frameworks">Frameworks</a>
           <a href="docs.html" class="current">Docs</a>
           <a href="about.html">About</a>
           <a href="security.html">Security</a>
+          <a href="/#faq">FAQ</a>
         </div>
         <div class="nav-actions">
           <a href="contact.html" class="btn btn-ghost">Contact</a>
@@ -422,7 +423,7 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" hidden>
-      <a href="/#product">Product</a>
+      <a href="platform.html">Platform</a>
       <a href="/#how">How it works</a>
       <a href="/#frameworks">Frameworks</a>
       <a href="docs.html" class="current">Docs</a>
@@ -566,7 +567,7 @@
 
           <section id="frameworks">
             <h2>Frameworks and control mapping</h2>
-            <p><strong>ISO/IEC 27001:2022</strong> — the full Annex A catalogue: 93 controls (37 Organizational, 8 People, 14 Physical, 34 Technological). 21 are scanner-mapped, meaning isops can verify them directly from your AWS configuration on each scan. The rest are tracked as manual controls, satisfied with evidence, policies and records captured in the platform.</p>
+            <p><strong>ISO/IEC 27001:2022</strong> — the full Annex A catalogue: 93 controls (37 Organizational, 8 People, 14 Physical, 34 Technological). 21 are scanner-checked, meaning isops can verify them directly from your AWS configuration on each scan. The rest are tracked as manual controls, satisfied with evidence, policies and records captured in the platform.</p>
             <p><strong>ISO/IEC 42001:2023</strong> — the AI management system standard: all 38 Annex A controls across nine families. 3 of the 38 can be partially evidenced by scanning; the rest are management-system controls satisfied with assessments, owners and records kept in the platform.</p>
             <p><strong>SOC 2 Type II</strong> — 28 Trust Services Criteria controls mapped to the same finding set.</p>
             <p>Additional reference mappings the platform tracks alongside these: GDPR, HIPAA, PCI DSS, NIST 800-53 and CIS Controls as control-mapping references, plus NIS2 and DORA requirement tracking.</p>
@@ -633,7 +634,7 @@
             <div class="features">
               <div class="feature">
                 <h4>Policies</h4>
-                <p>15 built-in templates, version history, review cycles and approval. Compliance-as-Code: policies can be backed by a git repository, so the policy set is reviewed and versioned like source.</p>
+                <p>31 built-in templates, version history, review cycles and approval. Compliance-as-Code: policies can be backed by a git repository, so the policy set is reviewed and versioned like source.</p>
               </div>
               <div class="feature">
                 <h4>Evidence</h4>
@@ -714,9 +715,11 @@
             <h2>Integrations and automation</h2>
             <ul>
               <li><strong>GitHub</strong> — repository security posture as an evidence source.</li>
-              <li><strong>Okta</strong> — MFA coverage and identity-hygiene evidence.</li>
+              <li><strong>GitLab</strong> — repository security posture as an evidence source.</li>
               <li><strong>Jira</strong> — turn a finding into a tracked ticket in the workflow your team already uses.</li>
+              <li><strong>Okta</strong> — MFA coverage and identity-hygiene evidence.</li>
               <li><strong>Slack</strong> — scan and finding notifications.</li>
+              <li><strong>Google Workspace</strong> — identity and account evidence.</li>
               <li><strong>Webhooks</strong> — outbound events for anything else.</li>
               <li><strong>Scheduled scans</strong> — recurring scans on AWS Lambda + EventBridge, with SNS or Slack notification on completion.</li>
               <li><strong>Change monitoring</strong> — between scans, monitors watch for change and raise drift alerts when configuration moves away from the last known-good baseline.</li>
@@ -784,8 +787,11 @@
           </div>
           <div class="footer-col">
             <h4>Product</h4>
-            <a href="/#how">How it works</a>
+            <a href="platform.html">Platform</a>
+            <a href="platform.html#copilot">Copilot</a>
+            <a href="platform.html#journey">ISO Journey</a>
             <a href="docs.html">Docs</a>
+            <a href="/#how">How it works</a>
             <a href="/#frameworks">Frameworks</a>
             <a href="/#faq">FAQ</a>
           </div>

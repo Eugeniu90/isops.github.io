@@ -1547,7 +1547,7 @@
           isops.ai
         </a>
         <div class="nav-links">
-          <a href="#product">Product</a>
+          <a href="platform.html">Platform</a>
           <a href="#how">How it works</a>
           <a href="#frameworks">Frameworks</a>
           <a href="docs.html">Docs</a>
@@ -1573,7 +1573,7 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" hidden>
-      <a href="#product">Product</a>
+      <a href="platform.html">Platform</a>
       <a href="#how">How it works</a>
       <a href="#frameworks">Frameworks</a>
       <a href="docs.html">Docs</a>
@@ -1753,7 +1753,7 @@
                       </div>
                       <div class="kpi-tip">
                         <b>Controls passing</b><br/>
-                        79/93 ISO 27001 Annex A. 21 auto-verified, 0 failing.
+                        93 ISO 27001 Annex A controls. 21 scanner-checked · 72 awaiting manual evidence.
                         <div class="spark">
                           <i style="height:40%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:65%"></i><i style="height:72%"></i><i style="height:78%"></i><i style="height:82%"></i>
                         </div>
@@ -1782,9 +1782,9 @@
                         <span class="finding-title">IAM access keys older than 90 days</span>
                         <span class="finding-source">aws/iam</span>
                         <div class="finding-detail">
-                          <span class="map">ISO 27001 A.9.2.5</span><span class="map">SOC 2 CC6.2</span><br/>
+                          <span class="map">ISO 27001 A.5.17</span><span class="map">SOC 2 CC6.2</span><br/>
                           Fix: rotate 3 keys, notify owners, attach evidence.
-                          <span class="act">Auto-rotate →</span>
+                          <span class="act">Draft fix →</span>
                         </div>
                       </div>
                       <div class="finding-row" data-finding>
@@ -1792,7 +1792,7 @@
                         <span class="finding-title">Security group allows 0.0.0.0/0 on port 22</span>
                         <span class="finding-source">aws/ec2</span>
                         <div class="finding-detail">
-                          <span class="map">ISO 27001 A.13.1</span><span class="map">CIS 5.2</span><br/>
+                          <span class="map">ISO 27001 A.8.20</span><span class="map">CIS 5.2</span><br/>
                           Fix: restrict inbound 22 to bastion CIDR / SSM only.
                           <span class="act">Draft fix →</span>
                         </div>
@@ -1802,7 +1802,7 @@
                         <span class="finding-title">RDS without automated backups</span>
                         <span class="finding-source">aws/rds</span>
                         <div class="finding-detail">
-                          <span class="map">ISO 27001 A.12.3</span><span class="map">SOC 2 A1.2</span><br/>
+                          <span class="map">ISO 27001 A.8.13</span><span class="map">SOC 2 A1.2</span><br/>
                           Fix: enable automated backups, 7-day retention min.
                           <span class="act">Draft fix →</span>
                         </div>
@@ -1812,7 +1812,7 @@
                         <span class="finding-title">CloudTrail log file validation disabled</span>
                         <span class="finding-source">aws/cloudtrail</span>
                         <div class="finding-detail">
-                          <span class="map">ISO 27001 A.12.4</span><span class="map">SOC 2 CC7.2</span><br/>
+                          <span class="map">ISO 27001 A.8.15</span><span class="map">SOC 2 CC7.2</span><br/>
                           Fix: enable log-file integrity validation on trail.
                           <span class="act">Draft fix →</span>
                         </div>
@@ -1836,7 +1836,7 @@
                         </svg>
                         <div class="posture-ring-center">
                           <span class="posture-ring-num" data-count="826">826</span>
-                          <span class="posture-ring-grade">Grade A</span>
+                          <span class="posture-ring-grade">21 checked</span>
                         </div>
                       </div>
                       <div class="posture-legend">
@@ -1944,10 +1944,10 @@
                     </div>
                     <div class="card-panel">
                       <div class="evi-row"><span class="evi-time">Apr 17 · 09:22</span><span class="evi-body"><span class="evi-tag">screenshot</span><b>S3 bucket policy</b> reviewed — bucket-owner-enforced enabled. <span class="evi-tag">auto</span> · ISO 27001 A.8.3</span></div>
-                      <div class="evi-row"><span class="evi-time">Apr 17 · 08:41</span><span class="evi-body"><span class="evi-tag">json</span><b>IAM rotation log</b> — 3 keys rotated, 0 failures. <span class="evi-tag">auto</span> · ISO 27001 A.9.2.5</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 17 · 08:41</span><span class="evi-body"><span class="evi-tag">json</span><b>IAM rotation log</b> — 3 keys rotated, 0 failures. <span class="evi-tag">approved</span> · ISO 27001 A.5.17</span></div>
                       <div class="evi-row"><span class="evi-time">Apr 16 · 17:03</span><span class="evi-body"><span class="evi-tag">pdf</span><b>SOC 2 access-review</b> Q2 signed by security-lead. · SOC 2 CC6.3</span></div>
-                      <div class="evi-row"><span class="evi-time">Apr 16 · 14:12</span><span class="evi-body"><span class="evi-tag">api</span><b>CloudTrail integrity</b> validation on 3 trails. <span class="evi-tag">auto</span> · ISO 27001 A.12.4</span></div>
-                      <div class="evi-row"><span class="evi-time">Apr 15 · 22:00</span><span class="evi-body"><span class="evi-tag">json</span><b>Backup verification</b> — RDS prod-db restored to staging. · ISO 27001 A.12.3</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 16 · 14:12</span><span class="evi-body"><span class="evi-tag">api</span><b>CloudTrail integrity</b> validation on 3 trails. <span class="evi-tag">approved</span> · ISO 27001 A.8.15</span></div>
+                      <div class="evi-row"><span class="evi-time">Apr 15 · 22:00</span><span class="evi-body"><span class="evi-tag">json</span><b>Backup verification</b> — RDS prod-db restored to staging. · ISO 27001 A.8.13</span></div>
                       <div class="evi-row"><span class="evi-time">Apr 15 · 11:48</span><span class="evi-body"><span class="evi-tag">screenshot</span><b>MFA enforcement</b> on root account verified. <span class="evi-tag">auto</span> · CIS 1.5</span></div>
                       <div class="evi-row"><span class="evi-time">Apr 14 · 16:20</span><span class="evi-body"><span class="evi-tag">pdf</span><b>Pen-test attestation</b> Q1 2026 — no criticals. · SOC 2 CC4.1</span></div>
                     </div>
@@ -1970,7 +1970,7 @@
                           <div class="rem-sub">Runbook: create new key, update secrets manager, revoke old, notify owner.</div></div>
                           <span class="rem-status review">Review</span>
                         </div>
-                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.9.2.5</span><span class="rem-map">SOC 2 CC6.2</span><span class="rem-owner">· assignee: sec-ops</span></div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.5.17</span><span class="rem-map">SOC 2 CC6.2</span><span class="rem-owner">· assignee: sec-ops</span></div>
                       </div>
                       <div class="rem-card">
                         <div class="rem-head">
@@ -1978,15 +1978,15 @@
                           <div class="rem-sub">Proposed CIDR: 10.0.64.0/20. Blast-radius: 0 running sessions.</div></div>
                           <span class="rem-status draft">Draft</span>
                         </div>
-                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.13.1</span><span class="rem-map">CIS 5.2</span><span class="rem-owner">· copilot → networking</span></div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.8.20</span><span class="rem-map">CIS 5.2</span><span class="rem-owner">· copilot → networking</span></div>
                       </div>
                       <div class="rem-card">
                         <div class="rem-head">
                           <div><div class="rem-title">Enable CloudTrail log-file validation</div>
                           <div class="rem-sub">Single API call. Idempotent. Evidence auto-captured on apply.</div></div>
-                          <span class="rem-status merged">Merged</span>
+                          <span class="rem-status merged">Approved</span>
                         </div>
-                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.12.4</span><span class="rem-map">SOC 2 CC7.2</span><span class="rem-owner">· copilot → security</span></div>
+                        <div class="rem-foot"><span class="rem-map">ISO 27001 A.8.15</span><span class="rem-map">SOC 2 CC7.2</span><span class="rem-owner">· copilot → security</span></div>
                       </div>
                     </div>
                   </div>
@@ -2018,7 +2018,7 @@
                     <span>isops.ai Copilot</span>
                   </div>
                   <div class="copilot-bubble">
-                    <span class="typed" data-typed="Draft remediation for the 3 high IAM findings and attach evidence for ISO 27001 A.9.2.5."></span>
+                    <span class="typed" data-typed="Draft remediation for the 3 high IAM findings and attach evidence for ISO 27001 A.5.17."></span>
                   </div>
                   <div class="copilot-input">Ask about posture, controls, evidence…</div>
                 </div>
@@ -2369,7 +2369,9 @@
           </div>
           <div class="footer-col">
             <h4>Product</h4>
-            <a href="#product">Dashboard</a>
+            <a href="platform.html">Platform</a>
+            <a href="platform.html#copilot">Copilot</a>
+            <a href="platform.html#journey">ISO Journey</a>
             <a href="docs.html">Docs</a>
             <a href="#how">How it works</a>
             <a href="#frameworks">Frameworks</a>
