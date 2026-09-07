@@ -10,6 +10,7 @@ image or JS-library requests.
 | File                  | Purpose                                              |
 | --------------------- | ---------------------------------------------------- |
 | `index.html`          | Landing page — hero, product mock, frameworks, FAQ   |
+| `docs.html`           | Product documentation — full capability reference    |
 | `about.html`          | Why isops exists, how the team works                 |
 | `contact.html`        | Contact form (posts to `app.isops.ai`, mailto fallback) |
 | `security.html`       | Trust principles, AI boundaries, disclosure policy   |

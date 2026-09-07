@@ -21,23 +21,51 @@
       :root {
         --brand-300: #a5b4fc; --brand-400: #818cf8; --brand-500: #6366f1;
         --brand-600: #4f46e5; --brand-700: #4338ca; --brand-900: #312e81;
-        --surface: #0a0e1a; --surface-50: #0f1629;
+        --surface: #0a0e1a; --surface-50: #0f1629; --surface-300: #2d3a4f;
         --gray-300: #d1d5db; --gray-400: #9ca3af; --gray-500: #6b7280;
         --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
         --font-mono: 'JetBrains Mono', ui-monospace, monospace;
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; height: 100%; }
+      a { color: inherit; }
       body {
         font-family: var(--font-sans);
         background: var(--surface);
         color: #e5e7eb;
         line-height: 1.5;
         min-height: 100vh;
-        display: flex; align-items: center; justify-content: center;
+        display: flex; flex-direction: column;
         -webkit-font-smoothing: antialiased;
+      }
+      .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+      @media (min-width: 1024px) { .container { padding: 0 32px; } }
+
+      .nav {
+        position: sticky; top: 0; z-index: 50;
+        background: rgba(10,14,26,0.75);
+        backdrop-filter: blur(16px) saturate(180%);
+        border-bottom: 1px solid rgba(45,58,79,0.3);
+      }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+      .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; color: #fff; text-decoration: none; }
+      .nav-brand-icon {
+        width: 28px; height: 28px; border-radius: 8px;
+        background: linear-gradient(135deg, var(--brand-500), var(--brand-700) 50%, var(--brand-900));
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+      }
+      .nav-links { display: none; align-items: center; gap: 28px; font-size: 13.5px; color: var(--gray-400); font-weight: 500; }
+      @media (min-width: 900px) { .nav-links { display: flex; } }
+      .nav-links a { transition: color 0.15s; text-decoration: none; }
+      .nav-links a:hover, .nav-links a.current { color: #fff; }
+
+      main {
+        flex: 1;
+        display: flex; align-items: center; justify-content: center;
         text-align: center;
         padding: 40px 24px;
+        position: relative;
       }
       body::before {
         content: ''; position: fixed; inset: 0;
@@ -124,12 +152,145 @@
       .meta {
         margin-top: 40px;
         font-family: var(--font-mono);
-        font-size: 11.5px; color: var(--gray-500);
+        font-size: 11.5px; color: var(--gray-400);
+      }
+
+      footer {
+        padding: 56px 0 36px;
+        border-top: 1px solid rgba(45,58,79,0.3);
+      }
+      .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+      @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+      .footer-brand { font-size: 13.5px; color: var(--gray-400); line-height: 1.6; max-width: 320px; margin-top: 14px; }
+      .footer-col h4 {
+        font-size: 11px; font-weight: 600; color: var(--gray-400);
+        text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+      }
+      .footer-col a { display: block; font-size: 13px; color: var(--gray-400); padding: 4px 0; transition: color 0.15s; text-decoration: none; }
+      .footer-col a:hover { color: #fff; }
+      .footer-bottom {
+        margin-top: 40px; padding-top: 24px;
+        border-top: 1px solid rgba(45,58,79,0.3);
+        display: flex; justify-content: space-between; align-items: center;
+        font-size: 12px; color: var(--gray-400); flex-wrap: wrap; gap: 10px;
+      }
+
+      /* ========== Skip link ========== */
+      .skip-link {
+        position: absolute; left: 12px; top: -60px; z-index: 200;
+        padding: 10px 16px; border-radius: 10px;
+        background: var(--brand-600); color: #fff;
+        font-size: 13.5px; font-weight: 600; text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus { top: 12px; }
+
+      /* ========== Mobile nav ========== */
+      .nav-toggle {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 40px; height: 40px; padding: 0;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(45, 58, 79, 0.7);
+        border-radius: 10px;
+        color: var(--gray-300); cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .nav-toggle:hover { background: rgba(255,255,255,0.08); color: #fff; }
+      .nav-toggle svg { width: 18px; height: 18px; }
+      .nav-toggle .icon-close { display: none; }
+      .nav-toggle[aria-expanded='true'] .icon-open { display: none; }
+      .nav-toggle[aria-expanded='true'] .icon-close { display: block; }
+
+      .mobile-menu {
+        position: fixed; top: 57px; left: 0; right: 0; bottom: 0;
+        z-index: 90;
+        padding: 20px;
+        background: rgba(10, 14, 26, 0.97);
+        -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(45, 58, 79, 0.6);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+      .mobile-menu a {
+        display: flex; align-items: center;
+        min-height: 48px; padding: 0 12px;
+        border-radius: 10px;
+        color: var(--gray-300); font-size: 15.5px; font-weight: 500;
+        text-decoration: none;
+      }
+      .mobile-menu a:hover, .mobile-menu a:focus-visible { background: rgba(255,255,255,0.05); color: #fff; }
+      .mobile-menu a.current { color: #fff; background: rgba(99, 102, 241, 0.12); }
+      .mobile-menu-sep {
+        margin: 14px 0; border: 0;
+        border-top: 1px solid rgba(45, 58, 79, 0.6);
+      }
+      .mobile-menu .btn { width: 100%; min-height: 48px; font-size: 15px; }
+
+      @media (min-width: 900px) {
+        .nav-toggle { display: none; }
+        .mobile-menu { display: none !important; }
+      }
+      body.menu-open { overflow: hidden; }
+      .nav-actions { display: none; }
+      @media (min-width: 900px) { .nav-actions { display: flex; align-items: center; gap: 8px; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
       }
       :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="/" class="nav-brand" aria-label="isops.ai home">
+          <span class="nav-brand-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          isops.ai
+        </a>
+        <div class="nav-links">
+          <a href="/#product">Product</a>
+          <a href="/#how">How it works</a>
+          <a href="/#frameworks">Frameworks</a>
+          <a href="docs.html">Docs</a>
+          <a href="about.html">About</a>
+          <a href="security.html">Security</a>
+        </div>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-ghost">Contact</a>
+          <a href="contact.html?reason=demo" class="btn btn-primary">Book demo</a>
+        </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+        >
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="/#product">Product</a>
+      <a href="/#how">How it works</a>
+      <a href="/#frameworks">Frameworks</a>
+      <a href="docs.html">Docs</a>
+      <a href="about.html">About</a>
+      <a href="security.html">Security</a>
+      <a href="/#faq">FAQ</a>
+      <hr class="mobile-menu-sep" />
+      <a href="contact.html?reason=demo" class="btn btn-primary">Book demo</a>
+    </div>
+
+    <main id="main">
     <div class="wrap">
       <span class="badge">
         <span class="badge-icon" aria-hidden="true">
@@ -150,10 +311,89 @@
           Back to isops.ai
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
-        <a class="btn btn-ghost" href="mailto:contact@isops.ai?subject=isops.ai%20broken%20link">Report link</a>
+        <a class="btn btn-ghost" href="mailto:contact@isops.ai?subject=isops.ai%20broken%20link">Email us about this link</a>
       </div>
 
       <div class="meta">HTTP 404 · isops.ai</div>
     </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" class="nav-brand">
+              <span class="nav-brand-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8.5 12.5L10.8 14.8L15.5 9.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              isops.ai
+            </a>
+            <p class="footer-brand">AI-native trust &amp; compliance operations for AWS.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="/#product">Dashboard</a>
+            <a href="docs.html">Docs</a>
+            <a href="/#how">How it works</a>
+            <a href="/#frameworks">Frameworks</a>
+            <a href="/#faq">FAQ</a>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="security.html">Security</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="subprocessors.html">Subprocessors</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="mailto:contact@isops.ai">contact@isops.ai</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 isops.ai — All rights reserved.</span>
+          <span>Built for security teams who ship.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile nav — disclosure pattern
+      (function () {
+        var toggle = document.getElementById('nav-toggle');
+        var menu = document.getElementById('mobile-menu');
+        if (!toggle || !menu) return;
+
+        function setOpen(open) {
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+          menu.hidden = !open;
+          document.body.classList.toggle('menu-open', open);
+        }
+
+        toggle.addEventListener('click', function () {
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        menu.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setOpen(false);
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth >= 900) setOpen(false);
+        });
+      })();
+    </script>
   </body>
 </html>

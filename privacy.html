@@ -112,7 +112,7 @@
         -webkit-background-clip: text; background-clip: text; color: transparent;
       }
       .lead { margin-top: 18px; max-width: 680px; color: var(--gray-400); font-size: 17px; }
-      .meta { margin-top: 10px; font-size: 13px; color: var(--gray-500); font-family: var(--font-mono); }
+      .meta { margin-top: 10px; font-size: 13px; color: var(--gray-400); font-family: var(--font-mono); }
 
       section.sec { padding: 48px 0; }
       .sec-head { margin-bottom: 28px; max-width: 720px; }
@@ -196,6 +196,7 @@
         .data-table tbody tr { display: block; border-bottom: 1px solid rgba(45,58,79,0.35); padding: 6px 0; }
         .data-table tbody tr:last-child { border-bottom: 0; }
       }
+      .table-wrap { overflow-x: auto; }
 
       footer {
         padding: 56px 0 36px;
@@ -204,9 +205,9 @@
       }
       .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
       @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-      .footer-brand { font-size: 13.5px; color: var(--gray-500); line-height: 1.6; max-width: 320px; margin-top: 14px; }
+      .footer-brand { font-size: 13.5px; color: var(--gray-400); line-height: 1.6; max-width: 320px; margin-top: 14px; }
       .footer-col h4 {
-        font-size: 11px; font-weight: 600; color: var(--gray-500);
+        font-size: 11px; font-weight: 600; color: var(--gray-400);
         text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
       }
       .footer-col a { display: block; font-size: 13px; color: var(--gray-400); padding: 4px 0; transition: color 0.15s; }
@@ -215,15 +216,77 @@
         margin-top: 40px; padding-top: 24px;
         border-top: 1px solid rgba(45,58,79,0.3);
         display: flex; justify-content: space-between; align-items: center;
-        font-size: 12px; color: var(--gray-500); flex-wrap: wrap; gap: 10px;
+        font-size: 12px; color: var(--gray-400); flex-wrap: wrap; gap: 10px;
+      }
+      /* ========== Skip link ========== */
+      .skip-link {
+        position: absolute; left: 12px; top: -60px; z-index: 200;
+        padding: 10px 16px; border-radius: 10px;
+        background: var(--brand-600); color: #fff;
+        font-size: 13.5px; font-weight: 600; text-decoration: none;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus { top: 12px; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
       }
       :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
+
+      /* ========== Mobile nav ========== */
+      .nav-toggle {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 40px; height: 40px; padding: 0;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(45, 58, 79, 0.7);
+        border-radius: 10px;
+        color: var(--gray-300); cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .nav-toggle:hover { background: rgba(255,255,255,0.08); color: #fff; }
+      .nav-toggle svg { width: 18px; height: 18px; }
+      .nav-toggle .icon-close { display: none; }
+      .nav-toggle[aria-expanded='true'] .icon-open { display: none; }
+      .nav-toggle[aria-expanded='true'] .icon-close { display: block; }
+
+      .mobile-menu {
+        position: fixed; top: 57px; left: 0; right: 0; bottom: 0;
+        z-index: 90;
+        padding: 20px;
+        background: rgba(10, 14, 26, 0.97);
+        -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(45, 58, 79, 0.6);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+      .mobile-menu a {
+        display: flex; align-items: center;
+        min-height: 48px; padding: 0 12px;
+        border-radius: 10px;
+        color: var(--gray-300); font-size: 15.5px; font-weight: 500;
+        text-decoration: none;
+      }
+      .mobile-menu a:hover, .mobile-menu a:focus-visible { background: rgba(255,255,255,0.05); color: #fff; }
+      .mobile-menu a.current { color: #fff; background: rgba(99, 102, 241, 0.12); }
+      .mobile-menu-sep {
+        margin: 14px 0; border: 0;
+        border-top: 1px solid rgba(45, 58, 79, 0.6);
+      }
+      .mobile-menu .btn { width: 100%; min-height: 48px; font-size: 15px; }
+
+      @media (min-width: 900px) {
+        .nav-toggle { display: none; }
+        .mobile-menu { display: none !important; }
+      }
+      body.menu-open { overflow: hidden; }
+      .nav-actions { display: none; }
+      @media (min-width: 900px) { .nav-actions { display: flex; align-items: center; gap: 8px; } }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <nav class="nav">
       <div class="container nav-inner">
-        <a href="index.html" class="nav-brand" aria-label="isops.ai home">
+        <a href="/" class="nav-brand" aria-label="isops.ai home">
           <span class="nav-brand-icon" aria-hidden="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -233,24 +296,48 @@
           isops.ai
         </a>
         <div class="nav-links">
-          <a href="index.html#product">Product</a>
-          <a href="index.html#how">How it works</a>
-          <a href="index.html#frameworks">Frameworks</a>
+          <a href="/#product">Product</a>
+          <a href="/#how">How it works</a>
+          <a href="/#frameworks">Frameworks</a>
+          <a href="docs.html">Docs</a>
           <a href="about.html">About</a>
           <a href="security.html">Security</a>
         </div>
-        <div>
-          <a href="contact.html" class="btn btn-primary">Book demo</a>
+        <div class="nav-actions">
+          <a href="contact.html" class="btn btn-ghost">Contact</a>
+          <a href="contact.html?reason=demo" class="btn btn-primary">Book demo</a>
         </div>
+        <button
+          class="nav-toggle"
+          type="button"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+        >
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
     </nav>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="/#product">Product</a>
+      <a href="/#how">How it works</a>
+      <a href="/#frameworks">Frameworks</a>
+      <a href="docs.html">Docs</a>
+      <a href="about.html">About</a>
+      <a href="security.html">Security</a>
+      <a href="/#faq">FAQ</a>
+      <hr class="mobile-menu-sep" />
+      <a href="contact.html?reason=demo" class="btn btn-primary">Book demo</a>
+    </div>
 
-    <main>
+    <main id="main">
       <section class="page-hero">
         <div class="container">
           <span class="eyebrow">Privacy</span>
           <h1>Privacy answers for <span class="grad">buyer review</span>.</h1>
-          <p class="meta">Last updated · April 2026</p>
+          <p class="meta">Last updated · September 2026</p>
           <p class="lead">What the platform handles, how review starts, and where to route deeper diligence.</p>
 
           <div class="grid-3" style="margin-top: 40px;">
@@ -309,6 +396,57 @@
         </div>
       </section>
 
+      <section class="sec" id="website">
+        <div class="container">
+          <div class="sec-head">
+            <h2>This website (isops.ai)</h2>
+          </div>
+          <article class="card">
+            <p>This section covers the marketing site you are reading. The isops.ai product itself runs in your own environment and is covered above.</p>
+            <p style="margin-top: 12px;"><b style="color:#fff;font-weight:600;">Who is responsible.</b> isops.ai — contact us at <a href="mailto:contact@isops.ai">contact@isops.ai</a>.</p>
+            <div class="table-wrap" style="margin-top: 20px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>What</th>
+                    <th>Data</th>
+                    <th>Why and how long</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Contact form</td>
+                    <td>Name, work email, company (optional), reason, your message</td>
+                    <td>The form composes an email in your own mail client and sends nothing to us until you press send. We receive it as an ordinary email at contact@isops.ai and keep the thread while we are in conversation.</td>
+                  </tr>
+                  <tr>
+                    <td>Analytics</td>
+                    <td>None</td>
+                    <td>We do not run analytics or tracking scripts on this site.</td>
+                  </tr>
+                  <tr>
+                    <td>Hosting</td>
+                    <td>Standard server logs (IP address, user agent, URL)</td>
+                    <td>The site is served by GitHub Pages, which keeps these under its own policy.</td>
+                  </tr>
+                  <tr>
+                    <td>Fonts</td>
+                    <td>Your IP address is sent to Google when web fonts load</td>
+                    <td>We are moving to self-hosted fonts to remove this.</td>
+                  </tr>
+                  <tr>
+                    <td>Cookies</td>
+                    <td>None</td>
+                    <td>This site stores nothing in your browser.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top: 20px;"><b style="color:#fff;font-weight:600;">Your rights.</b> Access, correction, deletion and objection — email <a href="mailto:contact@isops.ai">contact@isops.ai</a>. You may also complain to your data-protection authority.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="sec">
         <div class="container">
           <div class="grid-2">
@@ -336,7 +474,7 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            <a href="index.html" class="nav-brand">
+            <a href="/" class="nav-brand">
               <span class="nav-brand-icon" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M12 2L3.5 6.5V11.5C3.5 16.74 7.08 21.54 12 22.5C16.92 21.54 20.5 16.74 20.5 11.5V6.5L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -349,10 +487,11 @@
           </div>
           <div class="footer-col">
             <h4>Product</h4>
-            <a href="index.html#product">Dashboard</a>
-            <a href="index.html#how">How it works</a>
-            <a href="index.html#frameworks">Frameworks</a>
-            <a href="index.html#faq">FAQ</a>
+            <a href="/#product">Dashboard</a>
+            <a href="docs.html">Docs</a>
+            <a href="/#how">How it works</a>
+            <a href="/#frameworks">Frameworks</a>
+            <a href="/#faq">FAQ</a>
           </div>
           <div class="footer-col">
             <h4>Company</h4>
@@ -373,5 +512,39 @@
         </div>
       </div>
     </footer>
+    <script>
+      // Mobile nav — disclosure pattern
+      (function () {
+        var toggle = document.getElementById('nav-toggle');
+        var menu = document.getElementById('mobile-menu');
+        if (!toggle || !menu) return;
+
+        function setOpen(open) {
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+          menu.hidden = !open;
+          document.body.classList.toggle('menu-open', open);
+        }
+
+        toggle.addEventListener('click', function () {
+          setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        menu.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setOpen(false);
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+            setOpen(false);
+            toggle.focus();
+          }
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth >= 900) setOpen(false);
+        });
+      })();
+    </script>
   </body>
 </html>
