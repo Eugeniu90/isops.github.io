@@ -28,13 +28,6 @@ image or JS-library requests.
 | `.well-known/security.txt`  | RFC 9116 vulnerability-disclosure pointer                 |
 | `CNAME`                     | Custom domain (`isops.ai`) for Pages hosting              |
 
-### Prototypes (untracked design exploration)
-
-`prototype-*.html` are scroll-driven Three.js + GSAP experiments for a future
-immersive landing experience. They are **not** linked from production pages and
-are excluded from search via `robots.txt`. Keep them out of `main` or move them
-to an `experiments/` branch.
-
 ## Local development
 
 ```bash

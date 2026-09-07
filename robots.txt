@@ -4,7 +4,5 @@
 User-agent: *
 Allow: /
 
-# Keep design experiments out of the index (orphan prototype pages).
-Disallow: /prototype-
 
 Sitemap: https://isops.ai/sitemap.xml
