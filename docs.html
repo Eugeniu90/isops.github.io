@@ -783,9 +783,10 @@
               </div>
               <div class="feature">
                 <h4>Questionnaires</h4>
-                <p>Security questionnaire answering.</p>
-                <p><strong>You do:</strong> upload a questionnaire; the copilot parses it and drafts answers from your own evidence.</p>
-                <p><strong>It produces:</strong> draft answers with citations back to the evidence they came from.</p>
+                <p>Security questionnaire answering — with no language model in the answering path.</p>
+                <p><strong>You do:</strong> paste a questionnaire; each question is matched against your approved policies, Statement of Applicability entries and stored evidence.</p>
+                <p><strong>It produces:</strong> draft answers, each citing the specific policy, SoA entry or evidence record it was built from — and, where nothing on file supports the question, the answer <strong>unsupported</strong> instead of a plausible sentence.</p>
+                <p><strong>Why this matters:</strong> this endpoint calls no model. It cannot hallucinate a control you do not have, because generating text is not something it is able to do. A confident wrong answer on a security questionnaire is worse than a visible blank — it is a claim your buyer may rely on.</p>
                 <p><strong>Limits:</strong> drafts. A person reviews and sends.</p>
               </div>
             </div>

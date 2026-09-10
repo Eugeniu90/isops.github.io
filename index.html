@@ -1368,6 +1368,54 @@
         display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
       }
       @media (max-width: 1100px) { .infra-grid { grid-template-columns: repeat(2, 1fr); } }
+      /* ---- Exposure table: the three-state guarantee, shown ---- */
+      .exposure-demo {
+        border: 1px solid rgba(45, 58, 79, 0.6);
+        border-radius: 14px;
+        background: var(--surface-50);
+        overflow: hidden;
+      }
+      .exposure-demo-head {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 12px; flex-wrap: wrap;
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(45, 58, 79, 0.6);
+        font-size: 12px; color: var(--gray-400);
+      }
+      .exposure-demo-cov { display: flex; align-items: center; gap: 8px; }
+      .exposure-demo-all {
+        padding: 2px 8px; border-radius: 999px;
+        background: rgba(16, 185, 129, 0.12); color: var(--green-400);
+        font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      }
+      .exposure-demo table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      .exposure-demo th {
+        text-align: left; padding: 10px 16px;
+        font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+        color: var(--gray-500); border-bottom: 1px solid rgba(45, 58, 79, 0.45);
+      }
+      .exposure-demo td {
+        padding: 11px 16px; color: var(--gray-300);
+        border-bottom: 1px solid rgba(45, 58, 79, 0.28);
+      }
+      .exposure-demo tr:last-child td { border-bottom: 0; }
+      .exposure-demo .grp { color: #e6ebf5; font-weight: 600; }
+      .ex-pill {
+        display: inline-block; padding: 3px 9px; border-radius: 999px;
+        font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+      }
+      .ex-pill.ok      { background: rgba(16, 185, 129, 0.14); color: var(--green-400); }
+      .ex-pill.open    { background: rgba(239, 68, 68, 0.14);  color: var(--red-400); }
+      .ex-pill.unknown { background: rgba(100, 116, 139, 0.18); color: #94a3b8; }
+      .ex-dash { color: var(--gray-500); }
+      .exposure-note {
+        margin-top: 14px; padding: 14px 16px;
+        border-left: 2px solid rgba(100, 116, 139, 0.55);
+        background: rgba(100, 116, 139, 0.06);
+        border-radius: 0 10px 10px 0;
+        font-size: 13px; line-height: 1.65; color: var(--gray-400);
+      }
+      .exposure-note strong { color: #e6ebf5; }
       .infra-card {
         display: flex; align-items: center; gap: 10px;
         background: var(--surface-50);
@@ -2311,6 +2359,77 @@
           <p><strong>ISO/IEC 42001 — the AI management system standard.</strong> All 38 Annex A controls across the nine families, from AI policy through third-party and customer relationships. As the EU AI Act's obligations land, an AIMS is becoming a precondition for selling AI software rather than a differentiator.</p>
           <p><strong>What we automate, honestly:</strong> 3 of the 38 controls can be partially evidenced by scanning. 42001 is a management-system standard — whether an AI system harms a group is answered by an assessment and a named owner, not an API call. What isops gives you is the structure, the evidence trail and the audit-readiness around those decisions.</p>
         </div>
+      </div>
+    </section>
+
+        <!-- =================== THE THIRD STATE =================== -->
+    <section id="third-state">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow">The difference</span>
+          <h2 class="section-title">Most dashboards have two colours. That&rsquo;s the bug.</h2>
+        </div>
+
+        <p class="reveal" style="max-width: 62ch; color: var(--gray-400); line-height: 1.75; margin-bottom: 26px;">
+          Green means checked and clean. Red means checked and failing. So what colour is a
+          resource nothing has ever looked at? On most tools it is green &mdash; because it has no
+          findings, and no findings renders as success. That is not a cosmetic choice. It is a
+          dashboard telling an auditor you verified something you never examined.
+        </p>
+
+        <div class="exposure-demo reveal">
+          <div class="exposure-demo-head">
+            <span>Exposure &middot; All assets scope</span>
+            <span class="exposure-demo-cov">
+              826 of 826 resources &middot; 19 asset groups
+              <span class="exposure-demo-all">all listed</span>
+            </span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Asset group</th><th>Resources</th><th>Risk</th><th>Open findings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="grp">Security Groups</td><td>77</td>
+                <td><span class="ex-pill open">44 OPEN</span></td><td>44</td>
+              </tr>
+              <tr>
+                <td class="grp">IAM Roles</td><td>145</td>
+                <td><span class="ex-pill ok">CLEAN</span></td><td>0</td>
+              </tr>
+              <tr>
+                <td class="grp">DynamoDB Tables</td><td>53</td>
+                <td><span class="ex-pill unknown">NOT ASSESSED</span></td>
+                <td><span class="ex-dash" title="No scanner covers this resource type &mdash; this is &lsquo;not looked at&rsquo;, not &lsquo;zero&rsquo;.">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="grp">API Gateways</td><td>14</td>
+                <td><span class="ex-pill unknown">NOT ASSESSED</span></td>
+                <td><span class="ex-dash">&mdash;</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="exposure-note reveal">
+          <strong>Read the third and fourth rows.</strong> Those 67 resources have zero findings
+          &mdash; and isops refuses to call them clean, because no scanner covers their resource
+          type. They are grey, they report a dash rather than <em>0</em>, and they are counted
+          separately from what passed. An empty findings column and a clean bill of health are
+          different claims, and only one of them is true here.
+        </div>
+
+        <p class="reveal" style="max-width: 62ch; color: var(--gray-400); line-height: 1.75; margin-top: 22px;">
+          The same rule runs through the product. A control with no automated check sits in
+          <em>Not assessed</em> against a denominator of all 93, never quietly dropped to flatter
+          the percentage. A questionnaire question with nothing on file comes back
+          <em>unsupported</em> rather than answered. A change view with no earlier scan says it is
+          a baseline, not that nothing changed. Every one of those is a place a number could have
+          been made to look better, and wasn&rsquo;t.
+        </p>
       </div>
     </section>
 
