@@ -433,9 +433,10 @@
               <div id="form-success" class="card success-panel" role="status" hidden>
                 <h2>Your message is ready to send</h2>
                 <p>We've opened your email client with everything filled in. <strong>Press send there</strong> and we'll reply within one business day.</p>
-                <p><strong>Nothing opened?</strong> Some work laptops have no mail app configured. Email us directly at <strong>contact@isops.ai</strong> — or copy your message below.</p>
+                <p><strong>Nothing opened?</strong> Browser mail (Gmail, Outlook on the web) often has no desktop handler, so <em>mailto:</em> does nothing. Open it in Gmail below, email <strong>contact@isops.ai</strong> directly, or copy your message.</p>
                 <div class="success-actions">
                   <button type="button" class="btn btn-primary" id="copy-message-btn">Copy message</button>
+                  <a href="https://mail.google.com/mail/?view=cm&amp;to=contact%40isops.ai" target="_blank" rel="noopener" class="btn btn-ghost" id="gmail-compose-btn">Open in Gmail</a>
                   <a href="mailto:contact@isops.ai" class="btn btn-ghost">Email contact@isops.ai</a>
                 </div>
                 <div class="success-copy-fallback" id="copy-fallback" hidden>
@@ -615,6 +616,18 @@
           const subject = SUBJECTS[data.reason] || SUBJECTS.other;
           const body = composeBody(data);
           lastComposed = 'Subject: ' + subject + '\n\n' + body;
+
+          // Browser mail users have no handler for mailto:, so the fallback
+          // panel offers Gmail's own compose URL with the same content. Built
+          // here rather than in markup because it needs this submission's text.
+          const gmailBtn = document.getElementById('gmail-compose-btn');
+          if (gmailBtn) {
+            gmailBtn.href = 'https://mail.google.com/mail/?view=cm&to=' +
+              encodeURIComponent('contact@isops.ai') +
+              '&su=' + encodeURIComponent(subject) +
+              '&body=' + encodeURIComponent(body);
+          }
+
           window.location.href = 'mailto:contact@isops.ai?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         }
 

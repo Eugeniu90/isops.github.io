@@ -507,7 +507,7 @@
               <div class="step">
                 <span class="step-num">02</span>
                 <h3>Scan</h3>
-                <p>12 scanners sweep IAM, storage, compute, data, network, logging and containers.</p>
+                <p>15 scanners sweep IAM, storage, compute, data, network, logging and containers.</p>
               </div>
               <div class="step">
                 <span class="step-num">03</span>
@@ -568,10 +568,10 @@
 
           <section id="frameworks">
             <h2>Frameworks and control mapping</h2>
-            <p><strong>ISO/IEC 27001:2022</strong> — the full Annex A catalogue: 93 controls (37 Organizational, 8 People, 14 Physical, 34 Technological). 21 are scanner-checked, meaning isops can verify them directly from your AWS configuration on each scan. The rest are tracked as manual controls, satisfied with evidence, policies and records captured in the platform.</p>
+            <p><strong>ISO/IEC 27001:2022</strong> — the full Annex A catalogue: 93 controls (37 Organizational, 8 People, 14 Physical, 34 Technological). 17 are scanner-checked, meaning isops can verify them directly from your AWS configuration on each scan. The rest are tracked as manual controls, satisfied with evidence, policies and records captured in the platform.</p>
             <p><strong>ISO/IEC 42001:2023</strong> — the AI management system standard: all 38 Annex A controls across nine families. 3 of the 38 can be partially evidenced by scanning; the rest are management-system controls satisfied with assessments, owners and records kept in the platform.</p>
-            <p><strong>SOC 2 Type II</strong> — 28 Trust Services Criteria controls mapped to the same finding set.</p>
-            <p>Additional reference mappings the platform tracks alongside these: GDPR, HIPAA, PCI DSS, NIST 800-53 and CIS Controls as control-mapping references, plus NIS2 and DORA requirement tracking.</p>
+            <p><strong>SOC 2 Type II</strong> — 29 Trust Services Criteria controls mapped to the same finding set.</p>
+            <p>Additional reference mappings the platform tracks alongside these: GDPR, HIPAA, PCI DSS and NIST 800-53 as control-mapping references, plus NIS2 and DORA requirement tracking.</p>
 
             <h3>Control states</h3>
             <div class="docs-table-wrap">
@@ -613,7 +613,7 @@
 
           <section id="grc">
             <h2>The GRC workspace</h2>
-            <p>The modules that cover the roughly 72 controls no cloud scanner can answer.</p>
+            <p>The modules that cover the roughly 76 controls no cloud scanner can answer.</p>
             <p>See <a href="#modules">Module reference</a> for the full list of screens and the artefact each one produces.</p>
           </section>
 
@@ -626,7 +626,7 @@
               <div class="feature">
                 <h4>Infrastructure</h4>
                 <p>A relationship graph of the AWS estate: resources, and what reaches what.</p>
-                <p><strong>You do:</strong> browse the topology as a flow map, resource list or inventory; switch layout (hierarchy, organic, tree, circle); scope the view to all resources, ISO-relevant, production, internet-exposed or those carrying findings; overlay architecture, compliance, risk or evidence.</p>
+                <p><strong>You do:</strong> browse every in-scope resource and relationship as a list, scoped to all resources, ISO-relevant, production, internet-exposed or those carrying findings. Nothing is silently dropped from the view.</p>
                 <p><strong>It produces:</strong> an asset inventory and access-path evidence for A.5.9 (inventory of information and other associated assets) and A.5.18 (access rights).</p>
               </div>
               <div class="feature">
@@ -640,7 +640,7 @@
                 <p>Live issues from the scanners, grouped so they can be worked.</p>
                 <p><strong>You do:</strong> group by issue, scanner, category or region, or turn grouping off; filter by severity; expand any group to its individual resources.</p>
                 <p><strong>It produces:</strong> control-mapped findings — each carries its Annex A control identifiers and an estimated time to remediate.</p>
-                <p><strong>Limits:</strong> around 48 checks across 12 scanners. This is not a breadth play; open-source scanners cover far more individual checks.</p>
+                <p><strong>Limits:</strong> 15 scanners, not a breadth play. Open-source scanners cover far more individual checks; isops trades that breadth for the graph the findings hang on and the ISMS around it.</p>
               </div>
               <div class="feature">
                 <h4>Scans and Schedules</h4>
