@@ -238,11 +238,31 @@
         *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto; }
       }
       :focus-visible { outline: 2px solid var(--brand-400); outline-offset: 3px; border-radius: 4px; }
+    
+      /* Buyer-review pages get printed for audit binders. The site is dark-
+         themed and browsers do not print background colours by default, so
+         without this the output is near-white text on white paper. */
+      @media print {
+        :root { --surface: #fff; --gray-400: #444; --gray-500: #555; }
+        html, body { background: #fff !important; color: #111 !important; }
+        h1, h2, h3, h4, strong, .num { color: #000 !important; }
+        a { color: #000 !important; text-decoration: underline; }
+        a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 10px; color: #555; }
+        nav, .nav, .mobile-menu, .cta-band, .preview-wrap, footer .foot-cta,
+        #nav-toggle, .hero-glow, .preview-glow { display: none !important; }
+        .card, .panel, section { break-inside: avoid; border-color: #ccc !important; background: #fff !important; }
+        details { display: block !important; }
+        details > summary { font-weight: 700; }
+        details[open] > *, details > * { display: revert !important; }
+      }
+          /* The .mobile-menu a rule outranks the button's own colour, dropping the
+         primary CTA to 4.27:1. Restore white text on indigo (6.29:1). */
+      .mobile-menu a.btn-primary { color: #fff; }
     </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary">
       <div class="container nav-inner">
         <a href="/" class="nav-brand" aria-label="isops.ai home">
           <span class="nav-brand-icon" aria-hidden="true">
@@ -254,17 +274,17 @@
           isops.ai
         </a>
         <div class="nav-links">
-          <a href="platform.html">Platform</a>
+          <a href="/index.html#product">Platform</a>
           <a href="/#how">How it works</a>
           <a href="/#frameworks">Frameworks</a>
-          <a href="docs.html">Docs</a>
-          <a href="about.html">About</a>
-          <a href="security.html">Security</a>
+          <a href="/docs.html">Docs</a>
+          <a href="/about.html">About</a>
+          <a href="/security.html">Security</a>
           <a href="/#faq">FAQ</a>
         </div>
         <div class="nav-actions">
-          <a href="contact.html" class="btn btn-ghost">Contact</a>
-          <a href="contact.html?reason=demo" class="btn btn-primary">Book demo</a>
+          <a href="/contact.html" class="btn btn-ghost">Contact</a>
+          <a href="/contact.html?reason=demo" class="btn btn-primary">Book demo</a>
         </div>
         <button
           class="nav-toggle"
@@ -280,15 +300,15 @@
       </div>
     </nav>
     <div class="mobile-menu" id="mobile-menu" hidden>
-      <a href="platform.html">Platform</a>
+      <a href="/index.html#product">Platform</a>
       <a href="/#how">How it works</a>
       <a href="/#frameworks">Frameworks</a>
-      <a href="docs.html">Docs</a>
-      <a href="about.html">About</a>
-      <a href="security.html">Security</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/about.html">About</a>
+      <a href="/security.html">Security</a>
       <a href="/#faq">FAQ</a>
       <hr class="mobile-menu-sep" />
-      <a href="contact.html?reason=demo" class="btn btn-primary">Book demo</a>
+      <a href="/contact.html?reason=demo" class="btn btn-primary">Book demo</a>
     </div>
 
     <main id="main">
@@ -308,7 +328,7 @@
       <p>The link you followed doesn't point to an isops.ai page. Jump back to the main site — or email us if you got here from somewhere expected.</p>
 
       <div class="actions">
-        <a class="btn btn-primary" href="index.html">
+        <a class="btn btn-primary" href="/index.html">
           Back to isops.ai
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
         </a>
@@ -335,25 +355,25 @@
             <p class="footer-brand">AI-native trust &amp; compliance operations for AWS.</p>
           </div>
           <div class="footer-col">
-            <h4>Product</h4>
-            <a href="platform.html">Platform</a>
-            <a href="platform.html#copilot">Copilot</a>
-            <a href="platform.html#journey">ISO Journey</a>
-            <a href="docs.html">Docs</a>
+            <h3>Product</h3>
+            <a href="/platform.html">Platform reference</a>
+            <a href="/platform.html#copilot">Copilot</a>
+            <a href="/platform.html#journey">ISO Journey</a>
+            <a href="/docs.html">Docs</a>
             <a href="/#how">How it works</a>
             <a href="/#frameworks">Frameworks</a>
             <a href="/#faq">FAQ</a>
           </div>
           <div class="footer-col">
-            <h4>Company</h4>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="security.html">Security</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="subprocessors.html">Subprocessors</a>
+            <h3>Company</h3>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/security.html">Security</a>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/subprocessors.html">Subprocessors</a>
           </div>
           <div class="footer-col">
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <a href="mailto:contact@isops.ai">contact@isops.ai</a>
           </div>
         </div>
@@ -376,6 +396,12 @@
           toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
           menu.hidden = !open;
           document.body.classList.toggle('menu-open', open);
+          // The open menu is an opaque fixed overlay. Without this, tabbing past
+          // its last link moves focus onto page content hidden behind it, and a
+          // keyboard user loses the caret entirely.
+          document.querySelectorAll('main, footer').forEach(function (el) {
+            if (open) { el.setAttribute('inert', ''); } else { el.removeAttribute('inert'); }
+          });
         }
 
         toggle.addEventListener('click', function () {
