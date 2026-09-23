@@ -4353,11 +4353,17 @@
         const scenes  = document.querySelectorAll('.scene[data-tab]');
         const urlTab  = document.querySelector('[data-url-tab]');
         const titleEl = document.querySelector('[data-title]');
+        const copilotPanel = document.querySelector('.preview-wrap .copilot');
         const switchTab = (tab, label) => {
           sbItems.forEach((i) => i.classList.toggle('active', i.dataset.tab === tab));
           scenes.forEach((s)  => s.classList.toggle('is-active', s.dataset.tab === tab));
           if (urlTab)  urlTab.textContent  = tab;
           if (titleEl && label) titleEl.textContent = label;
+          // The product hides the Copilot launcher on Answers, because Answers
+          // is the same assistant with the whole page to work in
+          // (base.html: {% if current_page != 'ask' %}). Showing both here
+          // depicted a duplicate the app deliberately does not have.
+          if (copilotPanel) copilotPanel.hidden = (tab === 'ask');
         };
         sbItems.forEach((item) => {
           // Real rows, not just <a>s — give them button semantics and
