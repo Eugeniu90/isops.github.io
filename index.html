@@ -505,6 +505,10 @@
         padding: 7px 10px; border-radius: 10px;
         font-size: 12.5px; font-weight: 500; color: var(--gray-500);
         transition: background 0.15s, color 0.15s;
+        /* These behave as navigation, not prose. Clicking one was selecting
+           its label instead of reading as a press. */
+        -webkit-user-select: none;
+        user-select: none;
       }
       .sb-item svg { width: 15px; height: 15px; flex-shrink: 0; }
       .sb-item:hover { background: rgba(255,255,255,0.03); color: var(--gray-300); }
@@ -1960,19 +1964,19 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3"/></svg>
                       Infrastructure
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Monitoring">
+                    <div class="sb-item" data-tab="monitoring" data-label="Monitoring" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
                       Monitoring
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Scans">
+                    <div class="sb-item" data-tab="scans" data-label="Scans" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                       Scans
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Schedules">
+                    <div class="sb-item" data-tab="schedules" data-label="Schedules" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                       Schedules
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Pen Tests">
+                    <div class="sb-item" data-tab="pentest" data-label="Pen Tests" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                       Pen Tests
                     </div>
@@ -1980,11 +1984,11 @@
 
                   <div class="sb-group">
                     <div class="sb-group-label">Respond <span class="sb-group-hint">10 · A.5.24&ndash;28</span></div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Incidents">
+                    <div class="sb-item" data-tab="incidents" data-label="Incidents" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
                       Incidents
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="CAPA">
+                    <div class="sb-item" data-tab="capa" data-label="CAPA" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17l-4.655-5.653a.75.75 0 010-.98l4.655-5.653M17.25 12H3"/></svg>
                       CAPA
                     </div>
@@ -2000,7 +2004,7 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
                       ISO Journey
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="AI Drafts">
+                    <div class="sb-item" data-tab="ai-proposals" data-label="AI Drafts" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
                       AI Drafts
                     </div>
@@ -2008,19 +2012,19 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                       Compliance
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Control Map">
+                    <div class="sb-item" data-tab="control-mapping" data-label="Control Map" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
                       Control Map
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Readiness">
+                    <div class="sb-item" data-tab="readiness" data-label="Readiness" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 011.65 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75"/></svg>
                       Readiness
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Risk Register">
+                    <div class="sb-item" data-tab="risks" data-label="Risk Register" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
                       Risk Register
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Policies">
+                    <div class="sb-item" data-tab="policies" data-label="Policies" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
                       Policies
                     </div>
@@ -2028,23 +2032,23 @@
 
                   <div class="sb-group">
                     <div class="sb-group-label">Operate <span class="sb-group-hint">7&ndash;8</span></div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Assets">
+                    <div class="sb-item" data-tab="assets" data-label="Assets" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3"/></svg>
                       Assets
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="People">
+                    <div class="sb-item" data-tab="employees" data-label="People" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
                       People
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Training">
+                    <div class="sb-item" data-tab="training" data-label="Training" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
                       Training
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Vendors">
+                    <div class="sb-item" data-tab="vendors" data-label="Vendors" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72"/></svg>
                       Vendors
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Access Reviews">
+                    <div class="sb-item" data-tab="access-reviews" data-label="Access Reviews" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"/></svg>
                       Access Reviews
                     </div>
@@ -2052,11 +2056,11 @@
 
                   <div class="sb-group">
                     <div class="sb-group-label">Assure <span class="sb-group-hint">9.2&ndash;9.3</span></div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Audit Program">
+                    <div class="sb-item" data-tab="audit-program" data-label="Audit Program" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25"/></svg>
                       Audit Program
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Mgmt Review">
+                    <div class="sb-item" data-tab="mgmt-review" data-label="Mgmt Review" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
                       Mgmt Review
                     </div>
@@ -2064,11 +2068,11 @@
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
                       Evidence
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Auditor Portal">
+                    <div class="sb-item" data-tab="auditor-portal" data-label="Auditor Portal" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
                       Auditor Portal
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Questionnaires">
+                    <div class="sb-item" data-tab="questionnaires" data-label="Questionnaires" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
                       Questionnaires
                     </div>
@@ -2080,11 +2084,11 @@
 
                   <div class="sb-group">
                     <div class="sb-group-label">Configure</div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Integrations">
+                    <div class="sb-item" data-tab="integrations" data-label="Integrations" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
                       Integrations
                     </div>
-                    <div class="sb-item sb-static" aria-disabled="true" data-label="Audit Log">
+                    <div class="sb-item" data-tab="audit" data-label="Audit Log" role="button" tabindex="0">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
                       Audit Log
                     </div>
@@ -2591,6 +2595,1170 @@
                       </div>
                     </div>
                   </div>
+                  <div class="scene" data-tab="monitoring">
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-label">Unresolved</div><div class="kpi-value">3</div></div>
+                      <div class="kpi"><div class="kpi-label">Needs triage</div><div class="kpi-value">2</div></div>
+                      <div class="kpi"><div class="kpi-label">Critical · 24h</div><div class="kpi-value">1</div></div>
+                      <div class="kpi"><div class="kpi-label">Events today</div><div class="kpi-value">14</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip active">All sources</span>
+                      <span class="chip">CloudTrail</span>
+                      <span class="chip">AWS Config</span>
+                      <span class="chip">GuardDuty</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="evi-row">
+                        <span class="evi-time">10:42:03</span>
+                        <div class="evi-body"><span class="evi-tag">A.5.15</span><span class="severity high">HIGH</span> Root account console sign-in detected in <b>eu-west-1</b></div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">10:31:47</span>
+                        <div class="evi-body"><span class="evi-tag">A.8.9</span><span class="severity med">MEDIUM</span> Security group opened to 0.0.0.0/0 on <b>example-app-sg</b></div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">09:58:12</span>
+                        <div class="evi-body"><span class="evi-tag">A.8.16</span><span class="severity high">CRITICAL</span> GuardDuty finding UnauthorizedAccess:IAMUser on <b>example-role</b></div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">09:40:55</span>
+                        <div class="evi-body"><span class="evi-tag">A.8.15</span><span class="severity med">MEDIUM</span> CloudTrail logging disabled in <b>eu-west-1</b></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="scans">
+                    <div class="filter-row">
+                      <span class="chip active">All runs</span>
+                      <span class="chip">Completed</span>
+                      <span class="chip">Partial</span>
+                      <span class="chip">Failed</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <span class="pill">Running</span>
+                        <span class="f2-title">Full scan · 2 regions<em>in progress</em></span>
+                        <span class="f2-age">just now</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="pill">Completed</span>
+                        <span class="f2-title">Full scan · 3 regions<em>92 findings</em></span>
+                        <span class="f2-age">2h ago</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="pill">Completed (partial)</span>
+                        <span class="f2-title">Security scan · eu-west-1<em>2 scanners failed — 41 findings saved</em></span>
+                        <span class="f2-age">1d ago</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="pill">Failed</span>
+                        <span class="f2-title">Cost scan · us-east-1<em>0 findings — failed before completion</em></span>
+                        <span class="f2-age">3d ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="schedules">
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-label">Total Schedules</div><div class="kpi-value">4</div></div>
+                      <div class="kpi"><div class="kpi-label">Enabled</div><div class="kpi-value">3</div></div>
+                      <div class="kpi"><div class="kpi-label">Last Run OK</div><div class="kpi-value">1</div></div>
+                      <div class="kpi"><div class="kpi-label">Last Run Failed</div><div class="kpi-value">1</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip active">Schedules</span>
+                      <span class="chip">Drift Alerts <b>4</b></span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <span class="pill">OK</span>
+                        <span class="f2-title">Daily production security scan<em>daily</em></span>
+                        <span class="f2-age">next in 6h</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="pill">Failed</span>
+                        <span class="f2-title">Hourly cost scan<em>hourly</em></span>
+                        <span class="f2-age">next in 40m</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="pill">Disabled</span>
+                        <span class="f2-title">Weekly architecture review<em>weekly</em></span>
+                        <span class="f2-age">—</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="pill">Pending</span>
+                        <span class="f2-title">Reliability scan<em>every 12 hours</em></span>
+                        <span class="f2-age">next in 2h</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="evi-row">
+                        <span class="evi-time">08:15</span>
+                        <div class="evi-body"><span class="evi-tag">New</span>S3 bucket <b>example-artifacts</b> became publicly readable</div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">07:50</span>
+                        <div class="evi-body"><span class="evi-tag">Worsened</span>IAM policy on <b>example-role</b> escalated from Medium to High</div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">07:20</span>
+                        <div class="evi-body"><span class="evi-tag">Resolved</span>Security group <b>example-app-sg</b> no longer open to 0.0.0.0/0</div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">06:55</span>
+                        <div class="evi-body"><span class="evi-tag">Not rechecked</span>Encryption finding on <b>example-db</b> — scanner didn't re-check this round</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="pentest">
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-label">Reports</div><div class="kpi-value">3</div></div>
+                      <div class="kpi"><div class="kpi-label">Findings</div><div class="kpi-value">12</div></div>
+                      <div class="kpi"><div class="kpi-label">Open</div><div class="kpi-value">5</div></div>
+                      <div class="kpi"><div class="kpi-label">Critical</div><div class="kpi-value">2</div></div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Reports</div>
+                      <div class="rep-row">
+                        <span class="rep-icon">PDF</span>
+                        <div class="rep-meta">
+                          <div class="rep-title">Q1 2026 Production Pen Test</div>
+                          <div class="rep-sub">Independent test firm · Web app, internal network</div>
+                        </div>
+                        <span class="pill">In review</span>
+                      </div>
+                      <div class="rep-row">
+                        <span class="rep-icon">PDF</span>
+                        <div class="rep-meta">
+                          <div class="rep-title">Cloud Infrastructure Assessment</div>
+                          <div class="rep-sub">External assessor · AWS infrastructure</div>
+                        </div>
+                        <span class="pill">Remediating</span>
+                      </div>
+                      <div class="rep-row">
+                        <span class="rep-icon">PDF</span>
+                        <div class="rep-meta">
+                          <div class="rep-title">Mobile App Pen Test</div>
+                          <div class="rep-sub">Third-party testers · iOS, Android apps</div>
+                        </div>
+                        <span class="pill">Closed</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="incidents">
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-label">Total Incidents</div><div class="kpi-value">4</div></div>
+                      <div class="kpi"><div class="kpi-label">Open</div><div class="kpi-value">2</div></div>
+                      <div class="kpi"><div class="kpi-label">Critical</div><div class="kpi-value">1</div></div>
+                      <div class="kpi"><div class="kpi-label">Avg Resolution Time</div><div class="kpi-value">18h</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip active">All statuses</span>
+                      <span class="chip">Open</span>
+                      <span class="chip">Investigating</span>
+                      <span class="chip">Contained</span>
+                      <span class="chip">Resolved</span>
+                      <span class="chip">Closed</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <span class="severity high">CRITICAL</span>
+                        <span class="pill">Open</span>
+                        <span class="f2-title">Repeated failed logins on prod bastion</span>
+                        <span class="f2-age">2h ago</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="severity med">MEDIUM</span>
+                        <span class="pill">Investigating</span>
+                        <span class="f2-title">Elevated 5xx errors on example-api</span>
+                        <span class="f2-age">1d ago</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="severity low">LOW</span>
+                        <span class="pill">Contained</span>
+                        <span class="f2-title">Misconfigured S3 bucket policy on example-artifacts</span>
+                        <span class="f2-age">3d ago</span>
+                      </div>
+                      <div class="f2-row">
+                        <span class="severity med">MEDIUM</span>
+                        <span class="pill">Resolved</span>
+                        <span class="f2-title">Expired TLS certificate on example-app</span>
+                        <span class="f2-age">5d ago</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="capa">
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-label">Total CAPAs</div><div class="kpi-value">4</div></div>
+                      <div class="kpi"><div class="kpi-label">Open</div><div class="kpi-value">1</div></div>
+                      <div class="kpi"><div class="kpi-label">In Progress</div><div class="kpi-value">1</div></div>
+                      <div class="kpi"><div class="kpi-label">Overdue</div><div class="kpi-value">1</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip active">All statuses</span>
+                      <span class="chip">Open</span>
+                      <span class="chip">In Progress</span>
+                      <span class="chip">Implemented</span>
+                      <span class="chip">Verified</span>
+                      <span class="chip">Closed</span>
+                    </div>
+                    <div class="rem-list">
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Rotate exposed API key found in example-repo</div>
+                            <div class="rem-sub">Root cause: key committed to a public branch</div>
+                          </div>
+                          <span class="rem-status">Open</span>
+                        </div>
+                        <div class="rem-foot">
+                          <span class="rem-map">audit</span>
+                          <span class="rem-owner">admin@example.com · due 2026-09-18</span>
+                        </div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Fix S3 bucket public-read policy on example-artifacts</div>
+                            <div class="rem-sub">Root cause: bucket policy allowed public read access</div>
+                          </div>
+                          <span class="rem-status">In Progress</span>
+                        </div>
+                        <div class="rem-foot">
+                          <span class="rem-map">incident</span>
+                          <span class="rem-owner">admin@example.com · due 2026-10-05</span>
+                        </div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Enable MFA enforcement org-wide</div>
+                            <div class="rem-sub">Root cause: MFA optional for non-admin users</div>
+                          </div>
+                          <span class="rem-status">Implemented</span>
+                        </div>
+                        <div class="rem-foot">
+                          <span class="rem-map">monitoring</span>
+                          <span class="rem-owner">admin@example.com · due 2026-10-10</span>
+                        </div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Patch example-db to latest minor version</div>
+                            <div class="rem-sub">Root cause: unpatched CVE flagged by external tester</div>
+                          </div>
+                          <span class="rem-status">Closed</span>
+                        </div>
+                        <div class="rem-foot">
+                          <span class="rem-map">external</span>
+                          <span class="rem-owner">admin@example.com · due 2026-09-01</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="audit">
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-label">Total Entries</div><div class="kpi-value">47</div></div>
+                      <div class="kpi"><div class="kpi-label">Entries Today</div><div class="kpi-value">4</div></div>
+                      <div class="kpi"><div class="kpi-label">Most Active Entity Type</div><div class="kpi-value">capa</div></div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="evi-row">
+                        <span class="evi-time">09:14:02</span>
+                        <div class="evi-body"><span class="evi-tag">capa</span><b>admin@example.com</b> capa.create on CAPA #128</div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">09:02:41</span>
+                        <div class="evi-body"><span class="evi-tag">capa</span><b>admin@example.com</b> capa.update on CAPA #128</div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">08:47:10</span>
+                        <div class="evi-body"><span class="evi-tag">policy</span><b>admin@example.com</b> policy.approve on Policy #14</div>
+                      </div>
+                      <div class="evi-row">
+                        <span class="evi-time">08:15:33</span>
+                        <div class="evi-body"><span class="evi-tag">remediation</span><b>admin@example.com</b> remediation.execute on Remediation #56</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="integrations">
+                    <div class="filter-row">
+                      <span class="chip active">All <b>8</b></span>
+                      <span class="chip">Connected <b>2</b></span>
+                      <span class="chip">Available <b>6</b></span>
+                    </div>
+                    <div class="fw-grid">
+                      <div class="fw-card">
+                        <span class="status ok">Connected</span>
+                        <h4>GitHub</h4>
+                        <div class="sub">Repository security scanning, branch protection, Dependabot alerts</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status ok">Connected</span>
+                        <h4>Jira</h4>
+                        <div class="sub">Issue tracking — create tickets from findings</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status na">Available</span>
+                        <h4>GitLab</h4>
+                        <div class="sub">Group-level repo posture — protected branches, dependency scanning</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status na">Available</span>
+                        <h4>Bitbucket Cloud</h4>
+                        <div class="sub">Workspace scanner — branch restrictions, required reviewers</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status na">Available</span>
+                        <h4>Okta</h4>
+                        <div class="sub">Identity provider — MFA status, access reviews, user lifecycle</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status na">Available</span>
+                        <h4>Google Workspace</h4>
+                        <div class="sub">Identity &amp; access — MFA, user management, drive sharing</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status na">Available</span>
+                        <h4>Microsoft 365</h4>
+                        <div class="sub">Entra ID — user + MFA posture, Security Defaults enforcement</div>
+                      </div>
+                      <div class="fw-card">
+                        <span class="status na">Available</span>
+                        <h4>1Password Business</h4>
+                        <div class="sub">Events API — suspicious sign-in detection, item-usage freshness</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="scene" data-tab="ai-proposals">
+                    <div class="card-panel">
+                      <div class="row-2">
+                        <div>
+                          <div class="kpi-label">AI drafts</div>
+                          <div class="filter-empty">Every change an AI agent proposes is a draft until a human reviews it — nothing here has been applied automatically.</div>
+                        </div>
+                      </div>
+                      <div class="filter-row">
+                        <span class="chip">Drafted</span>
+                        <span class="chip">Approved</span>
+                        <span class="chip">Rejected</span>
+                        <span class="chip">All</span>
+                      </div>
+                    </div>
+                  
+                    <div class="rem-list">
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Policy draft — Data Retention Policy</div>
+                            <div class="rem-sub">Requested by isops.ai agent · policy · 2 days ago</div>
+                          </div>
+                          <span class="rem-status">AI draft · pending review</span>
+                        </div>
+                        <div class="rem-owner">Drafts a retention schedule and disposal steps for the policy to close the gap against ISO 27001 A.8.10. Nothing is applied until an admin approves this draft.</div>
+                        <div class="rem-map">Citations: policy · ISO 27001 A.8.10</div>
+                        <div class="rem-foot">Awaiting admin decision — Approve / Reject</div>
+                      </div>
+                  
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">New risk — Third-party data processor risk</div>
+                            <div class="rem-sub">Requested by isops.ai agent · risk · 1 day ago</div>
+                          </div>
+                          <span class="rem-status">AI draft · pending review</span>
+                        </div>
+                        <div class="rem-owner">Proposes registering a risk for an unreviewed sub-processor with likelihood 3 and impact 4, treatment mitigate.</div>
+                        <div class="rem-map">Citations: risk register · vendor review</div>
+                        <div class="rem-foot">Awaiting admin decision — Approve / Reject</div>
+                      </div>
+                  
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Risk treatment — Unpatched vendor dependency</div>
+                            <div class="rem-sub">Requested by isops.ai agent · risk · 4 days ago</div>
+                          </div>
+                          <span class="rem-status">Approved</span>
+                        </div>
+                        <div class="rem-owner">Adds a treatment plan: patch window, validation steps, and rollback notes for the flagged dependency.</div>
+                        <div class="rem-map">Changes — Treatment plan: before (empty) / after "Patch within 14 days; validate in staging; rollback via previous image tag."</div>
+                        <div class="rem-foot">Decided by admin@example-tenant.com · applied to the risk record</div>
+                      </div>
+                  
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div>
+                            <div class="rem-title">Journey step update — Access review cadence</div>
+                            <div class="rem-sub">Requested by isops.ai agent · journey step · 6 days ago</div>
+                          </div>
+                          <span class="rem-status">Rejected</span>
+                        </div>
+                        <div class="rem-owner">Proposed changing the access-review step's status without linked evidence.</div>
+                        <div class="rem-map">Reason: no evidence attached yet — resubmit once the review log is uploaded.</div>
+                        <div class="rem-foot">Decided by admin@example-tenant.com · no change made</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="control-mapping">
+                    <div class="card-panel">
+                      <div class="kpi-grid">
+                        <div class="kpi">
+                          <div class="kpi-label">Controls mapped</div>
+                          <div class="kpi-value">3</div>
+                          <div class="kpi-delta">with cross-framework mappings</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Frameworks</div>
+                          <div class="kpi-value">7</div>
+                          <div class="kpi-delta">3 assessed · 4 mapping references</div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="fw-grid">
+                      <div class="fw-card">
+                        <div class="fw-meta">Assessed</div>
+                        ISO 27001
+                      </div>
+                      <div class="fw-card">
+                        <div class="fw-meta">Assessed</div>
+                        ISO/IEC 42001
+                      </div>
+                      <div class="fw-card">
+                        <div class="fw-meta">Assessed</div>
+                        SOC 2
+                      </div>
+                      <div class="fw-card">
+                        <div class="fw-meta">Mapping reference</div>
+                        GDPR
+                      </div>
+                      <div class="fw-card">
+                        <div class="fw-meta">Mapping reference</div>
+                        HIPAA
+                      </div>
+                      <div class="fw-card">
+                        <div class="fw-meta">Mapping reference</div>
+                        PCI DSS
+                      </div>
+                      <div class="fw-card">
+                        <div class="fw-meta">Mapping reference</div>
+                        NIST 800-53
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="kpi-label">Crosswalk</div>
+                      <div class="fw-crosswalk">
+                        <div class="fw-crosswalk-label">ISO 27001 A.5.9 — Inventory of information and ICT assets</div>
+                        <div class="fw-crosswalk-list">
+                          <span class="pill">SOC 2 CC6.1</span>
+                          <span class="pill">GDPR Art. 30</span>
+                        </div>
+                      </div>
+                      <div class="fw-crosswalk">
+                        <div class="fw-crosswalk-label">ISO 27001 A.8.10 — Information deletion</div>
+                        <div class="fw-crosswalk-list">
+                          <span class="pill">GDPR Art. 17</span>
+                        </div>
+                      </div>
+                      <div class="fw-crosswalk">
+                        <div class="fw-crosswalk-label">ISO/IEC 42001 A.6.2.2 — AI system risk assessment</div>
+                        <div class="fw-crosswalk-list">
+                          <span class="pill">ISO 27001 A.5.9</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="readiness">
+                    <div class="card-panel">
+                      <div class="filter-row">
+                        <span class="chip">ISO 27001</span>
+                        <span class="chip">SOC 2</span>
+                        <span class="chip">ISO 42001</span>
+                      </div>
+                  
+                      <div class="jr-progress">
+                        <div class="jr-progress-head">
+                          <span class="jr-progress-title">ISO 27001:2022 Readiness</span>
+                          <span class="jr-progress-sub">1 / 4 done</span>
+                        </div>
+                        <span class="jr-progress-pct">25%</span>
+                        <div class="jr-bar">
+                          <div class="jr-bar-fill" style="width:25%"></div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="jr-list">
+                        <div class="jr-step">
+                          <span class="jr-step-icon">1</span>
+                          <span class="jr-step-title">Publish information security policy</span>
+                          <span class="jr-step-clause">A.5.1</span>
+                          <span class="jr-step-status">done</span>
+                        </div>
+                        <div class="jr-step">
+                          <span class="jr-step-icon">2</span>
+                          <span class="jr-step-title">Roll out security awareness training</span>
+                          <span class="jr-step-clause">A.6.3</span>
+                          <span class="jr-step-status">in progress</span>
+                        </div>
+                        <div class="jr-step">
+                          <span class="jr-step-icon">3</span>
+                          <span class="jr-step-title">Document configuration management baseline</span>
+                          <span class="jr-step-clause">A.8.9</span>
+                          <span class="jr-step-status">pending</span>
+                        </div>
+                        <div class="jr-step">
+                          <span class="jr-step-icon">4</span>
+                          <span class="jr-step-title">Approve access control policy</span>
+                          <span class="jr-step-clause">A.9.1</span>
+                          <span class="jr-step-status">pending</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="risks">
+                    <div class="card-panel">
+                      <div class="kpi-grid">
+                        <div class="kpi">
+                          <div class="kpi-label">Total</div>
+                          <div class="kpi-value">4</div>
+                          <div class="kpi-delta">in register</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Critical / High</div>
+                          <div class="kpi-value">2</div>
+                          <div class="kpi-delta">score ≥ 12 · critical ≥ 20</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Medium</div>
+                          <div class="kpi-value">1</div>
+                          <div class="kpi-delta">score 6–11</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Low</div>
+                          <div class="kpi-value">1</div>
+                          <div class="kpi-delta">score &lt; 6</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Open / Closed</div>
+                          <div class="kpi-value">1 / 1</div>
+                          <div class="kpi-delta">lifecycle</div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Unpatched vendor dependency</div>
+                        <span class="severity high">20</span>
+                        <span class="status">open</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Third-party data processor risk</div>
+                        <span class="severity high">12</span>
+                        <span class="status">in_treatment</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Unescorted physical access to office</div>
+                        <span class="severity med">6</span>
+                        <span class="status">accepted</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Minor application logging gap</div>
+                        <span class="severity low">2</span>
+                        <span class="status">closed</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="policies">
+                    <div class="card-panel">
+                      <div class="kpi-grid">
+                        <div class="kpi">
+                          <div class="kpi-label">Total Policies</div>
+                          <div class="kpi-value">4</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Approved</div>
+                          <div class="kpi-value">2</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Drafts</div>
+                          <div class="kpi-value">2</div>
+                        </div>
+                      </div>
+                      <div class="filter-row">
+                        <span class="chip">My Policies</span>
+                        <span class="chip">Template Library</span>
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Information Security Policy</div>
+                        <span>ISO 27001 · Security</span>
+                        <span class="status">approved</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Acceptable Use Policy</div>
+                        <span>ISO 27001 · HR</span>
+                        <span class="status">approved</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">AI Governance Policy</div>
+                        <span>ISO 42001 · AI Governance</span>
+                        <span class="status">draft</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Data Retention Policy</div>
+                        <span>SOC 2 · Data</span>
+                        <span class="status">draft</span>
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="kpi-label">Template Library — 31 built-in policy templates</div>
+                      <div class="filter-row">
+                        <span class="chip">Information Security Policy</span>
+                        <span class="chip">Incident Response Policy</span>
+                        <span class="chip">Vendor Risk Management Policy</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="assets">
+                    <div class="card-panel">
+                      <div class="kpi-grid">
+                        <div class="kpi">
+                          <div class="kpi-label">Total Assets</div>
+                          <div class="kpi-value">4</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">By Type</div>
+                          <div class="filter-row">
+                            <span class="chip">endpoint: 1</span>
+                            <span class="chip">database: 1</span>
+                            <span class="chip">cloud: 1</span>
+                            <span class="chip">application: 1</span>
+                          </div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">By Classification</div>
+                          <div class="filter-row">
+                            <span class="chip">internal: 1</span>
+                            <span class="chip">confidential: 1</span>
+                            <span class="chip">restricted: 1</span>
+                            <span class="chip">public: 1</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Engineering laptop</div>
+                        <span>endpoint · IT</span>
+                        <span class="severity med">internal</span>
+                        <span class="status">active</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">example-db</div>
+                        <span>database · Platform team</span>
+                        <span class="severity high">confidential</span>
+                        <span class="status">active</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Backup storage volume</div>
+                        <span>cloud · Platform team</span>
+                        <span class="severity high">restricted</span>
+                        <span class="status">active</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Public marketing website</div>
+                        <span>application · Marketing</span>
+                        <span class="severity low">public</span>
+                        <span class="status">decommissioned</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="employees">
+                    <div class="card-panel">
+                      <div class="kpi-grid">
+                        <div class="kpi">
+                          <div class="kpi-label">Total Employees</div>
+                          <div class="kpi-value">4</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Active</div>
+                          <div class="kpi-value">3</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Departments</div>
+                          <div class="kpi-value">3</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Training Coverage</div>
+                          <div class="kpi-value">75%</div>
+                        </div>
+                        <div class="kpi">
+                          <div class="kpi-label">Recent Joins (30d)</div>
+                          <div class="kpi-value">1</div>
+                        </div>
+                      </div>
+                      <div class="filter-row">
+                        <span class="chip">All Statuses</span>
+                        <span class="chip">active</span>
+                        <span class="chip">inactive</span>
+                        <span class="chip">offboarded</span>
+                      </div>
+                    </div>
+                  
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Engineering Lead</div>
+                        <span>Engineering · reports to VP Engineering</span>
+                        <span class="status">active</span>
+                        <span class="pill">okta</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">IT Administrator</div>
+                        <span>IT · reports to IT Director</span>
+                        <span class="status">active</span>
+                        <span class="pill">google</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Compliance Owner</div>
+                        <span>Compliance · reports to COO</span>
+                        <span class="status">active</span>
+                        <span class="pill">manual</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Contractor — offboarded</div>
+                        <span>Engineering · reports to Engineering Lead</span>
+                        <span class="status">offboarded</span>
+                        <span class="pill">manual</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="scene" data-tab="training">
+                    <h2>Training Tracker</h2>
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-value">6</div><div class="kpi-label">Total Records</div></div>
+                      <div class="kpi"><div class="kpi-value">67%</div><div class="kpi-label">Compliance Rate</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Pending</div></div>
+                      <div class="kpi"><div class="kpi-value">4</div><div class="kpi-label">Completed</div></div>
+                      <div class="kpi"><div class="kpi-value">0</div><div class="kpi-label">Overdue</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip">All</span>
+                      <span class="chip">Pending</span>
+                      <span class="chip">Completed</span>
+                      <span class="chip">Overdue</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Engineering Manager — Security Awareness</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">Due 2026-01-15</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Support Agent — Phishing Simulation</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">Due 2026-01-20</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">DevOps Engineer — Technical Security Training</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">Due 2026-02-01</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Finance Analyst — Compliance Training</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">Due 2026-02-10</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Sales Rep — Security Awareness</div>
+                        <span class="pill">pending</span>
+                        <div class="f2-age">Due 2026-04-01</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">New Hire — Onboarding Security</div>
+                        <span class="pill">pending</span>
+                        <div class="f2-age">Due 2026-04-15</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="vendors">
+                    <h2>Vendor Risk Management</h2>
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-value">5</div><div class="kpi-label">Total Vendors</div></div>
+                      <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">Critical Risk</div></div>
+                      <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">High Risk</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Medium Risk</div></div>
+                      <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">Low Risk</div></div>
+                    </div>
+                    <div class="rem-list">
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div class="rem-title">example-cloud-storage</div>
+                          <span class="pill severity critical">critical</span>
+                        </div>
+                        <div class="rem-sub">IaaS</div>
+                        <div class="rem-owner">Assessment: 2 of 5 answered</div>
+                        <div class="rem-foot">Risk score 92</div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div class="rem-title">example-hr-platform</div>
+                          <span class="pill severity high">high</span>
+                        </div>
+                        <div class="rem-sub">SaaS</div>
+                        <div class="rem-owner">Assessment: Not Assessed</div>
+                        <div class="rem-foot">Risk score 74</div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div class="rem-title">example-saas-crm</div>
+                          <span class="pill severity medium">medium</span>
+                        </div>
+                        <div class="rem-sub">SaaS</div>
+                        <div class="rem-owner">Assessment: 4 of 5 answered</div>
+                        <div class="rem-foot">Risk score 51</div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div class="rem-title">example-hardware-vendor</div>
+                          <span class="pill severity medium">medium</span>
+                        </div>
+                        <div class="rem-sub">Hardware</div>
+                        <div class="rem-owner">Assessment: 3 of 5 answered</div>
+                        <div class="rem-foot">Risk score 48</div>
+                      </div>
+                      <div class="rem-card">
+                        <div class="rem-head">
+                          <div class="rem-title">example-consulting-co</div>
+                          <span class="pill severity low">low</span>
+                        </div>
+                        <div class="rem-sub">Consulting</div>
+                        <div class="rem-owner">Assessment: 5 of 5 answered</div>
+                        <div class="rem-foot">Risk score 18</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="access-reviews">
+                    <h2>Access Reviews</h2>
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-value">3</div><div class="kpi-label">Total Reviews</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Pending</div></div>
+                      <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">Completed</div></div>
+                      <div class="kpi"><div class="kpi-value">0</div><div class="kpi-label">Overdue</div></div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Q1 2026 AWS IAM Review — AWS IAM</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">4 entries · Due 2026-01-31</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Q2 2026 Application Access Review — Application</div>
+                        <span class="pill">in_progress</span>
+                        <div class="f2-age">3 entries · Due 2026-04-30</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Vendor Portal Access Review — Database</div>
+                        <span class="pill">pending</span>
+                        <div class="f2-age">2 entries · Due 2026-05-15</div>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Entries — Q1 2026 AWS IAM Review (completed)</div>
+                      <div class="f2-row">
+                        <div class="f2-title">Engineering Manager — example-db (admin)</div>
+                        <span class="pill status">approve</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Former Contractor — example-artifacts (write)</div>
+                        <span class="pill severity high">revoke</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Support Agent — example-db (read)</div>
+                        <span class="pill status">approve</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">DevOps Engineer — example-artifacts (admin)</div>
+                        <span class="pill status">approve</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="audit-program">
+                    <h2>Internal Audit Program</h2>
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-value">4</div><div class="kpi-label">Total Audits</div></div>
+                      <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">Planned</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Completed</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Open Findings</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip">All Audits</span>
+                      <span class="chip">Schedule</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">ISO 27001 Internal Audit — Q1 2026 · Compliance Lead</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">2 findings · Signed off 2026-01-20</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">SOC 2 Internal Audit — H1 2026 · Security Lead</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">0 findings · Signed off 2026-02-15</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Access Control Audit · IT Manager</div>
+                        <span class="pill">in_progress</span>
+                        <div class="f2-age">1 finding so far · 2026-03-10</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Vendor Management Audit · Compliance Lead</div>
+                        <span class="pill">planned</span>
+                        <div class="f2-age">Not performed yet · 2026-05-01</div>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Findings — ISO 27001 Internal Audit, Q1 2026</div>
+                      <div class="f2-row">
+                        <div class="f2-title">A.8.24 — Cryptographic keys are not rotated on schedule</div>
+                        <span class="pill severity high">high</span>
+                        <span class="pill status">closed</span>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">A.5.18 — One access review overdue by 12 days</div>
+                        <span class="pill severity medium">medium</span>
+                        <span class="pill">open</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="mgmt-review">
+                    <h2>Management Review</h2>
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-value">Apr 15, 2026</div><div class="kpi-label">Next Review</div></div>
+                      <div class="kpi"><div class="kpi-value">Jan 20, 2026</div><div class="kpi-label">Last Review</div></div>
+                      <div class="kpi"><div class="kpi-value">3</div><div class="kpi-label">Total Reviews</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Open Action Items</div></div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Q4 2025 Management Review</div>
+                        <span class="pill status">completed</span>
+                        <div class="f2-age">5 attendees · 3 action items · Jan 20, 2026</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Special Review — Incident Follow-up</div>
+                        <span class="pill">in_progress</span>
+                        <div class="f2-age">3 attendees · 2 action items · Feb 10, 2026</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Q1 2026 Management Review</div>
+                        <span class="pill">scheduled</span>
+                        <div class="f2-age">0 attendees · 0 action items · Apr 15, 2026</div>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Q4 2025 Management Review — completed, Clause 9.3 audit record</div>
+                      <div class="f2-row">
+                        <div class="f2-title">Decision: Renew cyber insurance policy for FY2026</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Action item: Close remaining backup-testing gap</div>
+                        <span class="pill status">completed</span>
+                        <div class="rem-owner">Owner: Compliance Lead</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Action item: Review vendor risk tiers quarterly</div>
+                        <span class="pill status">completed</span>
+                        <div class="rem-owner">Owner: Security Lead</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">Action item: Confirm DR runbook test date</div>
+                        <span class="pill">in_progress</span>
+                        <div class="rem-owner">Owner: IT Manager</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="scene" data-tab="auditor-portal">
+                    <h2>Auditor Portal</h2>
+                    <span class="top-badge">Read-only · Auditor access token</span>
+                    <div class="kpi-grid">
+                      <div class="kpi"><div class="kpi-value">82%</div><div class="kpi-label">Readiness</div></div>
+                      <div class="kpi"><div class="kpi-value">12</div><div class="kpi-label">Total Risks</div></div>
+                      <div class="kpi"><div class="kpi-value">8</div><div class="kpi-label">Approved Policies</div></div>
+                      <div class="kpi"><div class="kpi-value">3</div><div class="kpi-label">Total Incidents</div></div>
+                      <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Completed Audits</div></div>
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip">ISO 27001</span>
+                      <span class="chip">SOC 2</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Controls</div>
+                      <div class="f2-row">
+                        <div class="f2-title">A.5.1 — Policies for information security</div>
+                        <div class="f2-age">Organizational · 3 evidence</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">A.6.3 — Information security awareness, education and training</div>
+                        <div class="f2-age">People · 4 evidence</div>
+                      </div>
+                      <div class="f2-row">
+                        <div class="f2-title">A.8.24 — Use of cryptography</div>
+                        <div class="f2-age">Technological · 2 evidence</div>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Evidence</div>
+                      <div class="evi-row">
+                        <div class="evi-time">2026-03-01</div>
+                        <div class="evi-body">TLS configuration scan — A.8.24</div>
+                        <span class="evi-tag">automated</span>
+                      </div>
+                      <div class="evi-row">
+                        <div class="evi-time">2026-02-20</div>
+                        <div class="evi-body">Signed policy acknowledgement — A.5.1</div>
+                        <span class="evi-tag">document</span>
+                      </div>
+                      <div class="evi-row">
+                        <div class="evi-time">2026-01-15</div>
+                        <div class="evi-body">Training completion export — A.6.3</div>
+                        <span class="evi-tag">manual</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Approved Policies</div>
+                      <div class="rep-row">
+                        <div class="rep-icon"></div>
+                        <div class="rep-title">Information Security Policy</div>
+                        <div class="rep-sub">iso27001</div>
+                      </div>
+                      <div class="rep-row">
+                        <div class="rep-icon"></div>
+                        <div class="rep-title">Acceptable Use Policy</div>
+                        <div class="rep-sub">iso27001</div>
+                      </div>
+                      <div class="rep-row">
+                        <div class="rep-icon"></div>
+                        <div class="rep-title">Incident Response Policy</div>
+                        <div class="rep-sub">iso27001</div>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Incident Summary</div>
+                      <div class="kpi-grid">
+                        <div class="kpi"><div class="kpi-value">3</div><div class="kpi-label">Total</div></div>
+                        <div class="kpi"><div class="kpi-value">0</div><div class="kpi-label">Critical</div></div>
+                        <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">High</div></div>
+                        <div class="kpi"><div class="kpi-value">2</div><div class="kpi-label">Medium</div></div>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="rep-section-label">Completed Internal Audits</div>
+                      <div class="rep-row">
+                        <div class="rep-icon"></div>
+                        <div class="rep-title">ISO 27001 Internal Audit — Q1 2026</div>
+                        <div class="rep-sub">Auditor: Compliance Lead · Date: 2026-01-20 · Findings: 2</div>
+                      </div>
+                      <div class="rep-row">
+                        <div class="rep-icon"></div>
+                        <div class="rep-title">SOC 2 Internal Audit — H1 2026</div>
+                        <div class="rep-sub">Auditor: Security Lead · Date: 2026-02-15 · Findings: 0</div>
+                      </div>
+                    </div>
+                    <div class="rep-meta">Read-only access for external auditors. Every route in this portal is a GET request — nothing here can edit, approve, or delete a record.</div>
+                  </div>
+                  
+                  <div class="scene" data-tab="questionnaires">
+                    <h2>Security Questionnaires</h2>
+                    <div class="card-panel">
+                      <strong>Grounded, not generated.</strong> Every draft cites the approved policy, SoA entry or evidence it was built from. Where nothing is on file the answer comes back unsupported rather than invented — no language model is involved in answering.
+                    </div>
+                    <div class="filter-row">
+                      <span class="chip">3 supported</span>
+                      <span class="chip">1 partial</span>
+                      <span class="chip">1 unsupported</span>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Do you encrypt customer data at rest and in transit?</div>
+                        <span class="pill severity low">supported</span>
+                      </div>
+                      <p>Encryption is required by the Information Security Policy and mapped to control A.8.24.</p>
+                      <div class="filter-row">
+                        <span class="chip">Information Security Policy</span>
+                        <span class="chip">A.8.24 — Use of cryptography</span>
+                        <span class="chip">2 evidence</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Do you carry out annual security awareness training?</div>
+                        <span class="pill severity low">supported</span>
+                      </div>
+                      <p>Awareness training is mandated by the Security Awareness Training Policy and mapped to control A.6.3.</p>
+                      <div class="filter-row">
+                        <span class="chip">Security Awareness Training Policy</span>
+                        <span class="chip">A.6.3 — Awareness, education and training</span>
+                        <span class="chip">4 evidence</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Do you perform background checks on employees before hire?</div>
+                        <span class="pill severity low">supported</span>
+                      </div>
+                      <p>Pre-employment screening is required by the HR Security Policy and mapped to control A.6.1.</p>
+                      <div class="filter-row">
+                        <span class="chip">HR Security Policy</span>
+                        <span class="chip">A.6.1 — Screening</span>
+                        <span class="chip">1 evidence</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">Describe your backup and recovery testing schedule.</div>
+                        <span class="pill severity medium">partial</span>
+                      </div>
+                      <p>Control A.8.13 requires backups; a testing schedule is on file but not yet linked to a completed test record.</p>
+                      <div class="filter-row">
+                        <span class="chip">A.8.13 — Information backup</span>
+                        <span class="chip">1 evidence</span>
+                      </div>
+                    </div>
+                    <div class="card-panel">
+                      <div class="f2-row">
+                        <div class="f2-title">What is your incident notification timeline to customers?</div>
+                        <span class="pill severity high">unsupported</span>
+                      </div>
+                      <p>Nothing on file to cite — this one needs a written answer.</p>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Copilot floating panel -->
@@ -2609,7 +3777,7 @@
               </div>
             </div>
           </div>
-          <p class="preview-note">This preview wires up 9 of the product's 31 screens — Overview, Findings, Infrastructure, Compliance, Evidence, Remediation, Reports, Answers and ISO Journey. Everything else in the sidebar is shown, not clickable.</p>
+          <p class="preview-note">Every screen in this sidebar opens — all 31, grouped the way the product groups them, by the clause of the standard each one serves.</p>
         </div>
 
         <!-- ========== Trust strip ========== -->
