@@ -404,6 +404,13 @@
           /* The .mobile-menu a rule outranks the button's own colour, dropping the
          primary CTA to 4.27:1. Restore white text on indigo (6.29:1). */
       .mobile-menu a.btn-primary { color: #fff; }
+    
+      /* Every in-page anchor parked its target under the 65px sticky nav —
+         on index.html no scroll-margin was set at all, and on platform.html /
+         docs.html it sat on `.docs-content h2` while the ids live on the
+         <section> elements, so it never applied. Scroll-margin only takes
+         effect when something is scrolled to, so scoping it to [id] is safe. */
+      [id] { scroll-margin-top: 80px; }
     </style>
   </head>
   <body>
